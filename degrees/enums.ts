@@ -1,6 +1,6 @@
-// Shortnames for the included study programmes
+// Shortnames for the included degrees
 // Tutkinto-ohjelmien lyhenteet
-export enum ProgrammeCode {
+export enum DegreeCode {
     TKT = 'TKT',
 }
 

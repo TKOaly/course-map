@@ -4,23 +4,23 @@ A unofficial course map for viewing University of Helsinki computer science cour
 
 ## Data
 
-Included [Study programmes](programmes/index.ts)
+Included [degrees](degrees/index.ts)
 
-[Course codes](programmes/course_codes.ts)
+[Course codes](degrees/course_codes.ts)
 
-generic [Course information](programmes/courses.ts)
+generic [Course information](degrees/courses.ts)
 
-[Curriculum](programmes/curriculum.ts) of the current academic year (when courses are held)
+[Curriculum](degrees/curriculum.ts) of the current academic year (when courses are held)
 
-Study programme specific course requirements and groupings (OPS)
+Degree specific course requirements and groupings (OPS)
 
--   [TKT](programmes/tkt/structure.ts)
+-   [TKT](degrees/tkt/structure.ts)
 
-[Data types](programmes/types.ts)
+[Data types](degrees/types.ts)
 
 ## Before a new academic year
 
-1.  Create a new [programme structure](programmes/tkt/structure.ts) (OPS) if one is introduced or make possible changes to the current one
+1.  Create a new [degree structure](degrees/tkt/structure.ts) (OPS) if one is introduced or make possible changes to the current one
 
     -   List which courses are included in the structure
         -   Copying the old one should save some work
@@ -29,7 +29,7 @@ Study programme specific course requirements and groupings (OPS)
         -   These can usually be found [here](https://studies.helsinki.fi/ohjeet/artikkeli/opetussuunnitelma-ja-opintojen-vastaavuudet) (link to HY site)
 
     > [!WARNING]
-    > Don't remove phased out courses from the [course codes](programmes/course_codes.ts), [course list](programmes/courses.ts) unless they are no longer included in any [programme structures](programmes/tkt/structure.ts).
+    > Don't remove phased out courses from the [course codes](degrees/course_codes.ts), [course list](degrees/courses.ts) unless they are no longer included in any [degree structures](degrees/tkt/structure.ts).
 
 2.  Create a new curriculum for the upcoming year
 
@@ -43,25 +43,25 @@ Study programme specific course requirements and groupings (OPS)
 
 ## Adding a course
 
-1. Add the course code to [course_codes.ts](programmes/course_codes.ts)
+1. Add the course code to [course_codes.ts](degrees/course_codes.ts)
 
     - The listed course names are not shown to the user (see note in file)
 
-2. Add generic course information to [courses.ts](programmes/courses.ts)
+2. Add generic course information to [courses.ts](degrees/courses.ts)
 
     - List possible prerequisite courses
     - List possible equivalent courses
 
-3. Add the course to all programme structures the course is part of (e.g. TKT: [structure.ts](programmes/tkt/structure.ts))
+3. Add the course to all degree structures the course is part of (e.g. [TKT degree structure](degrees/tkt/structure.ts))
 
-4. List when the course is held in [curriculum.ts](programmes/curriculum.ts)
+4. List when the course is held in [curriculum.ts](degrees/curriculum.ts)
 
-## Adding a new study programme
+## Adding a new degree
 
-1. [Add new courses](#adding-a-course) needed in the programme
+1. [Add new courses](#adding-a-course) needed in the degree
 
-2. Add the programmes code to [enums.ts](programmes/enums.ts)
+2. Add the degree's code to [enums.ts](degrees/enums.ts)
 
-3. Create a directory for the programme and a programme stucture (OPS) (e.g. [TKT Study programme](programmes/tkt/structure.ts))
+3. Create a directory for the degree and a degree stucture (OPS) (e.g. [TKT BSc degree](degrees/tkt/structure.ts))
 
-4. Incude the programme structure in [index.ts](programmes/index.ts)
+4. Incude the degree structure in [index.ts](degrees/index.ts)

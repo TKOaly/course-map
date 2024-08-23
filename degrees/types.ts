@@ -1,30 +1,29 @@
 import { type CourseCode } from './course_codes'
 import {
     type CourseGroup,
+    type DegreeCode,
     type Method,
     type Period,
     type Prerequisite,
-    type ProgrammeCode,
 } from './enums'
 
-// Holds all needed information about a study programme
-export type Programmes = {
-    [key in ProgrammeCode]?: {
-        // Full name of the programme
+// Holds all included degree structures
+export type Degrees = {
+    [key in DegreeCode]?: {
+        // Full name of the degree
         name: string
 
-        // Used to define which courses should be included in the programme
-        // Contains information to group and color code course units and define if courses are compulsory or optional
-        structures: ProgrammeStructures
+        // Used to define which courses should be included in the degree and whether they are compulsory or optional
+        structures: DegreeStructures
     }
 }
 
-// OPS / Opetussuunnitelmat / Programme structure
-// Lists which courses/units are required/optional for a study programme
-export type ProgrammeStructures = Record<
+// OPS / Opetussuunnitelmat / Degree structures
+// Lists which courses/units are required/optional for a degree
+export type DegreeStructures = Record<
     string,
     {
-        // Full name of the OPS/Programme structure
+        // Full name of the OPS/Degree structure
         name: string
 
         // Groups of courses that are required/optional for the degree

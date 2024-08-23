@@ -1,8 +1,8 @@
-import { CourseCode } from '@/programmes/course_codes'
-import { type ProgrammeStructures } from '@/programmes/types'
+import { CourseCode } from '../course_codes'
 import { CourseGroup } from '../enums'
+import { type DegreeStructures } from '../types'
 
-export const structures: ProgrammeStructures = {
+export const structures: DegreeStructures = {
     '20-23': {
         name: 'Opetussuunnitelma 2020-2023',
         groups: [

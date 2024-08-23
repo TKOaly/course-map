@@ -1,9 +1,9 @@
-import { ProgrammeCode } from './enums'
+import { DegreeCode } from './enums'
 import { structures as tktStructures } from './tkt/structure'
-import { type Programmes } from './types'
+import { type Degrees } from './types'
 
-export const programmes: Programmes = {
-    [ProgrammeCode.TKT]: {
+export const degrees: Degrees = {
+    [DegreeCode.TKT]: {
         name: 'Tietojenkäsittelytieteen Kandiohjelma',
         structures: tktStructures,
     },

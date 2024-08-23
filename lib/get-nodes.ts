@@ -1,5 +1,5 @@
 import { type CourseNodeType } from '@/components/flow/CourseNode'
-import { getAllCourses } from './courses'
+import { getAllCourses } from './get-courses'
 
 export const getCourseNodes = (): CourseNodeType[] => {
     const courses = getAllCourses()

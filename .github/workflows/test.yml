@@ -1,0 +1,45 @@
+name: Build and test
+
+on:
+    push:
+        branches: [develop]
+    [pull_request]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        container: node:21-slim
+
+        steps:
+            - name: Checkout the repository
+              uses: actions/checkout@v4
+            - name: Cache NPM dependencies
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 21
+                  cache: 'npm'
+            - name: Install NPM dependencies
+              run: npm ci
+            - name: Compile typescript
+              run: npm run build
+            - name: Execute test suites
+              run: npm test
+              env:
+                  NODE_ENV: test
+                  PORT: 3000
+    lint:
+        runs-on: ubuntu-latest
+        container: node:21-slim
+
+        steps:
+            - name: Checkout the repository
+              uses: actions/checkout@v4
+            - name: Cache NPM dependencies
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 21
+                  cache: 'npm'
+            - name: Install NPM dependencies
+              run: npm ci
+            - name: Lint and check formatting with biome
+              run: npm run lint

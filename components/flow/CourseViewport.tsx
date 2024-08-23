@@ -1,16 +1,14 @@
 'use client'
 
+import { getFlowData } from '@/lib/get-flow-data'
 import { selectedCourseAtom } from '@/lib/state/course'
 import { useBreakpoint } from '@/lib/tailwind'
 import { Background, ReactFlow } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 import { useSetAtom } from 'jotai'
 import { CourseNode } from './CourseNode'
-import { testEdges, testNodes } from './testNodes'
 
-// const courseNodes = getCourseNodes()
-const courseNodes = testNodes
-const coursePrequisites = testEdges
+const { nodes, edges } = getFlowData()
 
 const nodeTypes = {
     course: CourseNode,
@@ -23,14 +21,14 @@ export const CourseViewport = () => {
     return (
         <ReactFlow
             // Nodes
-            nodes={courseNodes}
+            nodes={nodes}
             nodeTypes={nodeTypes}
             onNodeClick={(_event, node) => selectCourse(node.data)}
             nodesDraggable={false}
-            nodesConnectable={false}
             nodesFocusable={false}
+            nodesConnectable={false}
             // Edges
-            edges={coursePrequisites}
+            edges={edges}
             edgesFocusable={false}
             edgesReconnectable={false}
             className="size-full"

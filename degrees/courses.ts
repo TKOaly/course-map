@@ -16,15 +16,46 @@ export const courses: Courses = {
     [CourseCode.TKT10002]: {
         name: 'Ohjelmoinnin perusteet',
         credits: 5,
-        description: 'Kurssilla opetetaan ohjelmoinnin perusteet',
-        nicknames: ['Ohpe'],
+        description: `Opintojaksolla perehdyt nykyaikaisen ohjelmoinnin perusideoihin sekä ohjelmoinnissa käytettävien työvälineiden lisäksi algoritmien laatimiseen.
+            
+            Opintojakson jälkeen
+
+            1. ymmärrät periaatteen tasolla algoritmien ja tietokoneen toiminnan ja ohjelmoinnin rooli tässä toiminnassa,
+
+            2. osaat kirjoittaa itse imperatiiviseen paradigmaan perustuvia yksinkertaisen ongelman ratkaisevia ohjelmia
+
+            3. ja osaat käyttää ohjelmointikieltä työvälineenä datan käsittelemiseksi esimerkiksi opiskeluun, työhön tai harrastuksiin liittyvissä tilanteissa.
+            `,
+        nicknames: ['ohpe'],
+        language: 'Suomi',
+        coursesLink:
+            'https://studies.helsinki.fi/kurssit/opintojakso/otm-5b481a9e-2ca4-4131-baab-58eb384bed41',
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-5b481a9e-2ca4-4131-baab-58eb384bed41',
     },
     [CourseCode.TKT10003]: {
         name: 'Ohjelmoinnin jatkokurssi',
         credits: 5,
-        description: 'Kurssilla opetetaan ohjelmoinnin jatko-osa',
-        nicknames: ['Ohja'],
-        prerequisites: { [CourseCode.TKT10002]: Prerequisite.MANDATORY },
+        description: `Kurssilla tutustutaan olio-ohjelmoinnin lisäksi muun muassa funktionaaliseen paradigmaan ja Pythonin syvällisempään hyödyntämiseen.
+        
+        Opintojakson jälkeen
+        
+        1. ymmärrät periaatteellisella tasolla olio-ohjelmoinnin peruskäsitteet,
+        
+        2. osaat hyödyntää luokkia ja olioita osana omien ohjelmien suunnittelua ja toteutusta ja
+        
+        3. osaat käyttää funktionaalisia ominaisuuksia lyhyempien, tehokkaampien ja selkeämpien ohjelmien kirjoittamisessa.
+        `,
+        nicknames: ['ohja'],
+        prerequisites: {
+            [CourseCode.TKT10002]: Prerequisite.MANDATORY,
+            [CourseCode.MAT11001]: Prerequisite.RECOMMENDED,
+        },
+        language: 'Suomi',
+        coursesLink:
+            'https://studies.helsinki.fi/kurssit/opintojakso/otm-6be30760-ad20-42b7-9314-03eb688b78a5',
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-6be30760-ad20-42b7-9314-03eb688b78a5',
     },
     [CourseCode.TKT10004]: {
         name: 'Tietokantojen perusteet',
@@ -55,18 +86,52 @@ export const courses: Courses = {
     [CourseCode.TKT200011]: {
         name: 'Tietorakenteet ja algoritmit I',
         credits: 5,
-        description: 'Kurssilla opetetaan tietorakenteet ja algoritmit',
-        nicknames: ['Tira 1'],
+        description: `Kurssin jälkeen opiskelija
+        
+        tuntee O-merkinnän ja osaa analysoida sen avulla algoritmeja sekä valita tilanteeseen sopivan algoritmin
+        
+        tietää tehokkaita järjestämisalgoritmeja ja osaa käyttää niitä algoritmien suunnittelussa
+        
+        tuntee lista- ja hajautusrakenteiden toteutustapoja
+        
+        osaa käyttää rekursiota ohjelmoinnissa
+        
+        osaa verkkojen peruskäsitteet ja tuntee algoritmeja verkkojen läpikäyntiin
+        `,
+        nicknames: ['tira I'],
         prerequisites: { [CourseCode.TKT10003]: Prerequisite.MANDATORY },
-        equivalents: [CourseCode.TKT200010],
+        language: 'Suomi',
+        coursesLink:
+            'https://studies.helsinki.fi/kurssit/opintojakso/otm-a0f67d51-907d-4ec1-9726-04c4b654a02d',
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-a0f67d51-907d-4ec1-9726-04c4b654a02d',
     },
     [CourseCode.TKT200012]: {
         name: 'Tietorakenteet ja algoritmit II',
         credits: 5,
-        description: 'Kurssilla opetetaan tietorakenteet ja algoritmit',
-        nicknames: ['Tira 2'],
-        prerequisites: { [CourseCode.TKT200011]: Prerequisite.MANDATORY },
-        equivalents: [CourseCode.TKT200010],
+        description: `Kurssin jälkeen opiskelija
+
+        tuntee tasapainotetun binäärihakupuun ja keon toimintaperiaatteet
+        
+        osaa käyttää dynaamista ohjelmointia algoritmien suunnittelussa
+        
+        tuntee algoritmeja lyhimpien polkujen etsimiseen verkossa
+        
+        osaa käsitellä tehokkaasti suunnattuja syklittömiä verkkoja
+        
+        tuntee union-find-rakenteen ja osaa käyttää sitä pienimmän virittävän puun etsimiseen
+        
+        osaa määrittää verkon maksimivirtauksen ja tehdä siihen liittyviä palautuksia
+        `,
+        nicknames: ['tira II'],
+        prerequisites: {
+            [CourseCode.TKT200011]: Prerequisite.MANDATORY,
+        },
+        language: 'Suomi',
+        coursesLink:
+            'https://studies.helsinki.fi/kurssit/opintojakso/otm-fb39d562-012a-46d8-9336-a52a7ff6056a',
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-fb39d562-012a-46d8-9336-a52a7ff6056a',
     },
     [CourseCode.TKT20005]: {
         name: 'Laskennan mallit',
@@ -290,7 +355,26 @@ export const courses: Courses = {
     [CourseCode.MAT11001]: {
         name: 'Johdatus yliopistomatematiikkaan',
         credits: 5,
-        description: 'Kurssilla opetetaan johdatus yliopistomatematiikkaan',
+        description: `Kurssin jälkeen opiskelija
+
+        Opiskelija osaa käyttää induktiotodistusta ja vastaoletustodistusta sekä muita todistustekniikoita väitteiden perustelussa.
+        
+        Opiskelija osaa joukkojen ja osajoukkojen perusoperaatiot, tietää mikä on joukon koko ja osaa laskea osajoukkojen lukumäärän.
+        
+        Opiskelija hallitsee funktioiden määritelmän ja perusominaisuudet, kuten lähtöjoukon, maalijoukon, injektiivisyyden ja surjektiivisuuden sekä bijektiivisyyden.
+        
+        Opiskelija tietää mitä relaatiot ovat, millaisia ominaisuuksia niillä on ja esimerkiksi mitä ovat ekvivalenssirelatatiot.
+        
+        Opiskelija osaa käyttää alkeislogiikkaa alkeellisten väitteiden todistamiseen.
+        
+        Opiskelija osaa kompleksilukujen perusteet: peruslaskutoimitukset, itseisarvo ja erilaiset esitystavat. Hän osaa ratkaista alkeellisia polynomiyhtälöita sekä johtaa trigonometria kaavoja.
+        `,
+        nicknames: ['jym'],
+        language: 'Suomi',
+        coursesLink:
+            'https://studies.helsinki.fi/kurssit/opintojakso/otm-fb39d562-012a-46d8-9336-a52a7ff6056a',
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-e034179c-f679-419f-9bcc-671b20dd92aa',
     },
 
     // ========

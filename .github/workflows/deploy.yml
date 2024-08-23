@@ -1,0 +1,62 @@
+name: Push
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        permissions:
+            contents: read
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v2
+
+            - name: Log into registry
+              uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+              with:
+                  registry: ${{ secrets.PRIVATE_REGISTRY_URL }}
+                  username: ${{ secrets.PRIVATE_REGISTRY_USER }}
+                  password: ${{ secrets.PRIVATE_REGISTRY_PW }}
+
+            - name: Get commit SHA for Docker image tag
+              id: sha
+              run: echo "value=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+            - name: Extract Docker metadata for the image
+              id: meta
+              uses: docker/metadata-action@v4
+              with:
+                  images: ${{ secrets.PRIVATE_REGISTRY_URL }}/course-map
+                  tags: |
+                      type=schedule
+                      type=ref,event=branch
+                      type=ref,event=tag
+                      type=ref,event=pr
+                      type=raw,value=sha-${{ steps.sha.outputs.value }}
+
+            - name: Build and push the Docker image
+              uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+              with:
+                  context: .
+                  push: true
+                  target: runner
+                  tags: ${{ steps.meta.outputs.tags }}
+                  labels: ${{ steps.meta.outputs.labels }}
+                  cache-to: type=gha
+                  cache-from: type=gha
+
+            - name: Trigger deployment
+              uses: aurelien-baudet/workflow-dispatch@v2
+              with:
+                  token: ${{ secrets.DEPLOYMENT_PAT }}
+                  workflow: Bump Service
+                  inputs: '{"service": "course-map", "tag": "sha-${{ steps.sha.outputs.value }}"}'
+                  repo: TKOaly/tko-aly-k8s-configs
+                  ref: main

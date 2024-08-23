@@ -1,15 +1,9 @@
-import { CourseViewport } from '@/components/flow/CourseViewport'
 import { InfoButton } from '@/components/ui/Infobutton'
 import { Input } from '@/components/ui/input'
 import { InstallButton } from '@/components/ui/InstallButton'
 import { LanguageToggle } from '@/components/ui/LanguageToggle'
 import { ModeToggle } from '@/components/ui/ModeToggle'
 import { PWASeparator } from '@/components/ui/PWASeparator'
-import {
-    ResizableHandle,
-    ResizablePanel,
-    ResizablePanelGroup,
-} from '@/components/ui/resizable'
 import {
     Select,
     SelectContent,
@@ -18,13 +12,13 @@ import {
     SelectValue,
 } from '@/components/ui/select'
 import { Separator } from '@/components/ui/separator'
-import '@xyflow/react/dist/style.css'
 import { Compass, Search } from 'lucide-react'
+import { CourseMap } from './CourseMap'
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between">
-            <div className="z-10 flex size-full min-h-screen flex-col items-start justify-between">
+        <main className="flex min-h-dvh w-screen flex-col items-center justify-between overflow-x-clip">
+            <div className="z-10 flex size-full max-h-dvh min-h-dvh flex-col items-start justify-between">
                 <div className="flex w-full flex-col">
                     <PWASeparator />
                     <div className="flex w-full shrink flex-col justify-between md:flex-row md:items-center">
@@ -34,7 +28,7 @@ export default function Home() {
                                     <div className="absolute left-2 top-1/2 -translate-y-1/2"></div>
                                     <Compass
                                         size={24}
-                                        className="animate-wiggle z-20 mx-2 stroke-[1.5px] transition-all group-hover:animate-spin motion-reduce:animate-none [&_circle]:stroke-foreground [&_path]:stroke-[url(#compass-black)_#09090b] dark:[&_path]:stroke-[url(#compass-white)_#fafafa]"
+                                        className="z-20 mx-2 animate-wiggle stroke-[1.5px] transition-all group-hover:animate-spin motion-reduce:animate-none [&_circle]:stroke-foreground [&_path]:stroke-[url(#compass-black)_#09090b] dark:[&_path]:stroke-[url(#compass-white)_#fafafa]"
                                     />
                                     <h1 className="select-none pb-1.5 pr-3 pt-1.5 font-serif text-xl md:py-0">
                                         Kurssikartta
@@ -44,6 +38,8 @@ export default function Home() {
                                     includeText
                                     className="border-y-0 border-r-0 md:hidden"
                                 />
+                                <LanguageToggle className="inline-flex border-y-0 border-r-0 border-border px-5 focus:z-10 md:hidden" />
+                                <ModeToggle className="inline-flex border-y-0 border-r-0 border-border px-5 focus:z-10 md:hidden" />
                             </div>
 
                             <Select>
@@ -83,8 +79,6 @@ export default function Home() {
                                 />
                                 <InstallButton className="hidden border-y-0 border-r-0 md:flex" />
                                 <InfoButton className="flex border-y-0 border-r-0 md:hidden" />
-                                <LanguageToggle className="inline-flex border-y-0 border-r-0 border-border px-5 focus:z-10 md:hidden" />
-                                <ModeToggle className="inline-flex border-y-0 border-r-0 border-border px-5 focus:z-10 md:hidden" />
                             </div>
                         </div>
 
@@ -94,26 +88,7 @@ export default function Home() {
                     </div>
                     <Separator />
                 </div>
-                <ResizablePanelGroup
-                    direction="horizontal"
-                    className="flex-grow"
-                >
-                    <ResizablePanel defaultSize={79} minSize={20}>
-                        <CourseViewport />
-                    </ResizablePanel>
-                    <ResizableHandle className="hidden md:flex" />
-                    <ResizablePanel
-                        defaultSize={21}
-                        minSize={15}
-                        className="hidden md:flex"
-                    >
-                        <div className="flex size-full flex-col items-center justify-center">
-                            <p className="p-3 text-center">
-                                Choose a course to view info
-                            </p>
-                        </div>
-                    </ResizablePanel>
-                </ResizablePanelGroup>
+                <CourseMap />
             </div>
         </main>
     )

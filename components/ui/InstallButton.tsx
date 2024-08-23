@@ -22,6 +22,7 @@ interface BeforeInstallPromptEvent extends Event {
 export function InstallButton({ includeText = false, className }: OwnProps) {
     const [installPrompt, setInstallPrompt] =
         useState<BeforeInstallPromptEvent | null>(null)
+    const [isDismissed, setDismissed] = useState(false)
 
     const onInstallReady = useCallback((e: Event) => {
         e.preventDefault()
@@ -34,6 +35,15 @@ export function InstallButton({ includeText = false, className }: OwnProps) {
             window.removeEventListener('beforeinstallprompt', onInstallReady)
     }, [onInstallReady])
 
+    const installApp = async () => {
+        if (!installPrompt) return
+        await installPrompt.prompt()
+        const choice = await installPrompt.userChoice
+        if (choice.outcome === 'dismissed') {
+            setDismissed(true)
+        }
+    }
+
     return installPrompt ? (
         <Button
             variant="outline"
@@ -42,12 +52,10 @@ export function InstallButton({ includeText = false, className }: OwnProps) {
                 'flex w-fit items-center justify-between gap-2 border-border px-3',
                 className
             )}
-            onClick={async () => {
-                await installPrompt.prompt()
-            }}
+            onClick={installApp}
         >
             <ArrowDownToLine className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100" />
-            {includeText && <p>Asenna</p>}
+            {includeText && !isDismissed && <p>Asenna</p>}
         </Button>
     ) : null
 }

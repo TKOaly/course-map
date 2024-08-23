@@ -1,10 +1,18 @@
-import { type CourseCode } from '@/degrees/course-codes'
+import { type Prerequisite } from '@/degrees/enums'
 import { type Course } from '@/degrees/types'
 import { Handle, type Node, type NodeProps, Position } from '@xyflow/react'
 
-export type CourseNodeProps = Node<Course & { code: CourseCode }, 'course'>
+export type CourseNodeData = Omit<Course, 'prerequisites'> & {
+    code: string
+    prerequisites?: {
+        courseCode: string
+        prerequisiteType: Prerequisite
+    }[]
+}
 
-export const CourseNode = ({ data: course }: NodeProps<CourseNodeProps>) => {
+export type CourseNodeType = Node<CourseNodeData, 'course'>
+
+export const CourseNode = ({ data: course }: NodeProps<CourseNodeType>) => {
     const { name, credits, code } = course
 
     return (

@@ -30,7 +30,7 @@ export function InfoButton({ className }: OwnProps) {
                     <Info className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100" />
                 </Button>
             </SheetTrigger>
-            <SheetContent className="flex flex-col gap-2">
+            <SheetContent className="flex max-h-full min-h-full flex-col gap-2 overflow-y-auto">
                 <SheetTitle className="text-xl font-bold">
                     Kurssikartta
                 </SheetTitle>

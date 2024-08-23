@@ -25,6 +25,7 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center justify-between">
             <div className="z-10 flex size-full min-h-screen flex-col items-start justify-between">
                 <div className="flex w-full flex-col">
+                    <Separator />
                     <div className="flex w-full shrink flex-col justify-between md:flex-row md:items-center">
                         <div className="flex w-full flex-col md:h-full md:flex-row md:items-center">
                             <div className="flex justify-between md:w-fit md:min-w-fit">

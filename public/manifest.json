@@ -37,7 +37,7 @@
             "src": "/images/screenshot_wide.png",
             "type": "image/png",
             "form_factor": "wide",
-            "sizes": "2560x1440"
+            "sizes": "2559x1439"
         }
     ],
     "theme_color": "#09090b",

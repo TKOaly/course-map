@@ -10,14 +10,22 @@ export const testNodes: CourseNodeType[] = [
             code: 'TKT10002',
             name: 'Ohjelmoinnin perusteet',
             credits: 5,
-            description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan odio ac molestie convallis. In tempor, magna et imperdiet venenatis, nunc diam vehicula sapien, quis vehicula enim odio nec justo.
+            description: `Opintojaksolla perehdyt nykyaikaisen ohjelmoinnin perusideoihin sekä ohjelmoinnissa käytettävien työvälineiden lisäksi algoritmien laatimiseen.
             
-            Praesent in consectetur dolor. Praesent posuere tincidunt lorem at sagittis. Curabitur scelerisque egestas ornare. Donec pellentesque ligula in urna congue, nec placerat risus hendrerit. Ut venenatis varius velit, sed scelerisque magna. Sed placerat sapien sapien, id pretium tellus lacinia a.
+            Opintojakson jälkeen
+
+            1. ymmärrät periaatteen tasolla algoritmien ja tietokoneen toiminnan ja ohjelmoinnin rooli tässä toiminnassa,
+
+            2. osaat kirjoittaa itse imperatiiviseen paradigmaan perustuvia yksinkertaisen ongelman ratkaisevia ohjelmia
             
-            Nulla suscipit posuere magna vitae finibus. Phasellus est nunc, luctus ut urna quis, placerat tristique purus. Ut at est non tortor malesuada convallis at in nisl. Maecenas feugiat laoreet posuere.
+            3. ja osaat käyttää ohjelmointikieltä työvälineenä datan käsittelemiseksi esimerkiksi opiskeluun, työhön tai harrastuksiin liittyvissä tilanteissa.
             `,
             nicknames: ['ohpe'],
             language: 'Suomi',
+            coursesLink:
+                'https://studies.helsinki.fi/kurssit/opintojakso/otm-5b481a9e-2ca4-4131-baab-58eb384bed41',
+            sisuLink:
+                'https://sisu.helsinki.fi/student/courseunit/otm-5b481a9e-2ca4-4131-baab-58eb384bed41',
         },
         position: { x: 0, y: 0 },
     },
@@ -28,11 +36,15 @@ export const testNodes: CourseNodeType[] = [
             code: 'TKT10003',
             name: 'Ohjelmoinnin jatkokurssi',
             credits: 5,
-            description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan odio ac molestie convallis. In tempor, magna et imperdiet venenatis, nunc diam vehicula sapien, quis vehicula enim odio nec justo.
-            
-            Nulla suscipit posuere magna vitae finibus. Phasellus est nunc, luctus ut urna quis, placerat tristique purus. Ut at est non tortor malesuada convallis at in nisl. Maecenas feugiat laoreet posuere.
-            
-            Praesent in consectetur dolor. Praesent posuere tincidunt lorem at sagittis. Curabitur scelerisque egestas ornare. Donec pellentesque ligula in urna congue, nec placerat risus hendrerit. Ut venenatis varius velit, sed scelerisque magna. Sed placerat sapien sapien, id pretium tellus lacinia a.
+            description: `Kurssilla tutustutaan olio-ohjelmoinnin lisäksi muun muassa funktionaaliseen paradigmaan ja Pythonin syvällisempään hyödyntämiseen.
+
+Opintojakson jälkeen
+
+1. ymmärrät periaatteellisella tasolla olio-ohjelmoinnin peruskäsitteet,
+
+2. osaat hyödyntää luokkia ja olioita osana omien ohjelmien suunnittelua ja toteutusta ja
+
+3. osaat käyttää funktionaalisia ominaisuuksia lyhyempien, tehokkaampien ja selkeämpien ohjelmien kirjoittamisessa.
             `,
             nicknames: ['ohja'],
             prerequisites: [
@@ -42,6 +54,10 @@ export const testNodes: CourseNodeType[] = [
                 },
             ],
             language: 'Suomi',
+            coursesLink:
+                'https://studies.helsinki.fi/kurssit/opintojakso/otm-6be30760-ad20-42b7-9314-03eb688b78a5',
+            sisuLink:
+                'https://sisu.helsinki.fi/student/courseunit/otm-6be30760-ad20-42b7-9314-03eb688b78a5',
         },
         position: { x: 300, y: 0 },
     },

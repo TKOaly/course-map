@@ -108,23 +108,37 @@ export const CourseInfo = () => {
                     <div className="@xs:flex-row absolute bottom-0 flex w-full flex-col gap-2 p-3">
                         <Button
                             size="icon"
+                            asChild
                             className={cn(
                                 'dark:hover:bg- w-full gap-2 rounded p-2 hover:bg-neutral-600 dark:hover:bg-neutral-400'
                             )}
                             onClick={() => true}
                         >
-                            <GraduationCap className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100" />
-                            <p>STUDIES</p>
+                            <a
+                                href={selectedCourse.coursesLink}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <GraduationCap className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100" />
+                                <p>STUDIES</p>
+                            </a>
                         </Button>
                         <Button
                             size="icon"
+                            asChild
                             className={cn(
                                 'w-full gap-2 rounded bg-sky-600 p-2 text-[#fafafa] hover:bg-sky-500'
                             )}
                             onClick={() => true}
                         >
-                            <CalendarCheck className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100" />
-                            <p>SISU</p>
+                            <a
+                                href={selectedCourse.sisuLink}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <CalendarCheck className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100" />
+                                <p>SISU</p>
+                            </a>
                         </Button>
                     </div>
                 </div>

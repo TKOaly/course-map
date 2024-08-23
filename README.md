@@ -17,7 +17,7 @@ npm run dev
 
 Included [degrees](degrees/index.ts)
 
-[Course codes](degrees/course_codes.ts)
+[Course codes](degrees/course-codes.ts)
 
 generic [Course information](degrees/courses.ts)
 
@@ -40,7 +40,7 @@ Degree specific course requirements and groupings (OPS)
         -   These can usually be found [here](https://studies.helsinki.fi/ohjeet/artikkeli/opetussuunnitelma-ja-opintojen-vastaavuudet) (link to HY site)
 
     > [!WARNING]
-    > Don't remove phased out courses from the [course codes](degrees/course_codes.ts), [course list](degrees/courses.ts) unless they are no longer included in any [degree structures](degrees/tkt/structure.ts).
+    > Don't remove phased out courses from the [course codes](degrees/course-codes.ts), [course list](degrees/courses.ts) unless they are no longer included in any [degree structures](degrees/tkt/structure.ts).
 
 2.  Create a new curriculum for the upcoming year
 
@@ -54,7 +54,7 @@ Degree specific course requirements and groupings (OPS)
 
 ## Adding a course
 
-1. Add the course code to [course_codes.ts](degrees/course_codes.ts)
+1. Add the course code to [course-codes.ts](degrees/course-codes.ts)
 
     - The listed course names are not shown to the user (see note in file)
 

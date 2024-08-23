@@ -2,14 +2,13 @@ name: Build and test
 
 on:
     pull_request:
-        branches: ["**"]
+        branches: ['**']
     push:
         branches: [develop]
 
 jobs:
     test:
         runs-on: ubuntu-latest
-        container: node:21-slim
 
         steps:
             - name: Checkout the repository
@@ -30,7 +29,6 @@ jobs:
                   PORT: 3000
     lint:
         runs-on: ubuntu-latest
-        container: node:21-slim
 
         steps:
             - name: Checkout the repository

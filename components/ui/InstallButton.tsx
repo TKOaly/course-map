@@ -3,7 +3,6 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { ArrowDownToLine } from 'lucide-react'
-import { useSearchParams } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react'
 
 type OwnProps = {
@@ -21,7 +20,6 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 export function InstallButton({ includeText = false, className }: OwnProps) {
-    const searchParams = useSearchParams()
     const [installPrompt, setInstallPrompt] =
         useState<BeforeInstallPromptEvent | null>(null)
 
@@ -35,8 +33,6 @@ export function InstallButton({ includeText = false, className }: OwnProps) {
         return () =>
             window.removeEventListener('beforeinstallprompt', onInstallReady)
     }, [onInstallReady])
-
-    if (searchParams.get('source') === 'pwa') return null
 
     return installPrompt ? (
         <Button

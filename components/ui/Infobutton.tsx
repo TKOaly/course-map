@@ -63,18 +63,16 @@ export function InfoButton({ className }: OwnProps) {
                     kontribuoida itse projektiin korjaamalla virheen pull
                     requestillä.
                 </SheetDescription>
-                <SheetTitle className="text-base">
-                    Kontribuointi ja ylläpito
-                </SheetTitle>
                 <SheetDescription>
                     Projektin tietorakenteet on pyritty kuvaamaan mahdollisimman
                     selkeästi projektin README:ssä josta löytyy myös ohjeet mm.
                     uusien kurssien lisäämiseen.
                 </SheetDescription>
                 <SheetDescription>
-                    Sovelluksessa on mahdollisuus ylläpitää useiden
-                    tutkinto-ohjelmien kurssitietoja, joten voit halutessasi
-                    ylläpitää myös esimerkiksi oman tutkinto-ohjelmasi kursseja.
+                    Sovelluksessa on mahdollisuus ylläpitää useiden tutkintojen
+                    ja opetussuunnitelmien kurssitietoja, joten voit halutessasi
+                    alkaa ylläpitää kurssikarttaa myös omalle
+                    tutkinto-ohjelmallesi.
                 </SheetDescription>
             </SheetContent>
         </Sheet>

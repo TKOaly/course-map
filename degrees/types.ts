@@ -1,4 +1,4 @@
-import { type CourseCode } from './course_codes'
+import { type CourseCode } from './course-codes'
 import {
     type CourseGroup,
     type DegreeCode,

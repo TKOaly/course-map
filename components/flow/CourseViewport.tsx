@@ -1,34 +1,48 @@
 'use client'
 
-import { Background, ReactFlow, type ReactFlowProps } from '@xyflow/react'
-import { useMemo } from 'react'
-import { CourseNode } from './CourseNode'
+import { Background, ReactFlow } from '@xyflow/react'
+import { CourseNode, type CourseNodeProps } from './CourseNode'
 
-const testCourses: ReactFlowProps['nodes'] = [
+const testCourses: CourseNodeProps[] = [
     {
         id: '1',
         position: { x: 0, y: 0 },
-        data: { label: 'Ohjelmoinnin perusteet' },
+        data: {
+            name: 'Ohjelmoinnin perusteet',
+            credits: 5,
+        },
     },
     {
         id: '2',
         position: { x: 300, y: 0 },
-        data: { label: 'Ohjelmoinnin jatkokurssi' },
+        data: {
+            name: 'Ohjelmoinnin jatkokurssi',
+            credits: 5,
+        },
     },
     {
         id: '3',
         position: { x: 600, y: 0 },
-        data: { label: 'Tietorakenteet ja algoritmit' },
+        data: {
+            name: 'Tietorakenteet ja algoritmit',
+            credits: 5,
+        },
     },
     {
         id: '4',
         position: { x: 900, y: 0 },
-        data: { label: 'Tietorakenteet ja algoritmit: harjoitustyö' },
+        data: {
+            name: 'Tietorakenteet ja algoritmit: harjoitustyö',
+            credits: 5,
+        },
     },
     {
         id: '5',
         position: { x: 900, y: 150 },
-        data: { label: 'Algoritmit ongelmanratkaisussa' },
+        data: {
+            name: 'Algoritmit ongelmanratkaisussa',
+            credits: 5,
+        },
     },
 ].map((course) => ({ ...course, type: 'course' }))
 
@@ -39,9 +53,11 @@ const testEdges = [
     { id: '3-5', source: '3', target: '5' },
 ]
 
-const CourseViewport = () => {
-    const nodeTypes = useMemo(() => ({ course: CourseNode }), [])
+const nodeTypes = {
+    course: CourseNode,
+}
 
+export const CourseViewport = () => {
     return (
         <ReactFlow
             minZoom={0.1}
@@ -64,5 +80,3 @@ const CourseViewport = () => {
         </ReactFlow>
     )
 }
-
-export default CourseViewport

@@ -1,4 +1,4 @@
-import { CourseCode } from './course_codes'
+import { CourseCode } from './course-codes'
 import { Method, Period } from './enums'
 import { type Curriculum } from './types'
 

@@ -1,4 +1,4 @@
-import { CourseCode } from '../course_codes'
+import { CourseCode } from '../course-codes'
 import { CourseGroup } from '../enums'
 import { type DegreeStructures } from '../types'
 

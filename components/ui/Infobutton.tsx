@@ -55,7 +55,7 @@ export function InfoButton({ className }: OwnProps) {
                     Kurssitiedot löytyvät projektin{' '}
                     <a
                         className="font-medium text-foreground hover:underline active:font-normal"
-                        href="https://github.com/"
+                        href="https://github.com/TKOaly/course-map"
                     >
                         Githubista ↗
                     </a>{' '}
@@ -68,12 +68,12 @@ export function InfoButton({ className }: OwnProps) {
                     selkeästi projektin README:ssä josta löytyy myös ohjeet mm.
                     uusien kurssien lisäämiseen.
                 </SheetDescription>
-                <SheetDescription>
+                {/*<SheetDescription>
                     Sovelluksessa on mahdollisuus ylläpitää useiden tutkintojen
                     ja opetussuunnitelmien kurssitietoja, joten voit halutessasi
                     alkaa ylläpitää kurssikarttaa myös omalle
                     tutkinto-ohjelmallesi.
-                </SheetDescription>
+                </SheetDescription>*/}
             </SheetContent>
         </Sheet>
     )

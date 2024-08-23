@@ -2,6 +2,17 @@
 
 A unofficial course map for viewing University of Helsinki computer science course information and their prerequisites.
 
+## Installation
+
+### Development
+
+```bash
+git clone https://github.com/TKOaly/course-map.git
+cd course-map
+npm install
+npm run dev
+```
+
 ## Data
 
 Included [degrees](degrees/index.ts)

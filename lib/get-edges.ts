@@ -7,5 +7,6 @@ export const getEdges = (nodes: CourseNodeType[]) =>
             source: node.id,
             target: prerequisite.courseCode,
             animated: true,
+            type: 'smoothstep',
         }))
     )

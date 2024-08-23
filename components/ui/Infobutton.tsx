@@ -56,6 +56,8 @@ export function InfoButton({ className }: OwnProps) {
                     <a
                         className="font-medium text-foreground hover:underline active:font-normal"
                         href="https://github.com/TKOaly/course-map"
+                        target="_blank"
+                        rel="noreferrer"
                     >
                         Githubista ↗
                     </a>{' '}

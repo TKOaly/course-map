@@ -50,6 +50,7 @@ export const courses: Courses = {
         description: 'Kurssilla opetetaan tietorakenteet ja algoritmit',
         nicknames: ['Tira'],
         prerequisites: { [CourseCode.TKT10003]: Prerequisite.MANDATORY },
+        equivalents: [CourseCode.TKT200011, CourseCode.TKT200012],
     },
     [CourseCode.TKT200011]: {
         name: 'Tietorakenteet ja algoritmit I',
@@ -57,6 +58,7 @@ export const courses: Courses = {
         description: 'Kurssilla opetetaan tietorakenteet ja algoritmit',
         nicknames: ['Tira 1'],
         prerequisites: { [CourseCode.TKT10003]: Prerequisite.MANDATORY },
+        equivalents: [CourseCode.TKT200010],
     },
     [CourseCode.TKT200012]: {
         name: 'Tietorakenteet ja algoritmit II',
@@ -64,6 +66,7 @@ export const courses: Courses = {
         description: 'Kurssilla opetetaan tietorakenteet ja algoritmit',
         nicknames: ['Tira 2'],
         prerequisites: { [CourseCode.TKT200011]: Prerequisite.MANDATORY },
+        equivalents: [CourseCode.TKT200010],
     },
     [CourseCode.TKT20005]: {
         name: 'Laskennan mallit',

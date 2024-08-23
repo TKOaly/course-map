@@ -49,7 +49,7 @@ export const CourseInfo = () => {
                             </div>
                         </div>
                         <div className="h-full min-h-0 overflow-y-auto rounded bg-background p-2">
-                            <div className="flex flex-col gap-3 pb-28">
+                            <div className="flex flex-col gap-3 pb-28 pt-0.5">
                                 <Row>
                                     <p className="text-muted-foreground">
                                         Opintopisteet

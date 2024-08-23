@@ -2,6 +2,11 @@
 
 An unofficial course map for viewing University of Helsinki computer science course information and their prerequisites.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/fbc707bf-d084-4703-b93b-3aaac3a00983">
+  <img alt="Screenshot of course map UI" src="https://github.com/user-attachments/assets/23fb3046-ad3b-481d-9d84-c5661edc7ed1">
+</picture>
+
 ## Installation
 
 ### Development
@@ -39,16 +44,16 @@ Degree specific course requirements and groupings (OPS)
     -   Add new course equivalences to course list
         -   These can usually be found [here](https://studies.helsinki.fi/ohjeet/artikkeli/opetussuunnitelma-ja-opintojen-vastaavuudet) (link to HY site)
 
-    > [!WARNING]
-    > Don't remove phased out courses from the [course codes](degrees/course-codes.ts), [course list](degrees/courses.ts) unless they are no longer included in any [degree structures](degrees/tkt/structure.ts).
+> [!WARNING]
+> Don't remove phased out courses from the [course codes](degrees/course-codes.ts) or [course list](degrees/courses.ts) unless they are no longer included in any [degree structures](degrees/tkt/structure.ts).
 
 2.  Create a new curriculum for the upcoming year
 
     -   The preliminary course plans can usually be found [here](https://studies.helsinki.fi/ohjeet/artikkeli/mista-loydan-opintotarjonnan) (link to HY site)
     -   Remove the old one after the new one has started
 
-    > [!NOTE]
-    > This is completely optional or can be done just for the most important courses as this may be a lot of manual work. The main course map functionalities would not be affected.
+> [!NOTE]
+> This is completely optional or can be done just for the most important courses as this may be a lot of manual work. The main course map functionalities would not be affected.
 
 3.  Make changes to individual course information if needed
 

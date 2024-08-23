@@ -25,13 +25,19 @@
             "src": "/images/screenshot_tall.png",
             "type": "image/png",
             "form_factor": "narrow",
-            "sizes": "409x911"
+            "sizes": "750x1334"
+        },
+        {
+            "src": "/images/screenshot_tall_white.png",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "sizes": "750x1334"
         },
         {
             "src": "/images/screenshot_wide.png",
             "type": "image/png",
             "form_factor": "wide",
-            "sizes": "2559x1328"
+            "sizes": "2560x1440"
         }
     ],
     "theme_color": "#09090b",

@@ -1,6 +1,6 @@
 # Course Map
 
-A unofficial course map for viewing University of Helsinki computer science course information and their prerequisites.
+An unofficial course map for viewing University of Helsinki computer science course information and their prerequisites.
 
 ## Installation
 

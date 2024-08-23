@@ -58,7 +58,7 @@ export enum CourseCode {
     BSCS2002 = 'Computing and Society',
 
     // MAT
-
+    MAT11001 = 'Johdatus yliopistomatematiikkaan',
     // CSM
 
     // MAST

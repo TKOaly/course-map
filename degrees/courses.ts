@@ -287,6 +287,11 @@ export const courses: Courses = {
     // ========
     //   MAT
     // ========
+    [CourseCode.MAT11001]: {
+        name: 'Johdatus yliopistomatematiikkaan',
+        credits: 5,
+        description: 'Kurssilla opetetaan johdatus yliopistomatematiikkaan',
+    },
 
     // ========
     //   CSM

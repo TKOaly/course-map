@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    frontend:
+        build:
+            context: .
+            target: development
+        ports:
+            - '3000:3000'
+        environment:
+            - PUBLIC_URL=http://courses.tko-aly.localhost
+        volumes:
+            - .:/app
+        command: npm run dev

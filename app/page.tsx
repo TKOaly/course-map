@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/select'
 import { Separator } from '@/components/ui/separator'
 import { Compass, Search } from 'lucide-react'
+import { Suspense } from 'react'
 import { CourseMap } from './CourseMap'
 
 export default function Home() {
@@ -21,7 +22,9 @@ export default function Home() {
         <main className="flex min-h-dvh w-screen flex-col items-center justify-between overflow-x-clip">
             <div className="z-10 flex size-full max-h-dvh min-h-dvh flex-col items-start">
                 <div className="flex w-full flex-col">
-                    <PWASeparator />
+                    <Suspense fallback={null}>
+                        <PWASeparator />
+                    </Suspense>
                     <div className="flex w-full shrink flex-col justify-between md:flex-row md:items-center">
                         <div className="flex w-full flex-col md:h-full md:flex-row md:items-center">
                             <div className="flex justify-between md:w-fit md:min-w-fit">

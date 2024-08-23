@@ -22,7 +22,8 @@ export const CourseInfo = () => {
             <ResizableHandle className="z-10 -mb-14 -ml-12 flex min-h-14 min-w-1 bg-transparent md:-ml-1 md:mb-0" />
 
             <ResizablePanel
-                defaultSize={isMobile ? 60 : 30}
+                id="2"
+                defaultSize={isMobile ? 50 : 30}
                 minSize={20}
                 className="@container -mt-3 flex p-3 md:-ml-1 md:mt-0 md:pb-3 md:pl-1"
             >

@@ -75,6 +75,7 @@
 
 .react-flow__attribution a {
     color: #777777aa !important;
+    user-select: none;
 }
 
 * {

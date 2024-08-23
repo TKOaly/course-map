@@ -1,3 +1,4 @@
+import { FullscreenButton } from '@/components/ui/FullscreenButton'
 import { InfoButton } from '@/components/ui/Infobutton'
 import { Input } from '@/components/ui/input'
 import { InstallButton } from '@/components/ui/InstallButton'
@@ -18,7 +19,7 @@ import { CourseMap } from './CourseMap'
 export default function Home() {
     return (
         <main className="flex min-h-dvh w-screen flex-col items-center justify-between overflow-x-clip">
-            <div className="z-10 flex size-full max-h-dvh min-h-dvh flex-col items-start justify-between">
+            <div className="z-10 flex size-full max-h-dvh min-h-dvh flex-col items-start">
                 <div className="flex w-full flex-col">
                     <PWASeparator />
                     <div className="flex w-full shrink flex-col justify-between md:flex-row md:items-center">
@@ -42,29 +43,23 @@ export default function Home() {
                                 <ModeToggle className="inline-flex border-y-0 border-r-0 border-border px-5 focus:z-10 md:hidden" />
                             </div>
 
-                            <Select>
-                                <SelectTrigger className="w-full shrink-0 select-none border-x-0 border-b-0 border-border hover:bg-secondary/90 focus:z-10 md:w-[220px] md:border md:border-y-0">
-                                    <SelectValue
-                                        placeholder="Valitse Tutkinto"
-                                        defaultValue="TKT"
-                                    />
+                            <Select defaultValue="TKT">
+                                <SelectTrigger className="w-full shrink-0 select-none border-x-0 border-b-0 border-border hover:bg-secondary/90 focus:z-10 md:w-[160px] md:border md:border-y-0">
+                                    <SelectValue placeholder="Valitse Tutkinto" />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectItem value="TKT">
-                                        TKT Kanditutkinto
+                                        TKT Kandi
                                     </SelectItem>
                                 </SelectContent>
                             </Select>
-                            <Select>
-                                <SelectTrigger className="w-full shrink-0 select-none border-x-0 border-border hover:bg-secondary/90 focus:z-10 md:w-[220px] md:border md:border-y-0 md:border-l-0">
-                                    <SelectValue
-                                        placeholder="Valitse Opetussuunnitelma"
-                                        defaultValue="20-23"
-                                    />
+                            <Select defaultValue="20-23">
+                                <SelectTrigger className="w-full shrink-0 select-none border-x-0 border-border hover:bg-secondary/90 focus:z-10 md:w-[160px] md:border md:border-y-0 md:border-l-0">
+                                    <SelectValue placeholder="Valitse Opetussuunnitelma" />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectItem value="20-23">
-                                        OPS 2020-2023
+                                        OPS 2023-2026
                                     </SelectItem>
                                 </SelectContent>
                             </Select>
@@ -78,6 +73,7 @@ export default function Home() {
                                     placeholder="Hae kursseja"
                                 />
                                 <InstallButton className="hidden border-y-0 border-r-0 md:flex" />
+                                <FullscreenButton className="border-y-0 border-r-0" />
                                 <InfoButton className="flex border-y-0 border-r-0 md:hidden" />
                             </div>
                         </div>

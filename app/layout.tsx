@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@/components/theme-provider'
+import { Provider } from 'jotai'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -92,14 +93,16 @@ export default function RootLayout({
                         <stop offset="90%" stopColor="#F00" />
                     </linearGradient>
                 </svg>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    {children}
-                </ThemeProvider>
+                <Provider>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        {children}
+                    </ThemeProvider>
+                </Provider>
             </body>
         </html>
     )

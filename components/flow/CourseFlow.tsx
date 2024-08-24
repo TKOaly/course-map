@@ -14,7 +14,7 @@ const nodeTypes = {
     course: CourseNode,
 }
 
-export const CourseViewport = () => {
+export const CourseFlow = () => {
     const selectCourse = useSetAtom(selectedCourseAtom)
     const isMobile = !useBreakpoint('md')
 

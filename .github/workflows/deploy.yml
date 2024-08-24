@@ -41,22 +41,22 @@ jobs:
                       type=ref,event=pr
                       type=raw,value=sha-${{ steps.sha.outputs.value }}
 
-            - name: Build and push the Docker image
-              uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-              with:
-                  context: .
-                  push: true
-                  target: runner
-                  tags: ${{ steps.meta.outputs.tags }}
-                  labels: ${{ steps.meta.outputs.labels }}
-                  cache-to: type=gha
-                  cache-from: type=gha
+#            - name: Build and push the Docker image
+#              uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+#              with:
+#                  context: .
+#                  push: true
+#                  target: runner
+#                  tags: ${{ steps.meta.outputs.tags }}
+#                  labels: ${{ steps.meta.outputs.labels }}
+#                  cache-to: type=gha
+#                  cache-from: type=gha
 
-            - name: Trigger deployment
-              uses: aurelien-baudet/workflow-dispatch@v2
-              with:
-                  token: ${{ secrets.DEPLOYMENT_PAT }}
-                  workflow: Bump Service
-                  inputs: '{"service": "course-map", "tag": "sha-${{ steps.sha.outputs.value }}"}'
-                  repo: TKOaly/tko-aly-k8s-configs
-                  ref: main
+#            - name: Trigger deployment
+#              uses: aurelien-baudet/workflow-dispatch@v2
+#              with:
+#                  token: ${{ secrets.DEPLOYMENT_PAT }}
+#                  workflow: Bump Service
+#                  inputs: '{"service": "course-map", "tag": "sha-${{ steps.sha.outputs.value }}"}'
+#                  repo: TKOaly/tko-aly-k8s-configs
+#                  ref: main

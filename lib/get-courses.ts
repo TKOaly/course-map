@@ -37,9 +37,8 @@ export const getAllCourses = () =>
             ...course,
             prerequisites: getPrerequisites(course.prerequisites),
             group: Object.values(CourseGroup)[
-                Math.floor(
-                    Math.random() * (Object.values(CourseGroup).length - 1)
-                )
+                parseInt(course.code.slice(-1)) %
+                    Object.values(CourseGroup).length
             ],
         }))
     )

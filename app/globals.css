@@ -29,6 +29,13 @@
         --chart-3: 197 37% 24%;
         --chart-4: 43 74% 66%;
         --chart-5: 27 87% 67%;
+        --course-basic: #dbc5a4;
+        --course-intermediate: #aed8c3;
+        --course-alternative: #efb8c6;
+        --course-minor: #eedf88;
+        --course-language: #c5acde;
+        --course-other: #accfde;
+        --course-placeholder: #d4d4d4;
     }
 
     .dark {
@@ -56,6 +63,13 @@
         --chart-3: 30 80% 55%;
         --chart-4: 280 65% 60%;
         --chart-5: 340 75% 55%;
+        --course-basic: #c7a87f;
+        --course-intermediate: #87baa3;
+        --course-alternative: #e591a8;
+        --course-minor: #d4c462;
+        --course-language: #a481c7;
+        --course-other: #81b0c7;
+        --course-placeholder: #ababab;
     }
 }
 

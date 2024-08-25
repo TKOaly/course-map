@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { fullscreenElementAtom, isFullscreenAtom } from '@/lib/state/fullscreen'
+import { fullscreenElementAtom, isFullscreenAtom } from '@/lib/state'
 import { cn } from '@/lib/utils'
 import { useAtom, useAtomValue } from 'jotai'
 import { Expand, Shrink } from 'lucide-react'

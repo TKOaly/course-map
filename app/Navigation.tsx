@@ -1,6 +1,6 @@
 import { CourseSearch } from '@/components/navigation/CourseSearch'
-import { CurriculumSelect } from '@/components/navigation/CurriculumSelect'
 import { DegreeSelect } from '@/components/navigation/DegreeSelect'
+import { DegreeStructureSelect } from '@/components/navigation/DegreeStructureSelect'
 import { FullscreenButton } from '@/components/navigation/FullscreenButton'
 import { InfoButton } from '@/components/navigation/Infobutton'
 import { InstallButton } from '@/components/navigation/InstallButton'
@@ -34,7 +34,7 @@ export const Navigation = () => {
                     </div>
 
                     <DegreeSelect />
-                    <CurriculumSelect />
+                    <DegreeStructureSelect />
 
                     <div className="flex w-full flex-row">
                         <CourseSearch />

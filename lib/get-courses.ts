@@ -1,7 +1,7 @@
-import { CourseCode } from '@/degrees/course-codes'
-import { courses } from '@/degrees/courses'
-import { Prerequisite } from '@/degrees/enums'
-import { type Course } from '@/degrees/types'
+import { CourseCode } from '@/data/course-codes'
+import { courses } from '@/data/courses'
+import { CourseGroup, Prerequisite } from '@/data/enums'
+import { type Course } from '@/data/types'
 import { mapValues, pipe, reduce } from 'remeda'
 
 const courseCodeEntries = Object.entries(CourseCode) as [
@@ -23,6 +23,7 @@ const coursesWithCodes = reduce(
 
 const getPrerequisites = (prerequisites: Course['prerequisites']) =>
     Object.entries(prerequisites ?? {})
+        // Filter out undefined
         .filter(([_courseCode, prerequisite]) => prerequisite in Prerequisite)
         .map(([courseCode, prerequisite]) => ({
             courseCode,
@@ -35,5 +36,10 @@ export const getAllCourses = () =>
         mapValues((course) => ({
             ...course,
             prerequisites: getPrerequisites(course.prerequisites),
+            group: Object.values(CourseGroup)[
+                Math.floor(
+                    Math.random() * (Object.values(CourseGroup).length - 1)
+                )
+            ],
         }))
     )

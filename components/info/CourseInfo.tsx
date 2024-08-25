@@ -1,7 +1,8 @@
 'use client'
 import { useAtom } from 'jotai'
 
-import { selectedCourseAtom } from '@/lib/state/course'
+import { CourseGroup } from '@/data/enums'
+import { selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import { cn } from '@/lib/utils'
 import { CalendarCheck, GraduationCap, X } from 'lucide-react'
@@ -13,9 +14,9 @@ import { Separator } from '../ui/separator'
 export const CourseInfo = () => {
     const isMobile = !useBreakpoint('md')
 
-    const [selectedCourse, selectCourse] = useAtom(selectedCourseAtom)
+    const [course, selectCourse] = useAtom(selectedCourseAtom)
 
-    if (!selectedCourse) return null
+    if (!course) return null
 
     return (
         <>
@@ -25,9 +26,11 @@ export const CourseInfo = () => {
                 id="2"
                 defaultSize={isMobile ? 50 : 30}
                 minSize={20}
-                className="@container -mt-3 flex p-3 md:-ml-1 md:mt-0 md:pb-3 md:pl-1"
+                className="-mt-3 flex p-3 @container md:-ml-1 md:mt-0 md:pb-3 md:pl-1"
             >
-                <div className="relative w-full rounded border-0 bg-[#9bc8b2] ring-2 ring-[#9bc8b2]">
+                <div
+                    className={`relative w-full rounded border-0 bg-course-${course.group ?? CourseGroup.PLACEHOLDER} ring-2 ring-course-${course.group ?? CourseGroup.PLACEHOLDER}`}
+                >
                     <Button
                         variant="outline"
                         size="icon"
@@ -42,10 +45,10 @@ export const CourseInfo = () => {
                         <div className="flex justify-between">
                             <div className="flex h-full flex-col px-2">
                                 <label className="text-sm text-foreground/70 text-zinc-600">
-                                    {selectedCourse.code}
+                                    {course.code}
                                 </label>
                                 <h2 className="font-semibold text-zinc-800">
-                                    {selectedCourse.name}
+                                    {course.name}
                                 </h2>
                             </div>
                         </div>
@@ -55,24 +58,20 @@ export const CourseInfo = () => {
                                     <p className="text-muted-foreground">
                                         Opintopisteet
                                     </p>
-                                    <p>
-                                        {(selectedCourse.credits ?? '-') +
-                                            ' op'}
-                                    </p>
+                                    <p>{(course.credits ?? '-') + ' op'}</p>
                                 </Row>
-                                {selectedCourse.nicknames &&
-                                    selectedCourse.nicknames.length > 0 && (
+                                {course.nicknames &&
+                                    course.nicknames.length > 0 && (
                                         <>
                                             <Row>
                                                 <p className="text-muted-foreground">
-                                                    {selectedCourse.nicknames
-                                                        .length > 1
+                                                    {course.nicknames.length > 1
                                                         ? 'Lyhenteet'
                                                         : 'Lyhenne'}
                                                 </p>
                                                 <p className="font-serif italic">
                                                     {'"'}
-                                                    {selectedCourse.nicknames.join(
+                                                    {course.nicknames.join(
                                                         '", "'
                                                     )}
                                                     {'"'}
@@ -80,32 +79,32 @@ export const CourseInfo = () => {
                                             </Row>
                                         </>
                                     )}
-                                {selectedCourse.description && (
+                                {course.description && (
                                     <>
                                         <Separator />
                                         <p className="px-1 text-muted-foreground">
                                             Kuvaus
                                         </p>
                                         <p className="whitespace-pre-line px-1 text-xs text-muted-foreground">
-                                            {selectedCourse.description}
+                                            {course.description}
                                         </p>
                                     </>
                                 )}
-                                {selectedCourse.language && (
+                                {course.language && (
                                     <>
                                         <Separator />
                                         <Row>
                                             <p className="text-muted-foreground">
                                                 Kieli
                                             </p>
-                                            <p>{selectedCourse.language}</p>
+                                            <p>{course.language}</p>
                                         </Row>
                                     </>
                                 )}
                             </div>
                         </div>
                     </div>
-                    <div className="@xs:flex-row absolute bottom-0 flex w-full flex-col gap-2 p-3">
+                    <div className="absolute bottom-0 flex w-full flex-col gap-2 p-3 @xs:flex-row">
                         <Button
                             size="icon"
                             asChild
@@ -115,7 +114,7 @@ export const CourseInfo = () => {
                             onClick={() => true}
                         >
                             <a
-                                href={selectedCourse.coursesLink}
+                                href={course.coursesLink}
                                 target="_blank"
                                 rel="noreferrer"
                             >
@@ -132,7 +131,7 @@ export const CourseInfo = () => {
                             onClick={() => true}
                         >
                             <a
-                                href={selectedCourse.sisuLink}
+                                href={course.sisuLink}
                                 target="_blank"
                                 rel="noreferrer"
                             >

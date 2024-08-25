@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import { CourseGroup } from './data/enums'
 
 const config = {
     darkMode: ['class'],
@@ -52,6 +53,15 @@ const config = {
                     DEFAULT: 'hsl(var(--card))',
                     foreground: 'hsl(var(--card-foreground))',
                 },
+                course: {
+                    [CourseGroup.BASIC]: 'var(--course-basic)',
+                    [CourseGroup.INTERMEDIATE]: 'var(--course-intermediate)',
+                    [CourseGroup.ALTERANTIVE]: 'var(--course-alternative)',
+                    [CourseGroup.MINOR]: 'var(--course-minor)',
+                    [CourseGroup.LANGUAGE]: 'var(--course-language)',
+                    [CourseGroup.OTHER]: 'var(--course-other)',
+                    [CourseGroup.PLACEHOLDER]: 'var(--course-placeholder)',
+                },
             },
             borderRadius: {
                 DEFAULT: '6px',
@@ -89,6 +99,10 @@ const config = {
             },
         },
     },
+    safelist: Object.entries(CourseGroup).flatMap(([_key, courseGroup]) => [
+        `bg-course-${courseGroup}`,
+        `ring-course-${courseGroup}`,
+    ]),
     plugins: [
         require('tailwindcss-animate'),
         require('@tailwindcss/container-queries'),

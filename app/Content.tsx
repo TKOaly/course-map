@@ -4,7 +4,7 @@ import { CourseFlow } from '@/components/flow/CourseFlow'
 import { CourseInfo } from '@/components/info/CourseInfo'
 import { FullscreenButton } from '@/components/navigation/FullscreenButton'
 import { ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
-import { fullscreenElementAtom, isFullscreenAtom } from '@/lib/state/fullscreen'
+import { fullscreenElementAtom, isFullscreenAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useEffect, useRef } from 'react'
@@ -13,10 +13,9 @@ export const Content = () => {
     const isMobile = !useBreakpoint('md')
     const isFullscreen = useAtomValue(isFullscreenAtom)
 
-    const setFullScreenElement = useSetAtom(fullscreenElementAtom)
-
+    // Store Content as the fullscreen element
     const ref = useRef<HTMLDivElement>(null)
-
+    const setFullScreenElement = useSetAtom(fullscreenElementAtom)
     useEffect(() => {
         setFullScreenElement(ref)
     }, [setFullScreenElement, ref])

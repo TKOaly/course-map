@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Info } from 'lucide-react'
+import { AppInfo } from '../info/AppInfo'
 import { Sheet, SheetTrigger } from '../ui/sheet'
 
 type OwnProps = {
@@ -23,5 +24,6 @@ export const InfoButton = ({ className }: OwnProps) => (
                 <Info className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100" />
             </Button>
         </SheetTrigger>
+        <AppInfo />
     </Sheet>
 )

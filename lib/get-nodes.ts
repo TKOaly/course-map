@@ -1,4 +1,5 @@
 import { type CourseNodeType } from '@/components/flow/CourseNode'
+import { Position } from '@xyflow/react'
 import { getAllCourses } from './get-courses'
 
 export const getCourseNodes = (): CourseNodeType[] => {
@@ -10,6 +11,8 @@ export const getCourseNodes = (): CourseNodeType[] => {
         data: {
             ...course,
         },
+        sourcePosition: Position.Right,
+        targetPosition: Position.Left,
         position: {
             x:
                 (parseInt(course.code.substring(course.code.length - 2)) % 10) *

@@ -20,23 +20,23 @@ npm run dev
 
 ## Data
 
-Included [degrees](degrees/index.ts)
+Included [degrees](data/index.ts)
 
-[Course codes](degrees/course-codes.ts)
+[Course codes](data/course-codes.ts)
 
-generic [Course information](degrees/courses.ts)
+generic [Course information](data/courses.ts)
 
-[Curriculum](degrees/curriculum.ts) of the current academic year (when courses are held)
+[Curriculum](data/curriculum.ts) of the current academic year (when courses are held)
 
 Degree specific course requirements and groupings (OPS)
 
--   [TKT](degrees/tkt/structure.ts)
+-   [TKT](data/tkt/structure.ts)
 
-[Data types](degrees/types.ts)
+[Data types](data/types.ts)
 
 ## Before a new academic year
 
-1.  Create a new [degree structure](degrees/tkt/structure.ts) (OPS) if one is introduced or make possible changes to the current one
+1.  Create a new [degree structure](data/tkt/structure.ts) (OPS) if one is introduced or make possible changes to the current one
 
     -   List which courses are included in the structure
         -   Copying the old one should save some work
@@ -45,7 +45,7 @@ Degree specific course requirements and groupings (OPS)
         -   These can usually be found [here](https://studies.helsinki.fi/ohjeet/artikkeli/opetussuunnitelma-ja-opintojen-vastaavuudet) (link to HY site)
 
 > [!WARNING]
-> Don't remove phased out courses from the [course codes](degrees/course-codes.ts) or [course list](degrees/courses.ts) unless they are no longer included in any [degree structures](degrees/tkt/structure.ts).
+> Don't remove phased out courses from the [course codes](data/course-codes.ts) or [course list](data/courses.ts) unless they are no longer included in any [degree structures](data/tkt/structure.ts).
 
 2.  Create a new curriculum for the upcoming year
 
@@ -59,25 +59,25 @@ Degree specific course requirements and groupings (OPS)
 
 ## Adding a course
 
-1. Add the course code to [course-codes.ts](degrees/course-codes.ts)
+1. Add the course code to [course-codes.ts](data/course-codes.ts)
 
     - The listed course names are not shown to the user (see note in file)
 
-2. Add generic course information to [courses.ts](degrees/courses.ts)
+2. Add generic course information to [courses.ts](data/courses.ts)
 
     - List possible prerequisite courses
     - List possible equivalent courses
 
-3. Add the course to all degree structures the course is part of (e.g. [TKT degree structure](degrees/tkt/structure.ts))
+3. Add the course to all degree structures the course is part of (e.g. [TKT degree structure](data/tkt/structure.ts))
 
-4. List when the course is held in [curriculum.ts](degrees/curriculum.ts)
+4. List when the course is held in [curriculum.ts](data/curriculum.ts)
 
 ## Adding a new degree
 
 1. [Add new courses](#adding-a-course) needed in the degree
 
-2. Add the degree's code to [enums.ts](degrees/enums.ts)
+2. Add the degree's code to [enums.ts](data/enums.ts)
 
-3. Create a directory for the degree and a degree stucture (OPS) (e.g. [TKT BSc degree](degrees/tkt/structure.ts))
+3. Create a directory for the degree and a degree stucture (OPS) (e.g. [TKT BSc degree](data/tkt/structure.ts))
 
-4. Incude the degree structure in [index.ts](degrees/index.ts)
+4. Incude the degree structure in [index.ts](data/index.ts)

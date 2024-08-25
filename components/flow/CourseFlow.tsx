@@ -1,7 +1,7 @@
 'use client'
 
 import { getFlowData } from '@/lib/get-flow-data'
-import { selectedCourseAtom } from '@/lib/state/course'
+import { selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import { Background, ReactFlow } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
@@ -23,7 +23,10 @@ export const CourseFlow = () => {
             // Nodes
             nodes={nodes}
             nodeTypes={nodeTypes}
-            onNodeClick={(_event, node) => selectCourse(node.data)}
+            onNodeClick={(_event, node) => {
+                console.log(node.data)
+                selectCourse(node.data)
+            }}
             nodesDraggable={false}
             nodesFocusable={false}
             nodesConnectable={false}

@@ -22,7 +22,7 @@ export const CourseNode = ({ data: course }: NodeProps<CourseNodeType>) => {
                         <label className="text-xs text-foreground/70">
                             {course.code}
                         </label>
-                        <h2 className="max-w-48 break-words text-sm">
+                        <h2 className="w-48 break-words text-sm">
                             {course.id /* course name */}
                         </h2>
                     </div>

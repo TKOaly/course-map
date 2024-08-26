@@ -5,7 +5,7 @@ import { getFlowData } from '@/lib/flow'
 import { selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import dagre from '@dagrejs/dagre'
-import { Background, ReactFlow } from '@xyflow/react'
+import { Background, Position, ReactFlow } from '@xyflow/react'
 import { useSetAtom } from 'jotai'
 import { CourseNode } from './CourseNode'
 
@@ -16,7 +16,7 @@ import '@xyflow/react/dist/style.css'
 const dagreGraph = new dagre.graphlib.Graph()
 dagreGraph.setDefaultEdgeLabel(() => ({}))
 
-const nodeWidth = 300
+const nodeWidth = 280
 const nodeHeight = 100
 
 const getLayoutedElements = (
@@ -39,8 +39,8 @@ const getLayoutedElements = (
         const nodeWithPosition = dagreGraph.node(node.id)
         const newNode = {
             ...node,
-            targetPosition: 'left',
-            sourcePosition: 'right',
+            targetPosition: Position.Left,
+            sourcePosition: Position.Right,
             // We are shifting the dagre node position (anchor=center center) to the top left
             // so it matches the React Flow node anchor point (top left).
             position: {

@@ -19,7 +19,7 @@ export enum CourseGroup {
 }
 
 export enum Necessity {
-    COMPULSORY = 'compulsory',
+    MANDATORY = 'compulsory',
     OPTIONAL = 'optional',
     SELECTABLE = 'selectable',
 }
@@ -48,6 +48,7 @@ export enum Method {
 // Edeltävän kurssin pakollisuus
 export enum Prerequisite {
     MANDATORY, // Esitietovaatimus / Crucial prerequisite
+    ALTERANTIVE, // Vaihtoehtoinen esitieto / Alternative prerequisite
     RECOMMENDED, // Hyödyllinen esitieto / Useful prerequisite
 }
 

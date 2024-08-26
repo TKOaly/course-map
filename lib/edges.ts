@@ -1,3 +1,4 @@
+import { Prerequisite } from '@/data/enums'
 import { type CourseData } from './courses'
 
 export type CourseEdgeType = {
@@ -5,8 +6,9 @@ export type CourseEdgeType = {
     source: string
     target: string
     animated: boolean
-    type: string
 }
+
+const prerequisiteColors: { [key in Prerequisite]: string } = {}
 
 export const getEdges = (courses: CourseData[]): CourseEdgeType[] =>
     courses.flatMap((course) =>
@@ -14,7 +16,10 @@ export const getEdges = (courses: CourseData[]): CourseEdgeType[] =>
             id: `${prerequisite.id}-${course.id}`,
             source: prerequisite.id,
             target: course.id,
+            color:
+                prerequisite.necessity === Prerequisite.MANDATORY
+                    ? 'red'
+                    : 'blue',
             animated: true,
-            type: 'smoothstep',
         }))
     )

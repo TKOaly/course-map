@@ -52,17 +52,41 @@ export enum Id {
     TKT21039 = 'Core 5G and Beyond',
     TKT21026 = 'Network Programming',
     TKT21003 = 'Web-palvelinohjelmointi Ruby on Rails',
+    TKT50002 = 'Tutkimustiedonhaku',
+    TKT50004 = 'Akateemiset taidot',
+    TKT50007 = 'Varusmiespalveluksen johtajakoulutus',
 
     // BSCS
     BSCS2002 = 'Computing and Society',
+    BSCS2011 = 'Programming for Performance',
 
     // MAT
     MAT11001 = 'Johdatus yliopistomatematiikkaan',
+    MAT12001 = 'Tilastotiede ja R tutuksi I',
+    MAT12002 = 'Tilastotiede ja R tutuksi II',
+
     // CSM
+    CSM141081 = 'Full Stack -websovelluskehitys',
+    CSM141082 = 'Full Stack -websovelluskehitys: lisäosa 1',
+    CSM141083 = 'Full Stack -websovelluskehitys: lisäosa 2',
+    CSM14113 = 'Full Stack -websovelluskehitys: GraphQL',
+    CSM14110 = 'Full Stack -websovelluskehitys: TypeScript',
+    CSM14111 = 'Full Stack -websovelluskehitys: React Native',
+    CSM14112 = 'Full Stack -websovelluskehitys: jatkuva integraatio',
+    CSM141084 = 'Full Stack -websovelluskehitys: Containers',
+    CSM14114 = 'Full Stack -websovelluskehitys: relaatiotietokannat',
+    CSM141091 = 'Full Stack -websovelluskehitys: harjoitustyö (5 op)',
+    CSM141092 = 'Full Stack -websovelluskehitys: harjoitustyö (7 op)',
+    CSM141093 = 'Full Stack -websovelluskehitys: harjoitustyö (10 op)',
 
     // MAST
 
     // DATA
+    DATA15001 = 'Johdatus tekoälyyn',
 
     // FYS
+
+    // OTHER
+    'ML-HAL-OPJT01' = 'Yliopiston hallinto- ja opiskelijajärjestötoiminta',
+    'ML-T001' = 'Ryhmänohjauskoulutus ja tuutorointi',
 }

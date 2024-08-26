@@ -34,7 +34,7 @@ export type DegreeStructure = {
         description?: string
     } & (
         | {
-              necessity: Necessity.COMPULSORY | Necessity.OPTIONAL
+              necessity: Necessity.MANDATORY | Necessity.OPTIONAL
               courses: Id[] // Compulsory courses
           }
         | {
@@ -96,7 +96,7 @@ export type Course<code = keyof typeof Id, id = never> = {
     credits?: number
     languages?: Language[]
     description?: string
-    coursesLink?: string
+    studiesLink?: string
     sisuLink?: string
     nicknames?: string[]
     equivalents?: Id[]

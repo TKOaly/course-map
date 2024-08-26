@@ -5,7 +5,13 @@ import { getFlowData } from '@/lib/flow'
 import { selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import dagre from '@dagrejs/dagre'
-import { Background, Position, ReactFlow } from '@xyflow/react'
+import {
+    Background,
+    ConnectionLineType,
+    MarkerType,
+    Position,
+    ReactFlow,
+} from '@xyflow/react'
 import { useSetAtom } from 'jotai'
 import { CourseNode } from './CourseNode'
 
@@ -16,8 +22,8 @@ import '@xyflow/react/dist/style.css'
 const dagreGraph = new dagre.graphlib.Graph()
 dagreGraph.setDefaultEdgeLabel(() => ({}))
 
-const nodeWidth = 280
-const nodeHeight = 100
+const nodeWidth = 400
+const nodeHeight = 80
 
 const getLayoutedElements = (
     nodes: CourseNodeType[],
@@ -84,6 +90,14 @@ export const CourseFlow = () => {
             nodesConnectable={false}
             // Edges
             edges={layoutedEdges}
+            defaultEdgeOptions={{
+                type: ConnectionLineType.Bezier,
+                markerEnd: {
+                    type: MarkerType.ArrowClosed,
+                    width: 24,
+                    height: 24,
+                },
+            }}
             edgesFocusable={false}
             edgesReconnectable={false}
             className="size-full"

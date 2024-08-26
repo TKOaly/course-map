@@ -22,8 +22,8 @@ import '@xyflow/react/dist/style.css'
 const dagreGraph = new dagre.graphlib.Graph()
 dagreGraph.setDefaultEdgeLabel(() => ({}))
 
-const nodeWidth = 400
-const nodeHeight = 80
+const nodeWidth = 350
+const nodeHeight = 60
 
 const getLayoutedElements = (
     nodes: CourseNodeType[],

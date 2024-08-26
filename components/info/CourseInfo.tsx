@@ -39,6 +39,7 @@ export const CourseInfo = () => {
                 >
                     <Button
                         variant="outline"
+                        aria-label="Close course info"
                         size="icon"
                         className={cn(
                             'absolute right-1 top-1 z-20 flex h-fit w-fit items-center justify-between gap-2 rounded border-0 border-border bg-transparent p-1 text-zinc-800 hover:bg-zinc-800/15 hover:text-zinc-800'
@@ -122,6 +123,7 @@ export const CourseInfo = () => {
                     <div className="absolute bottom-0 flex w-full flex-col gap-2 p-3 @xs:flex-row">
                         {course.studiesLink && (
                             <Button
+                                aria-label="Open course info page in studies.helsinki.fi"
                                 size="icon"
                                 asChild
                                 className={cn(
@@ -141,6 +143,7 @@ export const CourseInfo = () => {
                         )}
                         {course.sisuLink && (
                             <Button
+                                aria-label="Open course info page in Sisu"
                                 size="icon"
                                 asChild
                                 className={cn(

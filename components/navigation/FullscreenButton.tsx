@@ -67,6 +67,7 @@ export function FullscreenButton({ className }: OwnProps) {
         <Button
             variant="outline"
             size="icon"
+            aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
             className={cn(
                 'flex w-fit items-center justify-between gap-2 border-border px-3',
                 className

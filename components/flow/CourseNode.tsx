@@ -14,7 +14,7 @@ export const CourseNode = ({ data: course }: NodeProps<CourseNodeType>) => {
                         <p className="-mb-2 font-semibold">
                             {course.credits ?? '-'}
                         </p>
-                        <p className="text-sm text-primary/70 dark:text-primary-foreground/70">
+                        <p className="text-sm text-primary/80 dark:text-primary-foreground/80">
                             op
                         </p>
                     </div>

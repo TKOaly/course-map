@@ -18,7 +18,12 @@ export function LanguageToggle({ className }: OwnProps) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon" className={cn(className)}>
+                <Button
+                    aria-label="Choose language"
+                    variant="outline"
+                    size="icon"
+                    className={cn(className)}
+                >
                     <Globe className="absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100" />
                     <span className="sr-only">Choose language</span>
                 </Button>

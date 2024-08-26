@@ -29,18 +29,18 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Kurssikartta',
         description: 'A course map of University of Helsinki CS courses',
-        images: ['https://kurssikartta.tko-aly.fi/images/og.jpg'], // Must be an absolute URL
+        images: ['https://courses.tko-aly.fi/images/og.png'], // Must be an absolute URL
     },
     openGraph: {
         title: 'Kurssikartta',
         description: 'A course map of University of Helsinki CS courses',
         type: 'website',
-        url: 'https://kurssikartta.tko-aly.fi',
-        siteName: 'kurssikartta.tko-aly.fi',
+        url: 'https://courses.tko-aly.fi',
+        siteName: 'courses.tko-aly.fi',
         images: [
             {
-                url: 'https://kurssikartta.tko-aly.fi/images/og.jpg', // Must be an absolute URL
-                width: 2239,
+                url: 'https://courses.tko-aly.fi/images/og.png', // Must be an absolute URL
+                width: 2063,
                 height: 1080,
                 alt: 'Photo of the Kurssikartta site',
             },

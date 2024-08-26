@@ -25,16 +25,22 @@
             "src": "/images/screenshot_tall.png",
             "type": "image/png",
             "form_factor": "narrow",
-            "sizes": "750x1334"
+            "sizes": "1442x3203"
         },
         {
             "src": "/images/screenshot_tall_white.png",
             "type": "image/png",
             "form_factor": "narrow",
-            "sizes": "750x1334"
+            "sizes": "1442x3202"
         },
         {
             "src": "/images/screenshot_wide.png",
+            "type": "image/png",
+            "form_factor": "wide",
+            "sizes": "2559x1439"
+        },
+        {
+            "src": "/images/screenshot_wide_white.png",
             "type": "image/png",
             "form_factor": "wide",
             "sizes": "2559x1439"

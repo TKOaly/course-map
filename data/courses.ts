@@ -1,20 +1,22 @@
-import { CourseCode } from './course-codes'
-import { Prerequisite } from './enums'
+import { Language, Prerequisite } from './enums'
+import { Id } from './ids'
 import { type Courses } from './types'
+
+// Course names are defined in ids.ts
 
 export const courses: Courses = {
     // ========
     //   TKT
     // ========
-    [CourseCode.TKT10001]: {
-        name: 'Johdatus tietojenkäsittelytieteeseen',
+    [Id.TKT10001]: {
+        code: 'TKT10001',
         credits: 5,
         description: 'Kurssilla opetetaan tietojenkäsittelytieteen perusteet',
         nicknames: ['JTKT'],
-        equivalents: [CourseCode.BSCS2002],
+        equivalents: [Id.BSCS2002],
     },
-    [CourseCode.TKT10002]: {
-        name: 'Ohjelmoinnin perusteet',
+    [Id.TKT10002]: {
+        code: 'TKT10002',
         credits: 5,
         description: `Opintojaksolla perehdyt nykyaikaisen ohjelmoinnin perusideoihin sekä ohjelmoinnissa käytettävien työvälineiden lisäksi algoritmien laatimiseen.
             
@@ -27,14 +29,14 @@ export const courses: Courses = {
             3. ja osaat käyttää ohjelmointikieltä työvälineenä datan käsittelemiseksi esimerkiksi opiskeluun, työhön tai harrastuksiin liittyvissä tilanteissa.
             `,
         nicknames: ['ohpe'],
-        language: 'Suomi',
+        languages: [Language.FI],
         coursesLink:
             'https://studies.helsinki.fi/kurssit/opintojakso/otm-5b481a9e-2ca4-4131-baab-58eb384bed41',
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-5b481a9e-2ca4-4131-baab-58eb384bed41',
     },
-    [CourseCode.TKT10003]: {
-        name: 'Ohjelmoinnin jatkokurssi',
+    [Id.TKT10003]: {
+        code: 'TKT10003',
         credits: 5,
         description: `Kurssilla tutustutaan olio-ohjelmoinnin lisäksi muun muassa funktionaaliseen paradigmaan ja Pythonin syvällisempään hyödyntämiseen.
         
@@ -48,43 +50,43 @@ export const courses: Courses = {
         `,
         nicknames: ['ohja'],
         prerequisites: {
-            [CourseCode.TKT10002]: Prerequisite.MANDATORY,
-            [CourseCode.MAT11001]: Prerequisite.RECOMMENDED,
+            [Id.TKT10002]: Prerequisite.MANDATORY,
+            [Id.MAT11001]: Prerequisite.RECOMMENDED,
         },
-        language: 'Suomi',
+        languages: [Language.FI],
         coursesLink:
             'https://studies.helsinki.fi/kurssit/opintojakso/otm-6be30760-ad20-42b7-9314-03eb688b78a5',
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-6be30760-ad20-42b7-9314-03eb688b78a5',
     },
-    [CourseCode.TKT10004]: {
-        name: 'Tietokantojen perusteet',
+    [Id.TKT10004]: {
+        code: 'TKT10004',
         credits: 5,
         description: 'Kurssilla opetetaan tietokantojen perusteet',
         nicknames: ['Tikape'],
     },
-    [CourseCode.TKT10005]: {
-        name: 'Tietokoneen toiminnan perusteet',
+    [Id.TKT10005]: {
+        code: 'TKT10005',
         credits: 5,
         description: 'Kurssilla opetetaan tietokoneen toiminnan perusteet',
         nicknames: ['Tito'],
     },
-    [CourseCode.TKT10006]: {
-        name: 'Tietokone ja Internet',
+    [Id.TKT10006]: {
+        code: 'TKT10006',
         credits: 5,
         description: 'Kurssilla opetetaan tietokoneen ja internetin perusteet',
         nicknames: ['Tintti'],
     },
-    [CourseCode.TKT200010]: {
-        name: 'Tietorakenteet ja algoritmit',
+    [Id.TKT200010]: {
+        code: 'TKT200010',
         credits: 10,
         description: 'Kurssilla opetetaan tietorakenteet ja algoritmit',
         nicknames: ['Tira'],
-        prerequisites: { [CourseCode.TKT10003]: Prerequisite.MANDATORY },
-        equivalents: [CourseCode.TKT200011, CourseCode.TKT200012],
+        prerequisites: { [Id.TKT10003]: Prerequisite.MANDATORY },
+        equivalents: [Id.TKT200011, Id.TKT200012],
     },
-    [CourseCode.TKT200011]: {
-        name: 'Tietorakenteet ja algoritmit I',
+    [Id.TKT200011]: {
+        code: 'TKT200011',
         credits: 5,
         description: `Kurssin jälkeen opiskelija
         
@@ -99,15 +101,15 @@ export const courses: Courses = {
         osaa verkkojen peruskäsitteet ja tuntee algoritmeja verkkojen läpikäyntiin
         `,
         nicknames: ['tira I'],
-        prerequisites: { [CourseCode.TKT10003]: Prerequisite.MANDATORY },
-        language: 'Suomi',
+        prerequisites: { [Id.TKT10003]: Prerequisite.MANDATORY },
+        languages: [Language.FI],
         coursesLink:
             'https://studies.helsinki.fi/kurssit/opintojakso/otm-a0f67d51-907d-4ec1-9726-04c4b654a02d',
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-a0f67d51-907d-4ec1-9726-04c4b654a02d',
     },
-    [CourseCode.TKT200012]: {
-        name: 'Tietorakenteet ja algoritmit II',
+    [Id.TKT200012]: {
+        code: 'TKT200012',
         credits: 5,
         description: `Kurssin jälkeen opiskelija
 
@@ -125,215 +127,221 @@ export const courses: Courses = {
         `,
         nicknames: ['tira II'],
         prerequisites: {
-            [CourseCode.TKT200011]: Prerequisite.MANDATORY,
+            [Id.TKT200011]: Prerequisite.MANDATORY,
         },
-        language: 'Suomi',
+        languages: [Language.FI],
         coursesLink:
             'https://studies.helsinki.fi/kurssit/opintojakso/otm-fb39d562-012a-46d8-9336-a52a7ff6056a',
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-fb39d562-012a-46d8-9336-a52a7ff6056a',
     },
-    [CourseCode.TKT20005]: {
-        name: 'Laskennan mallit',
+    [Id.TKT20005]: {
+        code: 'TKT20005',
         credits: 5,
         description: 'Kurssilla opetetaan laskennan mallit',
         nicknames: ['Lama'],
     },
-    [CourseCode.TKT20006]: {
-        name: 'Ohjelmistotuotanto',
+    [Id.TKT20006]: {
+        code: 'TKT20006',
         credits: 5,
         description: 'Kurssilla opetetaan ohjelmistotuotanto',
         nicknames: ['Ohtu'],
     },
-    [CourseCode.TKT20007]: {
-        name: 'Ohjelmistoprojekti',
+    [Id.TKT20007]: {
+        code: 'TKT20007',
         credits: 5,
         description: 'Kurssilla tehdään ohjelmistoprojekti',
         nicknames: ['Ohtuprojekti'],
     },
-    [CourseCode.TKT20013]: {
-        name: 'Kandidaatin tutkielma',
+    [Id.TKT20013]: {
+        code: 'TKT20013',
         credits: 5,
         description: 'Kurssilla tehdään kandidaatin tutkielma',
         nicknames: ['Kandi'],
     },
-    [CourseCode.TKT20014]: {
-        name: 'Kypsyysnäyte LuK',
+    [Id.TKT20014]: {
+        code: 'TKT20014',
         credits: 5,
         description: 'Kurssilla tehdään kypsyysnäyte LuK',
     },
-    [CourseCode.TKT20016]: {
-        name: 'Laskentaympäristöt',
+    [Id.TKT20016]: {
+        code: 'TKT20016',
         credits: 5,
         description: 'Kurssilla opetetaan laskentaympäristöt',
     },
-    [CourseCode.TKT20019]: {
-        name: 'Tietokannat ja web-ohjelmointi',
+    [Id.TKT20019]: {
+        code: 'TKT20019',
         credits: 5,
         description: 'Kurssilla opetetaan tietokannat ja web-ohjelmointi',
     },
-    [CourseCode.TKT200091]: {
-        name: 'Cyber Security Base: Introduction to Cyber Security',
+    [Id.TKT200091]: {
+        code: 'TKT200091',
         credits: 5,
         description: 'Kurssilla opetetaan tietoturvan perusteet',
     },
-    [CourseCode.TKT200092]: {
-        name: 'Cyber Security Base: Securing Software',
+    [Id.TKT200092]: {
+        code: 'TKT200092',
         credits: 5,
         description: 'Kurssilla opetetaan tietoturvan perusteet',
     },
-    [CourseCode.TKT200093]: {
-        name: 'Cyber Security Base: Course Project I',
+    [Id.TKT200093]: {
+        code: 'TKT200093',
         credits: 5,
         description: 'Kurssilla opetetaan tietoturvan perusteet',
     },
-    [CourseCode.TKT20009]: {
-        name: 'Tietoturvan perusteet',
+    [Id.TKT20009]: {
+        code: 'TKT20009',
         credits: 5,
         description: 'Kurssilla opetetaan tietoturvan perusteet',
     },
-    [CourseCode.TKT20015]: {
-        name: 'Tietojenkäsittely ja yhteiskunta',
+    [Id.TKT20015]: {
+        code: 'TKT20015',
         credits: 5,
         description: 'Kurssilla opetetaan tietojenkäsittely ja yhteiskunta',
     },
-    [CourseCode.TKT200151]: {
-        name: 'Tietojenkäsittely ja yhteiskunta, perusteet',
+    [Id.TKT200151]: {
+        code: 'TKT200151',
         credits: 5,
         description: 'Kurssilla opetetaan tietojenkäsittely ja yhteiskunta',
     },
-    [CourseCode.TKT200152]: {
-        name: 'Tietojenkäsittely ja yhteiskunta, jatkokurssi',
+    [Id.TKT200152]: {
+        code: 'TKT200152',
         credits: 5,
         description: 'Kurssilla opetetaan tietojenkäsittely ja yhteiskunta',
     },
-    [CourseCode.TKT20010]: {
-        name: 'Aineopintojen harjoitustyö: Algoritmit ja tekoäly',
+    [Id.TKT20010]: {
+        code: 'TKT20010',
         credits: 5,
         description: 'Kurssilla tehdään aineopintojen harjoitustyö',
     },
-    [CourseCode.TKT20012]: {
-        name: 'Aineopintojen harjoitustyö: Tietoliikenne',
+    [Id.TKT20012]: {
+        code: 'TKT20012',
         credits: 5,
         description: 'Kurssilla tehdään aineopintojen harjoitustyö',
     },
-    [CourseCode.TKT20018]: {
-        name: 'Aineopintojen harjoitustyö: Ohjelmistotekniikka',
+    [Id.TKT20018]: {
+        code: 'TKT20018',
         credits: 5,
         description: 'Kurssilla tehdään aineopintojen harjoitustyö',
     },
-    [CourseCode.TKT21012]: {
-        name: 'Algoritmit ongelmanratkaisussa',
+    [Id.TKT21012]: {
+        code: 'TKT21012',
         credits: 5,
         description: 'Kurssilla opetetaan algoritmit ongelmanratkaisussa',
     },
-    [CourseCode.TKT21004]: {
-        name: 'Computer Architecture',
+    [Id.TKT21004]: {
+        code: 'TKT21004',
         credits: 5,
         description: 'Kurssilla opetetaan computer architecture',
     },
-    [CourseCode.TKT21029]: {
-        name: 'Functional Programming I',
+    [Id.TKT21029]: {
+        code: 'TKT21029',
         credits: 5,
         description: 'Kurssilla opetetaan functional programming',
     },
-    [CourseCode.TKT21030]: {
-        name: 'Functional Programming II',
+    [Id.TKT21030]: {
+        code: 'TKT21030',
         credits: 5,
         description: 'Kurssilla opetetaan functional programming',
     },
-    [CourseCode.TKT21032]: {
-        name: 'Kilpaohjelmoinnin harjoittelu 1',
+    [Id.TKT21032]: {
+        code: 'TKT21032',
         credits: 5,
         description: 'Kurssilla opetetaan kilpaohjelmointi',
     },
-    [CourseCode.TKT21033]: {
-        name: 'Kilpaohjelmoinnin harjoittelu 2',
+    [Id.TKT21033]: {
+        code: 'TKT21033',
         credits: 5,
         description: 'Kurssilla opetetaan kilpaohjelmointi',
     },
-    [CourseCode.TKT21034]: {
-        name: 'Kilpaohjelmoinnin harjoittelu 3',
+    [Id.TKT21034]: {
+        code: 'TKT21034',
         credits: 5,
         description: 'Kurssilla opetetaan kilpaohjelmointi',
     },
-    [CourseCode.TKT21035]: {
-        name: 'Kilpaohjelmoinnin harjoittelu 4',
+    [Id.TKT21035]: {
+        code: 'TKT21035',
         credits: 5,
         description: 'Kurssilla opetetaan kilpaohjelmointi',
     },
-    [CourseCode.TKT210241]: {
-        name: 'Ohjelmointihaasteita 1',
+    [Id.TKT210241]: {
+        code: 'TKT210241',
         credits: 5,
         description: 'Kurssilla opetetaan ohjelmointihaasteita',
     },
-    [CourseCode.TKT210242]: {
-        name: 'Ohjelmointihaasteita 2',
+    [Id.TKT210242]: {
+        code: 'TKT210242',
         credits: 5,
         description: 'Kurssilla opetetaan ohjelmointihaasteita',
+        prerequisites: {
+            [Id.TKT210241]: Prerequisite.MANDATORY,
+        },
     },
-    [CourseCode.TKT210243]: {
-        name: 'Ohjelmointihaasteita 3',
+    [Id.TKT210243]: {
+        code: 'TKT210243',
         credits: 5,
         description: 'Kurssilla opetetaan ohjelmointihaasteita',
+        prerequisites: {
+            [Id.TKT210242]: Prerequisite.MANDATORY,
+        },
     },
-    [CourseCode.TKT21018]: {
-        name: 'Elements of AI: Tekoälyn perusteet',
+    [Id.TKT21018]: {
+        code: 'TKT21018',
         credits: 5,
         description: 'Kurssilla opetetaan tekoälyn perusteet',
     },
-    [CourseCode.TKT210281]: {
-        name: 'Elements of AI: Building AI - Intermediate',
+    [Id.TKT210281]: {
+        code: 'TKT210281',
         credits: 5,
         description: 'Kurssilla opetetaan tekoälyn rakentaminen',
     },
-    [CourseCode.TKT210282]: {
-        name: 'Elements of AI: Building AI - Advanced',
+    [Id.TKT210282]: {
+        code: 'TKT210282',
         credits: 5,
         description: 'Kurssilla opetetaan tekoälyn rakentaminen',
     },
-    [CourseCode.TKT21031]: {
-        name: 'Tekoälyn etiikka: Johdanto',
+    [Id.TKT21031]: {
+        code: 'TKT21031',
         credits: 5,
         description: 'Kurssilla opetetaan tekoälyn etiikka',
     },
-    [CourseCode.TKT21036]: {
-        name: 'DevOps with Docker',
+    [Id.TKT21036]: {
+        code: 'TKT21036',
         credits: 5,
         description: 'Kurssilla opetetaan DevOps with Docker',
     },
-    [CourseCode.TKT21037]: {
-        name: 'DevOps with Docker: docker-compose',
+    [Id.TKT21037]: {
+        code: 'TKT21037',
         credits: 5,
         description: 'Kurssilla opetetaan DevOps with Docker',
     },
-    [CourseCode.TKT21038]: {
-        name: 'DevOps with Docker: security and optimization',
+    [Id.TKT21038]: {
+        code: 'TKT21038',
         credits: 5,
         description: 'Kurssilla opetetaan DevOps with Docker',
     },
-    [CourseCode.TKT21040]: {
-        name: 'Test-Driven Development',
+    [Id.TKT21040]: {
+        code: 'TKT21040',
         credits: 5,
         description: 'Kurssilla opetetaan test-driven development',
     },
-    [CourseCode.TKT21041]: {
-        name: 'Test-Driven Development: Full Stack',
+    [Id.TKT21041]: {
+        code: 'TKT21041',
         credits: 5,
         description: 'Kurssilla opetetaan test-driven development',
     },
-    [CourseCode.TKT21039]: {
-        name: 'Core 5G and Beyond',
+    [Id.TKT21039]: {
+        code: 'TKT21039',
         credits: 5,
         description: 'Kurssilla opetetaan core 5G and beyond',
     },
-    [CourseCode.TKT21026]: {
-        name: 'Network Programming',
+    [Id.TKT21026]: {
+        code: 'TKT21026',
         credits: 5,
         description: 'Kurssilla opetetaan network programming',
     },
-    [CourseCode.TKT21003]: {
-        name: 'Web-palvelinohjelmointi Ruby on Rails',
+    [Id.TKT21003]: {
+        code: 'TKT21003',
         credits: 5,
         description:
             'Kurssilla opetetaan web-palvelinohjelmointi Ruby on Rails',
@@ -342,18 +350,18 @@ export const courses: Courses = {
     // ========
     //   BSCS
     // ========
-    [CourseCode.BSCS2002]: {
-        name: 'Computing and Society',
+    [Id.BSCS2002]: {
+        code: 'BSCS2002',
         credits: 5,
         description: 'Kurssilla opetetaan computing and society',
-        equivalents: [CourseCode.TKT10001],
+        equivalents: [Id.TKT10001],
     },
 
     // ========
     //   MAT
     // ========
-    [CourseCode.MAT11001]: {
-        name: 'Johdatus yliopistomatematiikkaan',
+    [Id.MAT11001]: {
+        code: 'MAT11001',
         credits: 5,
         description: `Kurssin jälkeen opiskelija
 
@@ -370,7 +378,7 @@ export const courses: Courses = {
         Opiskelija osaa kompleksilukujen perusteet: peruslaskutoimitukset, itseisarvo ja erilaiset esitystavat. Hän osaa ratkaista alkeellisia polynomiyhtälöita sekä johtaa trigonometria kaavoja.
         `,
         nicknames: ['jym'],
-        language: 'Suomi',
+        languages: [Language.FI],
         coursesLink:
             'https://studies.helsinki.fi/kurssit/opintojakso/otm-fb39d562-012a-46d8-9336-a52a7ff6056a',
         sisuLink:

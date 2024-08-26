@@ -1,17 +1,6 @@
-import { CourseGroup, type Prerequisite } from '@/data/enums'
-import { type Course } from '@/data/types'
-import { Handle, type Node, type NodeProps, Position } from '@xyflow/react'
-
-export type CourseNodeData = Course & {
-    code: string
-    group?: CourseGroup
-    prerequisites?: {
-        courseCode: string
-        prerequisiteType: Prerequisite
-    }[]
-}
-
-export type CourseNodeType = Node<CourseNodeData, 'course'>
+import { CourseGroup } from '@/data/enums'
+import { type CourseNodeType } from '@/lib/nodes'
+import { Handle, type NodeProps, Position } from '@xyflow/react'
 
 export const CourseNode = ({ data: course }: NodeProps<CourseNodeType>) => {
     return (
@@ -34,7 +23,7 @@ export const CourseNode = ({ data: course }: NodeProps<CourseNodeType>) => {
                             {course.code}
                         </label>
                         <h2 className="max-w-48 break-words text-sm">
-                            {course.name}
+                            {course.id /* course name */}
                         </h2>
                     </div>
                 </div>

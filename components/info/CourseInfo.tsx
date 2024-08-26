@@ -48,7 +48,7 @@ export const CourseInfo = () => {
                                     {course.code}
                                 </label>
                                 <h2 className="font-semibold text-zinc-800">
-                                    {course.name}
+                                    {course.id /* course name */}
                                 </h2>
                             </div>
                         </div>
@@ -90,14 +90,16 @@ export const CourseInfo = () => {
                                         </p>
                                     </>
                                 )}
-                                {course.language && (
+                                {course.languages && (
                                     <>
                                         <Separator />
                                         <Row>
                                             <p className="text-muted-foreground">
-                                                Kieli
+                                                {course.languages.length > 1
+                                                    ? 'Kielet'
+                                                    : 'Kieli'}
                                             </p>
-                                            <p>{course.language}</p>
+                                            <p>{course.languages.join(', ')}</p>
                                         </Row>
                                     </>
                                 )}

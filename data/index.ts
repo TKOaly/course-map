@@ -7,4 +7,4 @@ export const degrees: Degrees = {
         name: 'Tietojenkäsittelytieteen Kandiohjelma',
         structures: tktStructures,
     },
-}
+} as const

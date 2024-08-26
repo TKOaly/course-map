@@ -1,5 +1,5 @@
-import { CourseCode } from '../course-codes'
-import { CourseGroup } from '../enums'
+import { CourseGroup, Necessity } from '../enums'
+import { Id } from '../ids'
 import { type DegreeStructures } from '../types'
 
 export const structures: DegreeStructures = {
@@ -7,19 +7,28 @@ export const structures: DegreeStructures = {
         name: 'Opetussuunnitelma 2023-2026',
         groups: [
             {
-                courseGroup: CourseGroup.BASIC,
+                group: CourseGroup.BASIC,
+                necessity: Necessity.COMPULSORY,
+                courses: [Id.TKT10002, Id.TKT10003],
                 description: 'Pakolliset perusopinnot',
-                compulsory: [CourseCode.TKT10002, CourseCode.TKT10003],
             },
             {
-                courseGroup: CourseGroup.INTERMEDIATE,
+                group: CourseGroup.INTERMEDIATE,
+                necessity: Necessity.COMPULSORY,
+                courses: [Id.TKT200011, Id.TKT200012],
                 description: 'Pakolliset aineopinnot',
-                compulsory: [CourseCode.TKT200011, CourseCode.TKT200012],
             },
             {
-                courseGroup: CourseGroup.ALTERANTIVE,
+                group: CourseGroup.ALTERANTIVE,
+                necessity: Necessity.COMPULSORY,
+                courses: [Id.MAT11001],
                 description: 'Vaihtoehtoinen opintokokonaisuus',
-                compulsory: [CourseCode.MAT11001],
+            },
+            {
+                group: CourseGroup.PLACEHOLDER,
+                necessity: Necessity.OPTIONAL,
+                courses: [Id.TKT210241, Id.TKT210242, Id.TKT210243],
+                description: 'placeholders',
             },
         ],
     },

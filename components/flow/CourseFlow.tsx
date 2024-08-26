@@ -1,6 +1,7 @@
 'use client'
 
-import { getFlowData } from '@/lib/get-flow-data'
+import { DegreeCode } from '@/data/enums'
+import { getFlowData } from '@/lib/flow'
 import { selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import { Background, ReactFlow } from '@xyflow/react'
@@ -8,7 +9,7 @@ import '@xyflow/react/dist/style.css'
 import { useSetAtom } from 'jotai'
 import { CourseNode } from './CourseNode'
 
-const { nodes, edges } = getFlowData()
+const { nodes, edges } = getFlowData(DegreeCode.TKT, '23-26')
 
 const nodeTypes = {
     course: CourseNode,

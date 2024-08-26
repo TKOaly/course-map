@@ -1,21 +1,21 @@
-import { CourseCode } from './course-codes'
 import { Method, Period } from './enums'
+import { Id } from './ids'
 import { type Curriculum } from './types'
 
 export const curriculum_24_25: Curriculum = {
-    [CourseCode.TKT10002]: [
+    [Id.TKT10002]: [
         {
             method: Method.LECTURE,
             period: Period.FIRST,
         },
     ],
-    [CourseCode.TKT10003]: [
+    [Id.TKT10003]: [
         {
             method: Method.LECTURE,
             period: Period.SECOND,
         },
     ],
-    [CourseCode.TKT10004]: [
+    [Id.TKT10004]: [
         {
             method: Method.LECTURE,
             period: Period.THIRD,
@@ -25,14 +25,14 @@ export const curriculum_24_25: Curriculum = {
             period: Period.INTENSIVE_MAY,
         },
     ],
-    [CourseCode.TKT10005]: [
+    [Id.TKT10005]: [
         {
             method: Method.LECTURE,
             start: new Date('2025-01-12'),
             end: new Date('2025-05-15'),
         },
     ],
-    [CourseCode.TKT200010]: [
+    [Id.TKT200010]: [
         {
             method: Method.LECTURE,
             start: new Date('2025-01-12'),

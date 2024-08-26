@@ -1,15 +1,16 @@
-import { type CourseCode } from './course-codes'
 import {
     type CourseGroup,
     type DegreeCode,
     type Method,
+    type Necessity,
     type Period,
     type Prerequisite,
 } from './enums'
+import { type Id } from './ids'
 
 // Holds all included degree structures
 export type Degrees = {
-    [key in DegreeCode]?: {
+    [key in DegreeCode]: {
         // Full name of the degree
         name: string
 
@@ -18,35 +19,33 @@ export type Degrees = {
     }
 }
 
+export type DegreeStructures = Record<string, DegreeStructure>
+
 // OPS / Opetussuunnitelmat / Degree structures
 // Lists which courses/units are required/optional for a degree
-export type DegreeStructures = Record<
-    string,
-    {
-        // Full name of the OPS/Degree structure
-        name: string
+export type DegreeStructure = {
+    // Full name of the OPS/Degree structure
+    name: string
 
-        // Groups of courses that are required/optional for the degree
-        groups: ({
-            courseGroup: CourseGroup // Type of the course group
-            description?: string
-        } & (
-            | {
-                  compulsory: CourseCode[] // Compulsory courses
-              }
-            | {
-                  optional: CourseCode[] // Optional standalone courses
-              }
-            | {
-                  selectable: CourseCode[][] // Courses that must form a defined unit
-              }
-        ))[]
-    }
->
+    // Groups of courses that are required/optional for the degree
+    groups: ({
+        group: CourseGroup // Type of the course group
+        description?: string
+    } & (
+        | {
+              necessity: Necessity.COMPULSORY | Necessity.OPTIONAL
+              courses: Id[] // Compulsory courses
+          }
+        | {
+              necessity: Necessity.SELECTABLE
+              courses: Id[][] // Courses that must form a defined unit
+          }
+    ))[]
+}
 
 // Lists when courses are held
 export type Curriculum = {
-    [key in CourseCode]?: ({
+    [key in Id]?: ({
         method: Method
         sisuLink?: string
     } & (
@@ -83,18 +82,22 @@ export type Curriculum = {
 
 // Maps course codes to course information
 export type Courses = {
-    [key in CourseCode]: Course
+    [code in keyof typeof Id as (typeof Id)[code]]: Course<
+        code,
+        (typeof Id)[code]
+    >
 }
 
-// Contains course information that stays the same regardless of the method or instance
-export type Course = {
-    name: string
+// Type of the course data maintained in the repo
+// Contains course information that stays the same regardless of the course implementation
+export type Course<code = keyof typeof Id, id = never> = {
+    code: code
     credits?: number
-    language?: string
+    languages?: string[]
     description?: string
     coursesLink?: string
     sisuLink?: string
     nicknames?: string[]
-    equivalents?: CourseCode[]
-    prerequisites?: { [key in CourseCode]?: Prerequisite }
+    equivalents?: Id[]
+    prerequisites?: { [key in Exclude<Id, id>]?: Prerequisite } // Ensures course is not its own prerequisite
 }

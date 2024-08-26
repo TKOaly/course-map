@@ -1,8 +1,7 @@
 /*
-Course codes are in an enum to allow showing course names in editor intellisense and to avoid duplication.
-The values are only for quality of life, course display names should be set in ./courses.ts.
+Course codes and names are in an enum to allow showing course names in editor intellisense.
 */
-export enum CourseCode {
+export enum Id {
     // TKT
     TKT10001 = 'Johdatus Tietojenkäsittelytieteen',
     TKT10002 = 'Ohjelmoinnin perusteet',

@@ -18,6 +18,18 @@ export enum CourseGroup {
     PLACEHOLDER = 'placeholder',
 }
 
+export enum Necessity {
+    COMPULSORY = 'compulsory',
+    OPTIONAL = 'optional',
+    SELECTABLE = 'selectable',
+}
+
+export enum Language {
+    FI = 'fi',
+    EN = 'en',
+    SV = 'sv',
+}
+
 // Type of course implementation
 // Kurssitoteutuksen suoritustavat
 export enum Method {

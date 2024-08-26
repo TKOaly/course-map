@@ -1,7 +1,7 @@
 'use client'
 import { useAtom } from 'jotai'
 
-import { CourseGroup } from '@/data/enums'
+import { CourseGroup, Language } from '@/data/enums'
 import { selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import { cn } from '@/lib/utils'
@@ -10,6 +10,12 @@ import { type ReactNode } from 'react'
 import { Button } from '../ui/button'
 import { ResizableHandle, ResizablePanel } from '../ui/resizable'
 import { Separator } from '../ui/separator'
+
+const languages: { [key in Language]: string } = {
+    [Language.FI]: 'Suomi',
+    [Language.EN]: 'Englanti',
+    [Language.SV]: 'Ruotsi',
+}
 
 export const CourseInfo = () => {
     const isMobile = !useBreakpoint('md')
@@ -99,7 +105,14 @@ export const CourseInfo = () => {
                                                     ? 'Kielet'
                                                     : 'Kieli'}
                                             </p>
-                                            <p>{course.languages.join(', ')}</p>
+                                            <p>
+                                                {course.languages
+                                                    .map(
+                                                        (language) =>
+                                                            languages[language]
+                                                    )
+                                                    .join(', ')}
+                                            </p>
                                         </Row>
                                     </>
                                 )}

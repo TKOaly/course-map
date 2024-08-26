@@ -3,8 +3,8 @@
 An unofficial course map for viewing University of Helsinki computer science course information and their prerequisites.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/fbc707bf-d084-4703-b93b-3aaac3a00983">
-  <img alt="Screenshot of course map UI" src="https://github.com/user-attachments/assets/23fb3046-ad3b-481d-9d84-c5661edc7ed1">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/c069f518-67d0-4d56-b973-94a376524a32">
+  <img alt="Screenshot of course map UI" src="https://github.com/user-attachments/assets/f9491dae-5820-4b7b-8861-a3228d90c0a4">
 </picture>
 
 ## Installation

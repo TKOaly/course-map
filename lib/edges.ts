@@ -8,8 +8,6 @@ export type CourseEdgeType = {
     animated: boolean
 }
 
-const prerequisiteColors: { [key in Prerequisite]: string } = {}
-
 export const getEdges = (courses: CourseData[]): CourseEdgeType[] =>
     courses.flatMap((course) =>
         (course.prerequisites ?? []).map((prerequisite) => ({

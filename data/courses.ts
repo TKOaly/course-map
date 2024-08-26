@@ -61,31 +61,35 @@ export const courses: Courses = {
     [Id.TKT10004]: {
         code: 'TKT10004',
         credits: 5,
+        nicknames: ['tikape'],
         prerequisites: {
             [Id.TKT10002]: Prerequisite.MANDATORY,
         },
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-36dc8b2a-0cd3-4d8c-92e8-1373aa4b2881',
+        studiesLink:
+            'https://studies.helsinki.fi/kurssit/opintojakso/otm-36dc8b2a-0cd3-4d8c-92e8-1373aa4b2881',
         description: `Kurssilla opetetaan tietokantojen perusteet`,
-        nicknames: ['Tikape'],
     },
     [Id.TKT10005]: {
         code: 'TKT10005',
         credits: 5,
+        nicknames: ['tito'],
         description: `Kurssilla opetetaan tietokoneen toiminnan perusteet`,
-        nicknames: ['Tito'],
     },
     [Id.TKT10006]: {
         code: 'TKT10006',
         credits: 5,
+        nicknames: ['tintti'],
         description: `Kurssilla opetetaan tietokoneen ja internetin perusteet`,
-        nicknames: ['Tintti'],
     },
     [Id.TKT200010]: {
         code: 'TKT200010',
         credits: 10,
-        description: `Kurssilla opetetaan tietorakenteet ja algoritmit`,
-        nicknames: ['Tira'],
+        nicknames: ['tira'],
         prerequisites: { [Id.TKT10003]: Prerequisite.MANDATORY },
         equivalents: [Id.TKT200011, Id.TKT200012],
+        description: `Kurssilla opetetaan tietorakenteet ja algoritmit`,
     },
     [Id.TKT200011]: {
         code: 'TKT200011',
@@ -192,7 +196,6 @@ export const courses: Courses = {
         code: 'TKT20016',
         credits: 5,
         prerequisites: {
-            [Id.TKT200011]: Prerequisite.MANDATORY,
             [Id.TKT10006]: Prerequisite.MANDATORY,
         },
         description: `Kurssilla opetetaan laskentaympäristöt`,
@@ -241,19 +244,22 @@ export const courses: Courses = {
     [Id.TKT20015]: {
         code: 'TKT20015',
         credits: 5,
+        equivalents: [Id.TKT200151, Id.TKT200152],
         description: `Kurssilla opetetaan tietojenkäsittely ja yhteiskunta`,
     },
     [Id.TKT200151]: {
         code: 'TKT200151',
-        credits: 5,
+        credits: 2,
+        equivalents: [Id.TKT20015],
         description: `Kurssilla opetetaan tietojenkäsittely ja yhteiskunta`,
     },
     [Id.TKT200152]: {
         code: 'TKT200152',
-        credits: 5,
+        credits: 3,
         prerequisites: {
             [Id.TKT200151]: Prerequisite.MANDATORY,
         },
+        equivalents: [Id.TKT20015],
         description: `Kurssilla opetetaan tietojenkäsittely ja yhteiskunta`,
     },
     [Id.TKT20010]: {
@@ -276,7 +282,7 @@ export const courses: Courses = {
         code: 'TKT20018',
         credits: 5,
         prerequisites: {
-            [Id.TKT20016]: Prerequisite.MANDATORY,
+            [Id.TKT20019]: Prerequisite.MANDATORY,
         },
         description: `Kurssilla tehdään aineopintojen harjoitustyö`,
     },
@@ -386,11 +392,17 @@ export const courses: Courses = {
     [Id.TKT21031]: {
         code: 'TKT21031',
         credits: 5,
+        prerequisites: {
+            [Id.TKT21018]: Prerequisite.RECOMMENDED,
+        },
         description: `Kurssilla opetetaan tekoälyn etiikka`,
     },
     [Id.TKT21036]: {
         code: 'TKT21036',
         credits: 1,
+        prerequisites: {
+            [Id.TKT20019]: Prerequisite.RECOMMENDED,
+        },
         description: `Kurssilla opetetaan DevOps with Docker`,
     },
     [Id.TKT21037]: {
@@ -651,6 +663,13 @@ export const courses: Courses = {
         credits: 5,
         nicknames: ['johtek'],
         languages: [Language.FI, Language.EN],
+        prerequisites: {
+            [Id.TKT200012]: Prerequisite.MANDATORY,
+        },
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-0ae8deca-fa7b-4293-8e0d-bd05cfc2e68e',
+        studiesLink:
+            'https://studies.helsinki.fi/kurssit/opintojakso/otm-0ae8deca-fa7b-4293-8e0d-bd05cfc2e68e',
         description: `After the course, the student...
 
         can express the basic philosophical problems related to AI (the difficulty in defining AI and consciousness, acting vs thinking, Turing test)

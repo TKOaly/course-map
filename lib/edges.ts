@@ -1,11 +1,12 @@
-import { Prerequisite } from '@/data/enums'
+import { type ConnectionLineType } from '@xyflow/react'
 import { type CourseData } from './courses'
 
 export type CourseEdgeType = {
     id: string
     source: string
     target: string
-    animated: boolean
+    animated?: boolean
+    type?: ConnectionLineType
 }
 
 export const getEdges = (courses: CourseData[]): CourseEdgeType[] =>
@@ -14,10 +15,5 @@ export const getEdges = (courses: CourseData[]): CourseEdgeType[] =>
             id: `${prerequisite.id}-${course.id}`,
             source: prerequisite.id,
             target: course.id,
-            color:
-                prerequisite.necessity === Prerequisite.MANDATORY
-                    ? 'red'
-                    : 'blue',
-            animated: true,
         }))
     )

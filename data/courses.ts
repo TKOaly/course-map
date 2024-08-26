@@ -181,6 +181,9 @@ export const courses: Courses = {
         prerequisites: {
             [Id.TKT200012]: Prerequisite.MANDATORY,
             [Id.TKT20007]: Prerequisite.MANDATORY,
+            [Id.TKT200093]: Prerequisite.ALTERANTIVE,
+            [Id.DATA15001]: Prerequisite.MANDATORY,
+            [Id.TKT20005]: Prerequisite.MANDATORY,
         },
         description: `Kurssilla tehdään kandidaatin tutkielma`,
     },
@@ -211,7 +214,7 @@ export const courses: Courses = {
     },
     [Id.TKT200091]: {
         code: 'TKT200091',
-        credits: 5,
+        credits: 1,
         prerequisites: {
             [Id.TKT10003]: Prerequisite.MANDATORY,
         },
@@ -219,7 +222,7 @@ export const courses: Courses = {
     },
     [Id.TKT200092]: {
         code: 'TKT200092',
-        credits: 5,
+        credits: 3,
         prerequisites: {
             [Id.TKT200091]: Prerequisite.MANDATORY,
         },
@@ -227,7 +230,7 @@ export const courses: Courses = {
     },
     [Id.TKT200093]: {
         code: 'TKT200093',
-        credits: 5,
+        credits: 1,
         prerequisites: {
             [Id.TKT200092]: Prerequisite.MANDATORY,
         },
@@ -370,12 +373,12 @@ export const courses: Courses = {
     },
     [Id.TKT21018]: {
         code: 'TKT21018',
-        credits: 5,
+        credits: 2,
         description: `Kurssilla opetetaan tekoälyn perusteet`,
     },
     [Id.TKT210281]: {
         code: 'TKT210281',
-        credits: 5,
+        credits: 1,
         prerequisites: {
             [Id.TKT21018]: Prerequisite.MANDATORY,
         },
@@ -383,7 +386,7 @@ export const courses: Courses = {
     },
     [Id.TKT210282]: {
         code: 'TKT210282',
-        credits: 5,
+        credits: 1,
         prerequisites: {
             [Id.TKT210281]: Prerequisite.MANDATORY,
         },
@@ -391,7 +394,7 @@ export const courses: Courses = {
     },
     [Id.TKT21031]: {
         code: 'TKT21031',
-        credits: 5,
+        credits: 2,
         prerequisites: {
             [Id.TKT21018]: Prerequisite.RECOMMENDED,
         },
@@ -424,6 +427,10 @@ export const courses: Courses = {
     [Id.TKT21040]: {
         code: 'TKT21040',
         credits: 5,
+        prerequisites: {
+            [Id.CSM141081]: Prerequisite.MANDATORY,
+            [Id.TKT21037]: Prerequisite.MANDATORY,
+        },
         description: `Kurssilla opetetaan test-driven development`,
     },
     [Id.TKT21041]: {
@@ -437,6 +444,9 @@ export const courses: Courses = {
     [Id.TKT21039]: {
         code: 'TKT21039',
         credits: 2,
+        prerequisites: {
+            [Id.TKT10006]: Prerequisite.RECOMMENDED,
+        },
         description: `Kurssilla opetetaan core 5G and beyond`,
     },
     [Id.TKT21026]: {

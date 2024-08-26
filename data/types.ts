@@ -1,6 +1,7 @@
 import {
     type CourseGroup,
     type DegreeCode,
+    type Language,
     type Method,
     type Necessity,
     type Period,
@@ -93,7 +94,7 @@ export type Courses = {
 export type Course<code = keyof typeof Id, id = never> = {
     code: code
     credits?: number
-    languages?: string[]
+    languages?: Language[]
     description?: string
     coursesLink?: string
     sisuLink?: string

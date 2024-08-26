@@ -9,9 +9,7 @@ export const getCourseNodes = (courses: CourseData[]): CourseNodeType[] =>
         type: 'course',
         data: course,
         position: {
-            x:
-                (parseInt(course.code.substring(course.code.length - 2)) % 10) *
-                300,
-            y: Math.random() * 1500,
+            x: 0,
+            y: 0,
         },
     }))

@@ -1,4 +1,4 @@
-import { type Node, Position } from '@xyflow/react'
+import { type Node } from '@xyflow/react'
 import { type CourseData } from './courses'
 
 export type CourseNodeType = Node<CourseData, 'course'>
@@ -8,10 +8,10 @@ export const getCourseNodes = (courses: CourseData[]): CourseNodeType[] =>
         id: course.id,
         type: 'course',
         data: course,
-        sourcePosition: Position.Right,
-        targetPosition: Position.Left,
         position: {
-            x: Math.random() * 1500,
+            x:
+                (parseInt(course.code.substring(course.code.length - 2)) % 10) *
+                300,
             y: Math.random() * 1500,
         },
     }))

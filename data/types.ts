@@ -29,7 +29,7 @@ export type DegreeStructure = {
 
     // Groups of courses that are required/optional for the degree
     groups: ({
-        group: CourseGroup // Type of the course group
+        type: CourseGroup // Type of the course group
         description?: string
     } & (
         | {

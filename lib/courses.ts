@@ -1,9 +1,8 @@
 import { courses } from '@/data/courses'
-import { CourseGroup, Prerequisite } from '@/data/enums'
+import { type CourseGroup, Prerequisite } from '@/data/enums'
 import { type Id } from '@/data/ids'
 import { type Course, type DegreeStructure } from '@/data/types'
-import { map, pipe } from 'remeda'
-import { typedEntries, typedOptionalEntries } from './typeUtils'
+import { typedOptionalEntries } from './typeUtils'
 
 // Type of the course data used in the frontend / layout engine
 export type CourseData = Course & {
@@ -12,24 +11,35 @@ export type CourseData = Course & {
     group: CourseGroup
 }
 
-export const getCourses = (degreeStructure: DegreeStructure): CourseData[] =>
-    pipe(
-        courses,
-        typedEntries,
-        map(([id, course]) => ({
-            ...course,
-            id,
-            prerequisites: typedOptionalEntries(course.prerequisites ?? {})
-                // Filter out undefined
-                .filter(([, prerequisite]) => prerequisite in Prerequisite)
-                .map(([id, prerequisite]) => ({
-                    id,
-                    necessity: prerequisite,
-                })),
-            group:
-                Object.values(CourseGroup)[
-                    parseInt(course.code.slice(-1)) %
-                        Object.values(CourseGroup).length
-                ] ?? CourseGroup.OTHER,
-        }))
+export const getCourses = (degreeStructure: DegreeStructure): CourseData[] => {
+    const includedCourses = new Set(
+        degreeStructure.groups.map(({ courses }) => courses).flat(2)
     )
+
+    const addedCourses = new Set<Id>()
+
+    return degreeStructure.groups
+        .map((group) =>
+            group.courses
+                .flat()
+                .filter((id) => !addedCourses.has(id))
+                .map((id) => ({
+                    ...courses[id],
+                    id,
+                    prerequisites: typedOptionalEntries(
+                        courses[id].prerequisites ?? {}
+                    )
+                        // Filter out undefined
+                        .filter(
+                            ([, prerequisite]) => prerequisite in Prerequisite
+                        )
+                        .filter(([id]) => includedCourses.has(id))
+                        .map(([id, prerequisite]) => ({
+                            id,
+                            necessity: prerequisite,
+                        })),
+                    group: group.type,
+                }))
+        )
+        .flat()
+}

@@ -28,28 +28,6 @@ npm run dev
 
 [Curriculum](data/curriculum.ts) (individual course implementation periods/dates)
 
-## Before a new academic year
-
-1.  Create a new [degree structure](data/tkt/structure.ts) (OPS) if one is introduced or make possible changes to the current one
-
-    -   List which courses are included in the structure
-        -   Copying the old one should save some work
-        -   [Add new courses](#adding-a-course) if needed
-    -   Add new course equivalences to course list
-        -   These can usually be found [here](https://studies.helsinki.fi/ohjeet/artikkeli/opetussuunnitelma-ja-opintojen-vastaavuudet) (link to HY site)
-
-> Don't remove phased out courses from the [course codes](data/ids.ts) or [course list](data/courses.ts) unless they are no longer included in any [degree structures](data/tkt/structure.ts).
-
-2.  Create a new curriculum for the upcoming year
-
-    -   The preliminary course plans can usually be found [here](https://studies.helsinki.fi/ohjeet/artikkeli/mista-loydan-opintotarjonnan) (link to HY site)
-    -   Remove the old one after the new one has started
-
-> [!NOTE]
-> This is completely optional or can be done just for the most important courses as this may be a lot of manual work. The main course map functionalities would not be affected.
-
-3.  Make changes to individual course information if needed
-
 ## Adding a course
 
 1. Add the course code and name to [ids.ts](data/ids.ts)
@@ -71,3 +49,25 @@ npm run dev
 3. Create a directory for the degree and a degree stucture (OPS) (e.g. [TKT BSc degree](data/degree_structures/tkt.ts))
 
 4. Incude the degree structure in [index.ts](data/index.ts)
+
+## Before a new academic year
+
+1.  Create a new [degree structure](data/tkt/structure.ts) (OPS) if one is introduced or make possible changes to the current one
+
+    -   List which courses are included in the structure
+        -   Copying the old one should save some work
+        -   [Add new courses](#adding-a-course) if needed
+    -   Add new course equivalences to course list
+        -   These can usually be found [here](https://studies.helsinki.fi/ohjeet/artikkeli/opetussuunnitelma-ja-opintojen-vastaavuudet) (link to HY site)
+
+> Don't remove phased out courses from the [course codes](data/ids.ts) or [course list](data/courses.ts) unless they are no longer included in any [degree structures](data/tkt/structure.ts).
+
+2.  Create a new curriculum for the upcoming year
+
+    -   The preliminary course plans can usually be found [here](https://studies.helsinki.fi/ohjeet/artikkeli/mista-loydan-opintotarjonnan) (link to HY site)
+    -   Remove the old one after the new one has started
+
+> [!NOTE]
+> This is completely optional or can be done just for the most important courses as this may be a lot of manual work. The main course map functionalities would not be affected.
+
+3.  Make changes to individual course information if needed

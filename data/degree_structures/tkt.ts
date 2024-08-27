@@ -51,7 +51,7 @@ export const structures: DegreeStructures = {
             },
             {
                 type: CourseGroup.INTERMEDIATE,
-                necessity: Necessity.MANDATORY,
+                necessity: Necessity.OPTIONAL,
                 courses: [Id.TKT20010, Id.TKT20012, Id.TKT20018],
                 description: 'Aineopintojen harjoitustyöt',
             },
@@ -100,9 +100,15 @@ export const structures: DegreeStructures = {
             },
             {
                 type: CourseGroup.ALTERANTIVE,
-                necessity: Necessity.MANDATORY,
-                courses: [Id.MAT11001, Id.MAT12001, Id.MAT12002],
+                necessity: Necessity.SELECTABLE,
+                courses: [[Id.MAT11001, Id.MAT12001, Id.MAT12002]],
                 description: 'Menetelmätieteet',
+            },
+            {
+                type: CourseGroup.OTHER,
+                necessity: Necessity.MANDATORY,
+                courses: [Id['DIGI-A'], Id.TKT500031],
+                description: 'Opiskelijan digitaidot',
             },
             {
                 type: CourseGroup.OTHER,

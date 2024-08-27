@@ -1,8 +1,8 @@
 'use client'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 
 import { CourseGroup, Language } from '@/data/enums'
-import { selectedCourseAtom } from '@/lib/state'
+import { courseDataAtom, selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import { cn } from '@/lib/utils'
 import { CalendarCheck, GraduationCap, X } from 'lucide-react'
@@ -21,6 +21,7 @@ export const CourseInfo = () => {
     const isMobile = !useBreakpoint('md')
 
     const [course, selectCourse] = useAtom(selectedCourseAtom)
+    const courseData = useAtomValue(courseDataAtom)
 
     if (!course) return null
 
@@ -69,37 +70,189 @@ export const CourseInfo = () => {
                                 </Row>
                                 {course.nicknames &&
                                     course.nicknames.length > 0 && (
+                                        <Row>
+                                            <p className="text-muted-foreground">
+                                                {course.nicknames.length > 1
+                                                    ? 'Lyhenteet'
+                                                    : 'Lyhenne'}
+                                            </p>
+                                            <p className="font-serif italic">
+                                                {'"'}
+                                                {course.nicknames.join('", "')}
+                                                {'"'}
+                                            </p>
+                                        </Row>
+                                    )}
+                                {((course.prerequisites &&
+                                    course.prerequisites.length > 0) ||
+                                    (course.equivalents &&
+                                        course.equivalents.length > 0)) && (
+                                    <Separator />
+                                )}
+                                {course.prerequisites &&
+                                    course.prerequisites.length > 0 && (
                                         <>
-                                            <Row>
-                                                <p className="text-muted-foreground">
-                                                    {course.nicknames.length > 1
-                                                        ? 'Lyhenteet'
-                                                        : 'Lyhenne'}
-                                                </p>
-                                                <p className="font-serif italic">
-                                                    {'"'}
-                                                    {course.nicknames.join(
-                                                        '", "'
-                                                    )}
-                                                    {'"'}
-                                                </p>
-                                            </Row>
+                                            <p className="px-1 text-muted-foreground">
+                                                Esitietovaatimukset
+                                            </p>
+                                            <div className="flex flex-col gap-4 p-1 pt-0">
+                                                {course.prerequisites.map(
+                                                    (prerequisite) => {
+                                                        const prerequisiteData =
+                                                            courseData.find(
+                                                                (c) =>
+                                                                    c.id ===
+                                                                    prerequisite.id
+                                                            )
+
+                                                        return !prerequisiteData ? null : (
+                                                            <button
+                                                                key={
+                                                                    prerequisiteData.id
+                                                                }
+                                                                aria-label={`Open info for the equivalent course ${prerequisiteData.code}`}
+                                                                onClick={() =>
+                                                                    selectCourse(
+                                                                        courseData.find(
+                                                                            (
+                                                                                c
+                                                                            ) =>
+                                                                                c.id ===
+                                                                                prerequisiteData.id
+                                                                        )
+                                                                    )
+                                                                }
+                                                            >
+                                                                <div
+                                                                    className={`bg-course-${prerequisiteData.group ?? CourseGroup.PLACEHOLDER} ring-course-${prerequisiteData.group ?? CourseGroup.PLACEHOLDER} rounded border-0 ring-2 hover:ring-4`}
+                                                                >
+                                                                    <div className="flex items-center justify-start">
+                                                                        <div
+                                                                            className={`flex h-full flex-col items-center justify-center px-3 text-primary dark:text-primary-foreground`}
+                                                                        >
+                                                                            <p className="-mb-2 font-semibold">
+                                                                                {prerequisiteData.credits ??
+                                                                                    '-'}
+                                                                            </p>
+                                                                            <p className="text-sm">
+                                                                                op
+                                                                            </p>
+                                                                        </div>
+                                                                        <div className="flex w-full flex-col rounded bg-background p-2 pr-3 text-start">
+                                                                            <label
+                                                                                className={`text-xs text-foreground/70`}
+                                                                            >
+                                                                                {
+                                                                                    prerequisiteData.code
+                                                                                }
+                                                                            </label>
+                                                                            <h2
+                                                                                className={`w-full break-words text-sm text-foreground dark:text-foreground`}
+                                                                            >
+                                                                                {
+                                                                                    prerequisiteData.id /* course name */
+                                                                                }
+                                                                            </h2>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                        )
+                                                    }
+                                                )}
+                                            </div>
                                         </>
                                     )}
-                                {course.description && (
-                                    <>
-                                        <Separator />
-                                        <p className="px-1 text-muted-foreground">
-                                            Kuvaus
+                                {course.equivalents &&
+                                    course.equivalents.length > 0 && (
+                                        <>
+                                            <p className="px-1 text-muted-foreground">
+                                                Vastaavuudet
+                                            </p>
+                                            <div className="flex flex-col gap-4 p-1 pt-0">
+                                                {course.equivalents.map(
+                                                    (equivalent) => (
+                                                        <button
+                                                            key={equivalent.id}
+                                                            aria-label={`Open info for the equivalent course ${equivalent.code}`}
+                                                            onClick={() =>
+                                                                selectCourse(
+                                                                    courseData.find(
+                                                                        (c) =>
+                                                                            c.id ===
+                                                                            equivalent.id
+                                                                    )
+                                                                )
+                                                            }
+                                                        >
+                                                            <div
+                                                                className={`bg-course-${equivalent.group ?? CourseGroup.PLACEHOLDER} ring-course-${equivalent.group ?? CourseGroup.PLACEHOLDER} rounded border-0 ring-2 hover:ring-4`}
+                                                            >
+                                                                <div className="flex items-center justify-start">
+                                                                    <div
+                                                                        className={`flex h-full flex-col items-center justify-center px-3 text-primary dark:text-primary-foreground`}
+                                                                    >
+                                                                        <p className="-mb-2 font-semibold">
+                                                                            {equivalent.credits ??
+                                                                                '-'}
+                                                                        </p>
+                                                                        <p className="text-sm">
+                                                                            op
+                                                                        </p>
+                                                                    </div>
+                                                                    <div className="flex w-full flex-col rounded bg-background p-2 pr-3 text-start">
+                                                                        <label
+                                                                            className={`text-xs text-foreground/70`}
+                                                                        >
+                                                                            {
+                                                                                equivalent.code
+                                                                            }
+                                                                        </label>
+                                                                        <h2
+                                                                            className={`w-full break-words text-sm text-foreground dark:text-foreground`}
+                                                                        >
+                                                                            {
+                                                                                equivalent.id /* course name */
+                                                                            }
+                                                                        </h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </button>
+                                                    )
+                                                )}
+                                            </div>
+                                        </>
+                                    )}
+
+                                {
+                                    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+                                    (course.mandatory ||
+                                        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+                                        course.module ||
+                                        course.languages) && <Separator />
+                                }
+
+                                {course.mandatory && (
+                                    <Row>
+                                        <p className="text-muted-foreground">
+                                            Pakollinen
                                         </p>
-                                        <p className="whitespace-pre-line px-1 text-xs text-muted-foreground">
-                                            {course.description}
+                                        <p>Kyllä</p>
+                                    </Row>
+                                )}
+                                {course.module && (
+                                    <Row className="items-start">
+                                        <p className="text-muted-foreground">
+                                            Opintokokonaisuus
                                         </p>
-                                    </>
+                                        <p className="text-end">
+                                            {course.module}
+                                        </p>
+                                    </Row>
                                 )}
                                 {course.languages && (
                                     <>
-                                        <Separator />
                                         <Row>
                                             <p className="text-muted-foreground">
                                                 {course.languages.length > 1
@@ -115,6 +268,17 @@ export const CourseInfo = () => {
                                                     .join(', ')}
                                             </p>
                                         </Row>
+                                    </>
+                                )}
+                                {course.description && (
+                                    <>
+                                        <Separator />
+                                        <p className="px-1 text-muted-foreground">
+                                            Kuvaus
+                                        </p>
+                                        <p className="whitespace-pre-line px-1 text-xs text-muted-foreground">
+                                            {course.description}
+                                        </p>
                                     </>
                                 )}
                             </div>
@@ -168,9 +332,20 @@ export const CourseInfo = () => {
     )
 }
 
-const Row = ({ children }: { children: ReactNode[] }) => {
+const Row = ({
+    children,
+    className,
+}: {
+    children: ReactNode[]
+    className?: string
+}) => {
     return (
-        <div className="flex flex-row items-center justify-between px-1">
+        <div
+            className={cn(
+                'flex flex-row items-center justify-between px-1',
+                className
+            )}
+        >
             {children}
         </div>
     )

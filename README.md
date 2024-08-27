@@ -56,9 +56,11 @@ npm run dev
 
 2. Add generic course information, prerequisites and equivalents to [courses.ts](data/courses.ts)
 
-3. Add the course to all degree structures the course is part of (e.g. [TKT BSc degree](data/degree_structures/tkt.ts))
+3. Add a course description to [descriptions.ts](data/descriptions.ts)
 
-4. List when the course is held in [curriculum.ts](data/curriculum.ts) (optional)
+4. Add the course to all degree structures the course is part of (e.g. [TKT BSc degree](data/degree_structures/tkt.ts))
+
+5. List when the course is held in [curriculum.ts](data/curriculum.ts) (optional)
 
 ## Adding a new degree
 

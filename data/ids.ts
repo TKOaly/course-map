@@ -55,6 +55,7 @@ export enum Id {
     TKT50002 = 'Tutkimustiedonhaku',
     TKT50004 = 'Akateemiset taidot',
     TKT50007 = 'Varusmiespalveluksen johtajakoulutus',
+    TKT500031 = 'Tietokone työvälineenä',
 
     // BSCS
     BSCS2002 = 'Computing and Society',
@@ -64,6 +65,7 @@ export enum Id {
     MAT11001 = 'Johdatus yliopistomatematiikkaan',
     MAT12001 = 'Tilastotiede ja R tutuksi I',
     MAT12002 = 'Tilastotiede ja R tutuksi II',
+    MAT20016 = 'Latex-kurssi',
 
     // CSM
     CSM141081 = 'Full Stack -websovelluskehitys',
@@ -87,6 +89,7 @@ export enum Id {
     // FYS
 
     // OTHER
+    'DIGI-A' = 'Opiskelijan digitaidot: orientaatio',
     'ML-HAL-OPJT01' = 'Yliopiston hallinto- ja opiskelijajärjestötoiminta',
     'ML-T001' = 'Ryhmänohjauskoulutus ja tuutorointi',
 }

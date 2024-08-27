@@ -3,14 +3,7 @@
 import { selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import dagre from '@dagrejs/dagre'
-import {
-    Background,
-    ConnectionLineType,
-    MarkerType,
-    Position,
-    ReactFlow,
-    useReactFlow,
-} from '@xyflow/react'
+import { Background, Position, ReactFlow, useReactFlow } from '@xyflow/react'
 import { useSetAtom } from 'jotai'
 import { CourseNode } from './CourseNode'
 
@@ -18,6 +11,7 @@ import { type CourseEdgeType } from '@/lib/edges'
 import { type CourseNodeType } from '@/lib/nodes'
 import '@xyflow/react/dist/style.css'
 import { useEffect, useState } from 'react'
+import { CourseEdge } from './CourseEdge'
 import { type CourseNodeData } from './CourseLoader'
 
 const nodeWidth = 350
@@ -68,6 +62,10 @@ const nodeTypes = {
     course: CourseNode,
 }
 
+const edgeTypes = {
+    course: CourseEdge,
+}
+
 export const CourseFlow = ({
     courseNodeData,
 }: {
@@ -92,9 +90,10 @@ export const CourseFlow = ({
             await reactFlow.fitView({ duration: 750 })
         }
 
+        // Only move the view if the number of nodes has changed
         setTimeout(() => {
             void fitView()
-        }, 1)
+        }, 50)
     }, [courseNodeData, reactFlow, isMobile])
 
     return (
@@ -107,18 +106,11 @@ export const CourseFlow = ({
                 selectCourse(node.data)
             }}
             nodesDraggable={false}
-            nodesFocusable={false}
+            nodesFocusable={true}
             nodesConnectable={false}
             // Edges
             edges={edges}
-            defaultEdgeOptions={{
-                type: ConnectionLineType.Bezier,
-                markerEnd: {
-                    type: MarkerType.ArrowClosed,
-                    width: 24,
-                    height: 24,
-                },
-            }}
+            edgeTypes={edgeTypes}
             edgesFocusable={false}
             edgesReconnectable={false}
             className="size-full"

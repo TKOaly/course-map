@@ -95,10 +95,13 @@ export type Course<code = keyof typeof Id, id = never> = {
     code: code
     credits?: number
     languages?: Language[]
-    description?: string
     studiesLink?: string
     sisuLink?: string
     nicknames?: string[]
     equivalents?: Id[]
     prerequisites?: { [key in Exclude<Id, id>]?: Prerequisite } // Ensures course is not its own prerequisite
+}
+
+export type Descriptions = {
+    [code in Id]: string
 }

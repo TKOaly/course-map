@@ -37,7 +37,11 @@ const searchNodes =
 
         const nodefilter = (node: CourseNodeType) =>
             node.data.code.toLowerCase().includes(searchString.toLowerCase()) ||
-            node.data.id.toLowerCase().includes(searchString.toLowerCase())
+            node.data.id.toLowerCase().includes(searchString.toLowerCase()) ||
+            (node.data.nicknames ?? [])
+                .join(' ')
+                .toLowerCase()
+                .includes(searchString.toLowerCase())
 
         const matches = nodes.filter(nodefilter).map((node) => node.id)
 

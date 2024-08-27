@@ -5,9 +5,13 @@ import { Handle, type NodeProps, Position } from '@xyflow/react'
 export const CourseNode = ({ data: course }: NodeProps<CourseNodeType>) => {
     return (
         <>
-            <Handle type="target" position={Position.Left} />
+            <Handle
+                type="target"
+                position={Position.Left}
+                className="!border-0 !bg-transparent"
+            />
             <div
-                className={` ${course.disabled ? 'bg-zinc-300 dark:bg-zinc-800' : 'bg-course-' + (course.group ?? CourseGroup.PLACEHOLDER)} ${course.disabled ? 'ring-zinc-300 dark:ring-zinc-800' : 'ring-course-' + (course.group ?? CourseGroup.PLACEHOLDER)} rounded border-0 ring-2 hover:ring-4`}
+                className={`${course.disabled ? 'bg-zinc-300 dark:bg-zinc-800' : 'bg-course-' + (course.group ?? CourseGroup.PLACEHOLDER)} ${course.disabled ? 'ring-zinc-300 dark:ring-zinc-800' : 'ring-course-' + (course.group ?? CourseGroup.PLACEHOLDER)} rounded border-0 ring-2 hover:ring-4`}
             >
                 <div className="flex items-center justify-between">
                     <div
@@ -32,7 +36,11 @@ export const CourseNode = ({ data: course }: NodeProps<CourseNodeType>) => {
                     </div>
                 </div>
             </div>
-            <Handle type="source" position={Position.Right} />
+            <Handle
+                type="source"
+                position={Position.Right}
+                className="!border-0 !bg-transparent"
+            />
         </>
     )
 }

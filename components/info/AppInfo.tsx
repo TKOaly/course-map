@@ -4,19 +4,36 @@ export const AppInfo = () => (
     <SheetContent className="flex max-h-full min-h-full flex-col gap-2 overflow-y-auto">
         <SheetTitle className="text-xl font-bold">Kurssikartta</SheetTitle>
         <SheetDescription>
-            Kurssikartta on ensisijaisesti Helsingin yliopiston
-            tietojenkäsittelytieteen opiskelijoille suunnattu sovellus, jolla
-            voi tarkastella tutkinto-ohjelmien tarjoamia kursseja ja niihin
-            liittyviä tietoja kuten esitietovaatimuksia, toteutuksia ja
-            vastaavuuksia.
+            Kurssikartalla voit tarkastella tutkinto-ohjelmien tarjoamia
+            kursseja ja niiden esitietovaatimuksia.
         </SheetDescription>
+        <SheetTitle className="text-base">Kartan käyttö ja tulkinta</SheetTitle>
         <SheetDescription>
-            Kurssitietoja ylläpidetään manuaalisesti, joten tiedot mm. kurssien
-            toteutuksista voivat olla vanhentuneita tai puutteellisia. Kurssien
-            esitietovaatimukset ja opetussuunnitelmien rakenne muuttuvat
-            kuitenkin harvemmin, joten nämä tiedot ovat yleensä ajantasaisempia.
+            Zoomaa karttaa ja paina kursseista nähdäksesi lisätietoja.
+            Lisätiedoista voit siirtyä suoraan kurssin Studies- tai
+            Sisu-sivuille.
         </SheetDescription>
-        <SheetTitle className="text-base">Kurssitiedoissa on virhe!</SheetTitle>
+        <SheetDescription className="rounded border border-primary p-3">
+            <span className="font-semibold text-foreground">Värit</span>
+            <br />
+            Yhtenäinen viiva kurssien välillä merkitsee kurssilla vahvasti
+            suositeltua tai pakollista esitietovaatimusta.
+            <div className="my-2 min-h-1 min-w-full border-t-2 border-primary"></div>
+            Katkoviiva merkitsee esitietoja, joista on hyötyä kurssilla tai
+            suositeltua suoritusjärjestystä.
+            <div className="my-2 min-h-1 min-w-full border-t-2 border-dashed border-primary"></div>
+            Sininen viiva merkitsee kurssivaihtoehtoja, joista osa on
+            suoritettava ennen kurssille osallistumista.
+            <div className="my-2 min-h-1 min-w-full border-t-2 border-sky-500"></div>
+            Kartalla olevat kurssit on värikoodattu vastaamaan
+            opetussuunnitelman eri opintokokonaisuuksia samoilla väreillä kuin
+            Sisussa.
+        </SheetDescription>
+        <SheetTitle className="text-base">Tiedoissa on virhe!</SheetTitle>
+        <SheetDescription>
+            Kurssitietoja ylläpidetään manuaalisesti, joten tiedot voivat olla
+            paikoittain vanhentuneita tai puutteellisia.
+        </SheetDescription>
         <SheetDescription>
             Kurssitiedot löytyvät projektin{' '}
             <a

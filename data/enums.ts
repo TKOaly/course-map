@@ -47,9 +47,9 @@ export enum Method {
 // Indicates whether a previous course is required for the course or overall recommended but not required
 // Edeltävän kurssin pakollisuus
 export enum Prerequisite {
-    MANDATORY, // Esitietovaatimus / Crucial prerequisite
-    ALTERANTIVE, // Vaihtoehtoinen esitieto / Alternative prerequisite
+    MANDATORY = 1, // Esitietovaatimus / Crucial prerequisite
     RECOMMENDED, // Hyödyllinen esitieto / Useful prerequisite
+    ALTERANTIVE, // Vaihtoehtoinen esitieto / Alternative prerequisite
 }
 
 // Predefined periods where most courses are held

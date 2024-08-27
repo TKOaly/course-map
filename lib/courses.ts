@@ -1,15 +1,20 @@
 import { courses } from '@/data/courses'
-import { type CourseGroup, Prerequisite } from '@/data/enums'
+import { descriptions } from '@/data/descriptions'
+import { type CourseGroup, Necessity, Prerequisite } from '@/data/enums'
 import { type Id } from '@/data/ids'
 import { type Course, type DegreeStructure } from '@/data/types'
 import { typedOptionalEntries } from './typeUtils'
 
 // Type of the course data used in the frontend / layout engine
-export type CourseData = Course & {
+export type CourseData = Omit<Course, 'prerequisites' | 'equivalents'> & {
     id: Id // Course name
     prerequisites: { id: Id; necessity: Prerequisite }[]
+    equivalents: (Course & { id: Id; group: CourseGroup })[]
     group: CourseGroup
     disabled?: boolean
+    description: string
+    mandatory?: boolean
+    module?: string
 }
 
 export const getCourses = (degreeStructure: DegreeStructure): CourseData[] => {
@@ -39,7 +44,17 @@ export const getCourses = (degreeStructure: DegreeStructure): CourseData[] => {
                             id,
                             necessity: prerequisite,
                         })),
+                    equivalents: (courses[id].equivalents ?? []).map(
+                        (equivalent) => ({
+                            ...courses[equivalent],
+                            id: equivalent,
+                            group: group.type,
+                        })
+                    ),
                     group: group.type,
+                    description: descriptions[id],
+                    mandatory: group.necessity === Necessity.MANDATORY,
+                    module: group.description,
                 }))
         )
         .flat()

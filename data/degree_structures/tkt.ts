@@ -36,17 +36,8 @@ export const structures: DegreeStructures = {
             },
             {
                 type: CourseGroup.INTERMEDIATE,
-                necessity: Necessity.SELECTABLE,
-                courses: [
-                    [Id.TKT200091, Id.TKT200092, Id.TKT200093],
-                    [Id.TKT20009],
-                ],
-                description: 'Tietoturvan perusteet',
-            },
-            {
-                type: CourseGroup.INTERMEDIATE,
-                necessity: Necessity.SELECTABLE,
-                courses: [[Id.TKT20015], [Id.TKT200151, Id.TKT200152]],
+                necessity: Necessity.MANDATORY,
+                courses: [Id.TKT20015, Id.TKT200151, Id.TKT200152],
                 description: 'Tietojenkäsittely ja yhteiskunta',
             },
             {
@@ -76,8 +67,18 @@ export const structures: DegreeStructures = {
                     Id.TKT21039,
                     Id.TKT21026,
                     Id.TKT21003,
+                    Id.TKT210031,
                 ],
                 description: 'Valinnaiset aineopinnot',
+            },
+            {
+                type: CourseGroup.INTERMEDIATE,
+                necessity: Necessity.SELECTABLE,
+                courses: [
+                    [Id.TKT200091, Id.TKT200092, Id.TKT200093],
+                    [Id.TKT20009],
+                ],
+                description: 'Tietoturvan perusteet',
             },
             {
                 type: CourseGroup.INTERMEDIATE,
@@ -105,10 +106,35 @@ export const structures: DegreeStructures = {
                 description: 'Menetelmätieteet',
             },
             {
+                type: CourseGroup.ALTERANTIVE,
+                necessity: Necessity.SELECTABLE,
+                courses: [
+                    [
+                        Id.MAT11009,
+                        Id.MAT11015,
+                        Id.MAT11002,
+                        Id.MAT21001,
+                        Id.MAT11003,
+                    ],
+                ],
+                description: 'Matematiikan aineopinnot',
+            },
+            {
                 type: CourseGroup.OTHER,
                 necessity: Necessity.MANDATORY,
                 courses: [Id['DIGI-A'], Id.TKT500031],
                 description: 'Opiskelijan digitaidot',
+            },
+            {
+                type: CourseGroup.OTHER,
+                necessity: Necessity.OPTIONAL,
+                courses: [
+                    Id.MAT20016,
+                    Id.TKT50007,
+                    Id['ML-HAL-OPJT01'],
+                    Id['ML-T001'],
+                ],
+                description: 'Muut opinnot',
             },
             {
                 type: CourseGroup.OTHER,
@@ -117,10 +143,10 @@ export const structures: DegreeStructures = {
                 description: 'Akateemiset taidot',
             },
             {
-                type: CourseGroup.OTHER,
+                type: CourseGroup.MINOR,
                 necessity: Necessity.OPTIONAL,
-                courses: [Id.TKT50007, Id['ML-HAL-OPJT01'], Id['ML-T001']],
-                description: 'Muut opinnot',
+                courses: [Id.FYS1015, Id.FYS1010, Id.FYS1014],
+                description: 'Fysikaalisten tieteiden opintokokonaisuus',
             },
         ],
     },

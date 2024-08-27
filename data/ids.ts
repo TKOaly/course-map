@@ -52,6 +52,7 @@ export enum Id {
     TKT21039 = 'Core 5G and Beyond',
     TKT21026 = 'Network Programming',
     TKT21003 = 'Web-palvelinohjelmointi Ruby on Rails',
+    TKT210031 = 'Server-side Web Development Ruby on Rails: Hotwire',
     TKT50002 = 'Tutkimustiedonhaku',
     TKT50004 = 'Akateemiset taidot',
     TKT50007 = 'Varusmiespalveluksen johtajakoulutus',
@@ -60,12 +61,6 @@ export enum Id {
     // BSCS
     BSCS2002 = 'Computing and Society',
     BSCS2011 = 'Programming for Performance',
-
-    // MAT
-    MAT11001 = 'Johdatus yliopistomatematiikkaan',
-    MAT12001 = 'Tilastotiede ja R tutuksi I',
-    MAT12002 = 'Tilastotiede ja R tutuksi II',
-    MAT20016 = 'Latex-kurssi',
 
     // CSM
     CSM141081 = 'Full Stack -websovelluskehitys',
@@ -86,10 +81,25 @@ export enum Id {
     // DATA
     DATA15001 = 'Johdatus tekoälyyn',
 
-    // FYS
-
     // OTHER
     'DIGI-A' = 'Opiskelijan digitaidot: orientaatio',
     'ML-HAL-OPJT01' = 'Yliopiston hallinto- ja opiskelijajärjestötoiminta',
     'ML-T001' = 'Ryhmänohjauskoulutus ja tuutorointi',
+
+    // MAT
+    MAT11001 = 'Johdatus yliopistomatematiikkaan',
+    MAT12001 = 'Tilastotiede ja R tutuksi I',
+    MAT12002 = 'Tilastotiede ja R tutuksi II',
+    MAT20016 = 'Latex-kurssi',
+    MAT11009 = 'Koneoppimisen matematiikan perusteet I',
+    MAT11015 = 'Koneoppimisen matematiikan perusteet II',
+    MAT11002 = 'Lineaarialgebra ja matriisilaskenta I',
+    MAT21001 = 'Lineaarialgebra ja matriisilaskenta II',
+    MAT11003 = 'Raja-arvot',
+
+    // FYS
+
+    FYS1015 = 'Fysiikkaa luonnontieteiliöille',
+    FYS1010 = 'Matemaattiset apuneuvot I',
+    FYS1014 = 'Havaintojen tilastollinen käsittely',
 }

@@ -15,6 +15,10 @@ const languages: { [key in Language]: string } = {
     [Language.FI]: 'Suomi',
     [Language.EN]: 'Englanti',
     [Language.SV]: 'Ruotsi',
+    [Language.ES]: 'Espanja',
+    [Language.FR]: 'Ranska',
+    [Language.NO]: 'Norja',
+    [Language.SK]: 'Slovakki',
 }
 
 export const CourseInfo = () => {
@@ -242,7 +246,7 @@ export const CourseInfo = () => {
                                     </Row>
                                 )}
                                 {course.module && (
-                                    <Row className="items-start">
+                                    <Row>
                                         <p className="text-muted-foreground">
                                             Opintokokonaisuus
                                         </p>
@@ -259,7 +263,7 @@ export const CourseInfo = () => {
                                                     ? 'Kielet'
                                                     : 'Kieli'}
                                             </p>
-                                            <p>
+                                            <p className="text-end">
                                                 {course.languages
                                                     .map(
                                                         (language) =>

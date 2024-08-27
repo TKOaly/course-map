@@ -28,6 +28,10 @@ export enum Language {
     FI = 'fi',
     EN = 'en',
     SV = 'sv',
+    ES = 'es',
+    FR = 'fr',
+    NO = 'no',
+    SK = 'sk',
 }
 
 // Type of course implementation

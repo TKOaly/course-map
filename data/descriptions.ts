@@ -8,7 +8,7 @@ export const descriptions: Descriptions = {
     // ========
     //   TKT
     // ========
-    [Id.TKT10001]: `Kurssilla opetetaan tietojenkäsittelytieteen perusteet`,
+    [Id.TKT10001]: ``,
     [Id.TKT10002]: `Opintojaksolla perehdyt nykyaikaisen ohjelmoinnin perusideoihin sekä ohjelmoinnissa käytettävien työvälineiden lisäksi algoritmien laatimiseen.
             
             Opintojakson jälkeen
@@ -30,13 +30,59 @@ export const descriptions: Descriptions = {
         3. osaat käyttää funktionaalisia ominaisuuksia lyhyempien, tehokkaampien ja selkeämpien ohjelmien kirjoittamisessa.
         `,
 
-    [Id.TKT10004]: `Kurssilla opetetaan tietokantojen perusteet`,
+    [Id.TKT10004]: `Kurssin jälkeen opiskelija ymmärtää tietokannan toteuttamiseen liittyviä haasteita,
+        osaa SQL-kielen perusteet ja suunnitella omia kyselyitä,
+        osaa käyttää tietokantaa ohjelmointikielen kautta,
+        osaa suunnitella relaatiomallin mukaisia tietokantoja,
+        tuntee tiedon eheyden, transaktioiden ja indeksien periaatteet,
+        tuntee relaatiomallin taustalla olevaa teoriaa,
+        tietää joitakin NoSQL-tietokantoja ja niiden ominaisuuksia
 
-    [Id.TKT10005]: `Kurssilla opetetaan tietokoneen toiminnan perusteet`,
+        Asiasisältö
 
-    [Id.TKT10006]: `Kurssilla opetetaan tietokoneen ja internetin perusteet`,
+        Tietokantojen haasteet ja relaatiomallin idea,
+        SQL-kielen käyttäminen,
+        Tietokannan käyttäminen ohjelmoinnissa,
+        Tietokannan suunnittelu,
+        Tietokantojen ominaisuudet (tiedon eheys, transaktiot, indeksit),
+        Relaatiomallin teoria,
+        Esimerkkejä NoSQL-tietokannoista`,
 
-    [Id.TKT200010]: `Kurssilla opetetaan tietorakenteet ja algoritmit`,
+    [Id.TKT10005]: ``,
+
+    [Id.TKT10006]: `Kurssin jälkeen osaat
+
+        kuvailla tietokoneen perusrakenteen ja kertoa mitä tapahtuu koneen käynnistyksessä,
+        kertoa missä kaikkialla tietokone voi säilyttää tietoa,
+        kertoa mikä on prosessi ja mikä sen merkitys on ohjelman suorituksessa,
+        selvittää verkkonumeron ja verkkonimen yhteyden sekä muuntaa verkkonumeron sitä vastaavaan binäärimuotoon ja toisinpäin,
+        kuvailla Internetin rakenteen ja sen keskeiset toimintaperiaatteet,
+        laatia konekielisen ohjelman, joka käsittelee yksinkertaista tietorakennetta ja arvojen sijoittamista muuttujille,
+        selittää ja kuvata erilaisia tiedonesitystapoja sekä tehdä lukumuunnoksia erilaisten lukujärjestelmien välillä,
+        selittää usean prosessin suorittamista ja keskeytysten käsittelyä,
+        kuvata verkkoviestien lähettämisen ja vastaanottamisen,
+        selittää Internetin keskeiset palvelut ja protokollat (DNS, HTTP, TCP, IP, DHCP, reititys) ja niiden toiminnan,
+        perustella tiedon suojauksen merkityksen ja selittää jonkun esitellyn menetelmän toiminnan periaatteet.
+        
+        Kurssi harjaannuttaa erityisesti seuraavissa yleisissä akateemisista asiantuntijataidoissa: ryhmätyö, ammattikirjallisuuden lukeminen suomeksi ja englanniksi, akateeminen kirjoittaminen, ajanhallinta sekä rakentavan vuorovaikutuksen taidot.
+
+        Kurssi harjaannuttaa myös alan yleisiä taitoja kuten komentotulkin ja LaTeXin peruskäyttöä.
+
+        Asiasisältö
+
+        Tietokoneen käynnistäminen ja perusrakenne (bootstrap, CPU, muisti, väylä, käyttöjärjestelmän lataus, prosessi)
+
+        Verkkoasetukset (oma verkko-osoite, DHCP, hakemistorakenne /etc)
+
+        Tietokoneen toiminta: konekielinen ohjelmointi, tiedon esitystavat ja muunnokset (kirjaimet, merkkijonot, IPv4 -desimaaliluku/binääri, IPv6/MAC - heksadesimaali/binääri)
+
+        Modernin tietokoneen lyhyt esittely (moniprosessori, GPU)
+
+        Verkkosivun nouto selaimella (I/O, keskeytykset, protokollapino, IP-osoitteet, DNS, HTTP, TCP, IP)
+
+        Verkon toimintaa (verkkojen verkko, reititystaulu ja pakettien edelleenlähetys), häiriöitä (väylällä, verkossa, vikasietoisuuden koodaukset, Hamming, CRC, salaus)`,
+
+    [Id.TKT200010]: ``,
 
     [Id.TKT200011]: `Kurssin jälkeen opiskelija
         
@@ -66,27 +112,44 @@ export const descriptions: Descriptions = {
         osaa määrittää verkon maksimivirtauksen ja tehdä siihen liittyviä palautuksia
         `,
 
-    [Id.TKT20005]: `Kurssilla opetetaan laskennan mallit`,
+    [Id.TKT20005]: ``,
 
-    [Id.TKT20006]: `Kurssilla opetetaan ohjelmistotuotanto`,
+    [Id.TKT20006]: ``,
 
-    [Id.TKT20007]: `Kurssilla tehdään ohjelmistoprojekti`,
+    [Id.TKT20007]: ``,
 
-    [Id.TKT20013]: `Kurssilla tehdään kandidaatin tutkielma`,
+    [Id.TKT20013]: ``,
 
-    [Id.TKT20014]: `Kurssilla tehdään kypsyysnäyte LuK`,
+    [Id.TKT20014]: ``,
 
-    [Id.TKT20016]: `Kurssilla opetetaan laskentaympäristöt`,
+    [Id.TKT20016]: ``,
 
-    [Id.TKT20019]: `Kurssilla opetetaan tietokannat ja web-ohjelmointi`,
+    [Id.TKT20019]: `Kurssin jälkeen opiskelija
 
-    [Id.TKT200091]: `Kurssilla opetetaan tietoturvan perusteet`,
+        ymmärtää web-sovellusten taustalla olevat perusideat
+        osaa toteuttaa tietokantaa käyttävän web-sovelluksen
+        osaa käyttää versionhallintaa ja siirtää sovelluksen tuotantoon
+        osaa ottaa tietoturvan huomioon web-sovelluksen kehityksessä
+        
+        Asiasisältö
+        
+        Web-sovellusten taustalla olevat ideat
 
-    [Id.TKT200092]: `Kurssilla opetetaan tietoturvan perusteet`,
+        Tietokantaa käyttävän web-sovelluksen toteuttaminen
 
-    [Id.TKT200093]: `Kurssilla opetetaan tietoturvan perusteet`,
+        Versionhallinnan käyttäminen
 
-    [Id.TKT20009]: `Kurssilla opetetaan tietoturvan perusteet`,
+        Web-sovelluksen siirtäminen tuotantoon
+
+        Tietoturva web-sovelluskehityksessä`,
+
+    [Id.TKT200091]: ``,
+
+    [Id.TKT200092]: ``,
+
+    [Id.TKT200093]: ``,
+
+    [Id.TKT20009]: ``,
 
     [Id.TKT20015]: `Kurssin jälkeen opiskelija:
 
@@ -178,72 +241,198 @@ export const descriptions: Descriptions = {
 
         Immateriaalioikeudet sekä avoin koodi ja data: immateriaalioikeuden filosofisia perusteita, tekijänoikeudet, ohjelmistopatentit ja -lisenssit, tavaramerkit ja liikesalaisuudet, avoin saatavuus, avoin data ja avoin lähdekoodi (free and open source software).`,
 
-    [Id.TKT20010]: `Kurssilla tehdään aineopintojen harjoitustyö`,
+    [Id.TKT20010]: ``,
 
-    [Id.TKT20012]: `Kurssilla tehdään aineopintojen harjoitustyö`,
+    [Id.TKT20012]: ``,
 
-    [Id.TKT20018]: `Kurssilla tehdään aineopintojen harjoitustyö`,
+    [Id.TKT20018]: ``,
 
-    [Id.TKT21012]: `Kurssilla opetetaan algoritmit ongelmanratkaisussa`,
+    [Id.TKT21012]: ``,
 
-    [Id.TKT21004]: `Kurssilla opetetaan computer architecture`,
+    [Id.TKT21004]: ``,
 
-    [Id.TKT21029]: `Kurssilla opetetaan functional programming`,
+    [Id.TKT21029]: `After the course you
+            
+        know the basic principles of functional programming,
+        
+        can implement simple algorithms using the Haskell programming language,
+        
+        can fluently use recursion in programming.`,
 
-    [Id.TKT21030]: `Kurssilla opetetaan functional programming`,
+    [Id.TKT21030]: ``,
 
-    [Id.TKT21032]: `Kurssilla opetetaan kilpaohjelmointi`,
+    [Id.TKT21032]: ``,
 
-    [Id.TKT21033]: `Kurssilla opetetaan kilpaohjelmointi`,
+    [Id.TKT21033]: ``,
 
-    [Id.TKT21034]: `Kurssilla opetetaan kilpaohjelmointi`,
+    [Id.TKT21034]: ``,
 
-    [Id.TKT21035]: `Kurssilla opetetaan kilpaohjelmointi`,
+    [Id.TKT21035]: ``,
 
-    [Id.TKT210241]: `Kurssilla opetetaan ohjelmointihaasteita`,
+    [Id.TKT210241]: ``,
 
-    [Id.TKT210242]: `Kurssilla opetetaan ohjelmointihaasteita`,
+    [Id.TKT210242]: ``,
 
-    [Id.TKT210243]: `Kurssilla opetetaan ohjelmointihaasteita`,
+    [Id.TKT210243]: ``,
 
-    [Id.TKT21018]: `Kurssilla opetetaan tekoälyn perusteet`,
+    [Id.TKT21018]: `Kurssin suorittamisen jälkeen osaat:
+        
+        nimetä autonomisuuden ja adaptiivisuuden tekoälyn ominaispiirteiksi,
+        
+        erottaa toisistaan tieteiskirjallisuuden tekoälyn ja oikean tekoälyn,
+        
+        kuvailla tekoälyn keskeiset filosofiset kysymykset liittyen Turingin testiin ja kiinalaisen huoneen ajatuskokeeseen,
+        
+        muotoilla tosielämän ongelmia etsintäongelmina,
+        
+        muotoilla yksinkertaisia pelejä (kuten ristinolla) pelipuuksi,
+        
+        soveltaa minimax-periaatetta optimaalisten pelisiirtojen ratkaisemiseen rajoitetun kokoeisessa pelipuussa,
+        
+        ilmaista todennäköisyysarvoja luonnollisina frekvensseinä,
+        
+        soveltaa Bayesin kaavaa yksinkertaisissa skenaarioissa,
+        
+        selittää esiintyvyysharhan ja välttää sen bayesilaisen päättelyn avulla selittää miksi koneoppimista tarvitaan,
+        
+        erottaa ohjatun ja ohjaamattoman koneoppimisen tilanteet toisistaan,
+        
+        selittää seuraavan kolmen ohjatun koneoppimisen menetelmän periaatteet: lähimmän naapurin luokitin, lineaariregressio ja logistinen regressio,
+        
+        selittää, mitä neuroverkot ovat ja mihin tarkoituksiin ne sopivat,
+        
+        ymmärtää myös neuroverkkojen taustalla olevien menetelmien rajoitukset,
+        
+        ymmärtää tulevaisuuden ennustamisen vaikeus, jotta voit paremmin arvioida tekoälystä esitettyjen väitteiden uskottavuutta,
+        
+        tunnistaa joitakin tekoälyn merkittävimpiä yhteiskunnallisia vaikutuksia, kuten algoritmista syrjintää, väärennettyjä sisältöjä, yksityisyydensuojaa ja työelämän murrosta`,
 
-    [Id.TKT210281]: `Kurssilla opetetaan tekoälyn rakentaminen`,
+    [Id.TKT210281]: `The course can be completed on three difficulty levels. The following learning objectives are achieved after completing the course on the advanced level. On the intermediate level, the same objectives are partially achieved.
 
-    [Id.TKT210282]: `Kurssilla opetetaan tekoälyn rakentaminen`,
+        After the course, you are able to:
 
-    [Id.TKT21031]: `Kurssilla opetetaan tekoälyn etiikka`,
+        describe different types of AI such as optimization, reasoning, and learning,
+        
+        choose a suitable AI approach to solve simple tasks such as route planning, probabilistic inference, and pattern recognition,
+        
+        implement a straightforward brute-force optimization algorithm,
+        
+        implement simple probabilistic inference based on statistical data using the Bayes rule,
+        
+        build linear regression models from data, and use the models to predict variables of interest, such as apartment prices,
+        
+        use the nearest neighbor method to predict variables of interest,
+        
+        use cross-validation to avoid under- and overfitting,
+        
+        build and apply logistic regression and simple neural network models for prediction`,
 
-    [Id.TKT21036]: `Kurssilla opetetaan DevOps with Docker`,
+    [Id.TKT210282]: `The course can be completed on three difficulty levels. The following learning objectives are achieved after completing the course on the advanced level.
 
-    [Id.TKT21037]: `Kurssilla opetetaan DevOps with Docker`,
+        After the course, you are able to:
 
-    [Id.TKT21038]: `Kurssilla opetetaan DevOps with Docker`,
+        describe different types of AI such as optimization, reasoning, and learning,
+        
+        choose a suitable AI approach to solve simple tasks such as route planning, probabilistic inference, and pattern recognition,
+        
+        implement a straightforward brute-force optimization algorithm,
+        
+        implement simple probabilistic inference based on statistical data using the Bayes rule,
+        
+        build linear regression models from data, and use the models to predict variables of interest, such as apartment prices,
+        
+        use the nearest neighbor method to predict variables of interest,
+        
+        use cross-validation to avoid under- and overfitting,
+        
+        build and apply logistic regression and simple neural network models for prediction`,
 
-    [Id.TKT21040]: `Kurssilla opetetaan test-driven development`,
+    [Id.TKT21031]: `Kurssin jälkeen ymmärrät eettisen ajattelun roolin tekoälyjärjestelmien suunnittelussa ja toteuttamisessa,
+        
+        osaat kuvailla erilaisia tekoälyyn liittyviä eettisiä näkökulmia ja huomioonotettavia seikkoja,
+        
+        osaat analysoida tekoälyratkaisujen riskejä ja mahdollisuuksia etiikan näkökulmasta,
+        
+        osaat tunnistaa milloin tekoälyratkaisujen toteuttamisessa tarvitaan eettistä harkintaa,
+        
+        pystyt seuraamaan etiikkaan liittyviä keskusteluja sekä julkisissa että asiantuntijayhteisöissä,
+        
+        tiedät eettisten suositusten olemassaolosta ja pystyt soveltamaan niitä suoraviivaisissa tapauksissa, sekä
+        
+        ymmärrät milloin jonkin eettinen kysymyksen ratkaiseminen tarvitsee lisäosaamista. `,
 
-    [Id.TKT21041]: `Kurssilla opetetaan test-driven development`,
+    [Id.TKT21036]: `This part introduces containerization with Docker and relevant concepts such as image and volume. By the end of this part you are able to:
 
-    [Id.TKT21039]: `Kurssilla opetetaan core 5G and beyond`,
+        Run containerized applications
+        
+        Containerize applications
+        
+        Utilize volumes to store data persistently outside of the containers.
+        
+        Use port mapping to enable access via TCP to containerized applications
+        
+        Share your own containers publicly`,
 
-    [Id.TKT21026]: `Kurssilla opetetaan network programming`,
+    [Id.TKT21037]: ``,
 
-    [Id.TKT21003]: `Kurssilla opetetaan web-palvelinohjelmointi Ruby on Rails`,
+    [Id.TKT21038]: ``,
 
-    [Id.TKT50002]: `Kurssilla opetetaan tutkimustiedonhaku`,
+    [Id.TKT21040]: ``,
 
-    [Id.TKT50004]: `Kurssilla opetetaan akateemiset taidot`,
+    [Id.TKT21041]: ``,
+
+    [Id.TKT21039]: ``,
+
+    [Id.TKT21026]: ``,
+
+    [Id.TKT21003]: `Ruby on Rails on vanhempi MVC-websovelluskehys. Monet isot ja tunnetut sovellukset kuten Twitter, Heroku, AirBnB ja GitHub olivat aluksi Railsilla ohjelmoituja, osa näistä luottaa Railsiin edelleen.
+
+        Kurssilla keskitytään palvelinpuolen toiminnallisuuden toteuttamiseen, kurssilla tuotettavat käyttöliittymät tulevat olemaan alkeellisia. Kurssi ei ole johdatuskurssi selainohjelmointiin ja käyttöliittymäsuunnitteluun, HTML:n, CSS:n ja JavaSacriptin rooli kurssilla on hyvin vähäinen.
+        
+        Kurssilla ei esim. varsinaisesti opeteta Rubyä ollenkaan, jokaisen osallistujan on hankittava kurssin aikana omatoimisesti riittävät valmiudet Rubyn käyttöön`,
+
+    [Id.TKT210031]: `Learn how to build interactive web pages with the Hotwire tool provided by Rails 7 
+
+        Asiasisältö
+        
+        Turbo fames
+        
+        Turbo streams
+        
+        Action Cable
+        
+        Stimulus`,
+
+    [Id.TKT50002]: ``,
+
+    [Id.TKT50004]: `Kurssista järjestetään yleensä yksi luento jokaisena opiskeluvuonna
+    
+    Osaamistavoitteet
+
+    Opiskelija tietää opinnoissa tarvittavat tietojärjestelmät ja oppii käyttämään niitä.
+        
+    Hän tietää mikä on HUL-kysely ja miten tätä työkalua voi käyttää omien oppimistapojen kehittymisen seuraamisessa.
+    
+    Opiskelija tuntee koulutusohjeman opetussuunnitelman, miten omia opintoja voi seurata ja nopeuttaa, sekä miten valmistua ja mitkä ovat mahdolliset maisteriopintojen ohjelmat.
+    
+    Hän myös tietää, minkälaisia tukipalveluja on saatavilla ja mistä niitä voi kysellä.
+
+    Asiasisältö
+    
+    SISU, HOPS, HUL-kyselyt, tutkintorakenne, akateeminen mentorointi, opintojen seuranta, tukipalvelut, vaihto-opiskelu, LUK-tutkinnon hakeminen, FM-opintoihin siirtyminen.`,
 
     [Id.TKT50007]: `Opiskelija voi saada varusmiespalveluksen johtajakoulutuskesta 5 opintopistettä`,
 
-    [Id.TKT500031]: ``,
+    [Id.TKT500031]: `Kurssin tavoitteena on varmistaa, että sinulla on tarvittavat käytännön taidot tietojenkäsittelytieteen opintoihin.
+    
+        Tavoitteena on, että opit komentorivin alkeet, käyttämään versionhallintaa suoraviivaisesti koodiprojektissa, sekä luomaan yksinkertaisen staattisen verkkosivun.`,
 
     // ========
     //   BSCS
     // ========
-    [Id.BSCS2002]: `Kurssilla opetetaan computing and society`,
+    [Id.BSCS2002]: ``,
 
-    [Id.BSCS2011]: `Kurssilla opetetaan programming for performance`,
+    [Id.BSCS2011]: ``,
 
     // ========
     //   MAT
@@ -284,12 +473,91 @@ export const descriptions: Descriptions = {
         Listat ja tilastollinen testaaminen, listan luominen ja komponenttien nimeäminen, koodiblokit, replicate, yhden otoksen t-testi, kahden otoksen t-testi, riippumattomuustesti, yhden ja useamman selittäjän lineaarinen regressio, if else - rakenne, Bayes-päättelyä, lisäpakettien asentaminen ja käyttäminen.
         `,
 
-    [Id.MAT20016]: `Kurssilla opetetaan Latex`,
+    [Id.MAT20016]: `Osaamistavoitteet
+
+        Opiskelija osaa käyttää LaTeX-ladontaohjelmaa. Kurssi antaa valmiudet latoa esimerkiksi matemaattista tekstiä sisältäviä harjoitustehtävien ratkaisuja ja opinnäytetöitä.
+
+        Asiasisältö
+
+        LaTeX-ladontaohjelman käytön perusteet.`,
+
+    [Id.MAT11009]: `Kurssin käytyään opiskelija tuntee sovelluksissa tarvittavan lineaarialgebran ja matriisilaskennan matemaattisen perusteet ja perusteet lineaarialgebrallisten ongelmien ratkaisemisesta soveltuvilla ohjelmointityökaluilla.
+
+        Asiasisältö
+        
+        Kurssilla perehdytään lineaarialgebran ja matriisilaskennan sovelluksissa käytettäviin peruskäsitteisiin ja menetelmiin. Kurssin aiheita ovat:
+
+        Lineaariset yhtälöryhmät ja matriisit
+        Vektoriavaruudet ja lineaarikuvaukset
+        Sisätulo ja ortogonaalisuus
+        Determinantti ja ominaisarvot
+        Matriisihajotelmat
+        Käsiteltyä teoriaa harjoitellaan laskennallisten harjoitustehtävien avulla.`,
+
+    [Id.MAT11015]: `Kurssin käytyään opiskelija tuntee sovelluksissa tarvittavan vektorianalyysin ja todennäköisyyslaskennan matemaattiset perusteet ja on tutustunut menetelmien soveltamiseen ohjelmointityökaluilla.
+
+        Asiasisältö
+        
+        Kurssilla perehdytään vektorianalyysin ja todennäköisyyslaskennan peruskäsitteisiin ja menetelmiin. Kurssin aiheita ovat:
+        
+        Derivaatta ja differentiaali, Osittaisderivaatat ja gradientti, Taylorin sarjat, Diskreetit ja jatkuvat jakaumat, Riippumattomuus, Gaussiset jakaumat, Optimointi
+        
+        Käsiteltyä teoriaa harjoitellaan laskennallisten harjoitustehtävien avulla.`,
+
+    [Id.MAT11002]: `Opintojaksolla käsitellään lineaarialgebran ja matriisilaskennan perusteoriaa. Opintojakso keskittyy lineaaristen yhtälöryhmien ratkaisumenelmiin ja ratkaisujen tulkintaan matriisien ja aliavaruuksien avulla. Opintojakson tietoja hyödynnetään laajasti matematiikan perus- ja aineopinnoissa ja matematiikkaa hyödyntävissä muiden alojen opinnoissa. Opintojaksoa suositellaan esitietona kaikille, jotka tarvitsevat tilastollisen analyysin tai useamman muuttujan menetelmiä.
+        Opintojakso on ensimmäinen osa kolmen opintojakson sarjaa, joiden aikana käsitellään äärellisulotteisten vektoriavaruuksien ja lineaarikuvausten perusteet.
+
+        Asiasisältö
+        
+        Lineaariset yhtälöryhmät ja yhtälöryhmän supistettu porrasmuoto,
+        Yhtälöryhmän esittäminen matriisina ja matriisien laskutoimitukset,
+        Yhtälöryhmien ratkaisujen tulkinta aliavaruuksina ja matriiseihin liittyvät aliavaruudet,
+        Pistetulo ja kohtisuoruus euklidisessa avaruudessa,
+        Determinantti: teoreettisesti ja käytännössä,
+        Neliömatriisin ominaisarvot ja ominaisvektorit.`,
+
+    [Id.MAT21001]: `Osaamistavoitteet:
+        
+        Vektoriavaruuksiin sekä lineaarikuvauksiin liittyvät peruskäsitteet ja -taidot.
+        
+        Matematiikan lukemisen ja kirjoittamisen perusteet sekä matematiikasta keskusteleminen.`,
+    [Id.MAT11003]: `Osaamistavoitteet
+
+        Opiskelija osaa käyttää itseisarvoa todistuksissa, ratkaista itseisarvoepäyhtälöitä ja ymmärtää itseisarvon geometrisen tulkinnan.
+        Opiskelija tietää millaisia ominaisuuksia lukujonoilla ja lukujonojen osajonoilla on ja miten näitä voidaan perustella sekä hän osaa käyttää niitä.
+        Opiskelija tietää mitkä ovat supremum ja infimum, miten niitä käytetään ja miten ne eroavat maksimista ja minimistä.
+        Opiskelija osaa johtaa ja perustella funktion ja lukujonon raja-arvon täsmällisesti epsilon-menetelmällä.
+
+        Asiasisältö
+
+        Itseisarvoepäyhtälö ja sen geometrinen tulkinta.
+        supremum ja infimum ja niiden ja maksimin ja minimin ero
+        monotonisten lukujonojen ominaisuuksia
+        funktion raja-arvo
+        funktion ja lukujonon raja-arvo epsilon-menetelmällä
+        osajonojen ominaisuudet
+        Bolzano-Weierstrassin lause
+        reaalilukujen joukon ylinumeroituvuus`,
 
     // ========
     //   CSM
     // ========
-    [Id.CSM141081]: ``,
+    [Id.CSM141081]: `Osaamistavoitteet
+        
+        Fluency in architecting and building robustly tested Single page applications with React, Redux and Express libraries.
+
+        In the learning, emphasis is put on building modular software applying the functional programming paradigm.
+
+        Asiasisältö
+        
+        Fundamentals of HTML and CSS for structuring browser based apps
+        Building and structuring component based frontend code with React
+        State management with React hook store and Redux (using the Flux architecture)
+        HTTP protocol and RESTfull APIs
+        Building RESTfull services with Node/Express
+        Data modelling with Document databases
+        Unit, integration and End to End testing with Jest and Cypress.io(aukeaa uuteen välilehteen) libraries
+        Build configuration using WebPack-library`,
 
     [Id.CSM141082]: ``,
 
@@ -369,11 +637,62 @@ export const descriptions: Descriptions = {
     // ========
     //   FYS
     // ========
+    [Id.FYS1015]: `Kurssin jälkeen opiskelijalla on käsitys fysikaalisesta, tutkivasta tavasta tulkita ja ymmärtää erilaisia ilmiöitä. Hänellä on myös käsitys siitä, miten nykyfysiikan tieto on historiallisesti rakentunut. Hän tietää, mitkä ovat fysiikan keskeiset osa-alueet, fysikaalisen ongelmanratkaisun periaatteet sekä fysiikan peruskäsitteet.
+
+        Asiasisältö
+
+        1. Mekaniikkaa: mekaniikan peruskäsitteistö, suhteellisuusperiaate, impulssiperiaate ja energiaperiaate
+
+        2. Sähkömagnetismia: sähkön ja magnetismin peruskäsitteistö, kentän käsite, sähkömagnetismin ja sähködynamiikan peruslait
+
+        3. Termofysiikkaa: kineettinen kaasuteoria, termofysiikan pääsäännöt ja entropia
+
+        4. Energian kvantittuminen, kvanttimekaniikan hahmottelua`,
+
+    [Id.FYS1010]: `Osaamistavoitteet
+
+        Kurssin jälkeen opiskelija osaa vektorialgebran perusteet erityisesti kolmiulotteisen vektoriavaruuden tapauksessa. Opiskelija osaa muodostaa vektorien välisen piste- ja ristitulon, ja tunnistaa näiden geometrisen tulkinnan. Opiskelija osaa derivoida yhden muuttujan reaalifunktioita. Opiskelija tuntee reaalifunktion integraalifunktion käsitteen,  sen geometrisen tulkinnan sekä yhteyden määrätyn integraalin käsitteeseen. Opiskelija osaa integroida alkeisfunktioita ja osaa soveltaa erilaisia integrointimenetelmiä.
+        
+        Asiasisältö
+        
+        Vektorilaskennan perusteita: vektorialgebra ja vektorien tulot
+        
+        Potenssisarjat
+        
+        Reaalifunktioiden differentiaali- ja integraalilaskentaa`,
+
+    [Id.FYS1014]: `Kurssin jälkeen opiskelijaa osaa käyttää tärkeimpiä havaintojen ja laboratoriomittausten käsittelyssä tarvittavia tilastollisia menetelmiä. Hänellä on perusvalmius tilastollisen valmisohjelmistojen käyttöön ja hän osaa esittää tilastollisen analyysin tuloksia myös kuvien avulla.
+
+        Asiasisältö
+
+        1. Tilastollisen aineiston kuvailumenetelmät
+
+        2. Keskeiset tilastolliset tunnusluvut
+
+        3. Tilastollinen todennäköisyys ja tärkeimmät diskreetit ja jatkuvat tilastolliset todennäköisyysjakaumat (mm. binomijakauma, Poisson-jakauma, tasainen jakauma, eksponenttijakauma ja normaalijakauma)
+
+        4. Tilastollinen estimointi ja virhearviointimenetelmät (mm. keskiarvon keskivirhe ja keskivirheen kasautumislaki)
+
+        5. Tilastollisen testaukseen periaatteet ja tärkeimmät tilastolliset testit (mm. normaalijakaumatesti, t-testi, khii-toiseen-testi)
+
+        6. Korrelaatio ja lineaarinen regressio
+
+        7. Aikasarja-analyysin perusteita, mm. aikasarjan lineaarisen trendin ja liukuvien keskiarvojen määrittäminen. Fourier-analyysin  perusteet.
+
+        8. Kaoottisen ja ei-kaaottisen järjestelmän erot`,
 
     // ========
     //   OTHER
     // ========
-    [Id['DIGI-A']]: `Kurssilla opetetaan opiskelijan digitaidot`,
+    [Id['DIGI-A']]:
+        `Tietokoneen käytön perusteet: Opiskelija osaa käyttää tietokonetta, sen oheislaitteita ja hallitsee tiedostojen sekä hakemistojen käytön. Lisäksi hän selviytyy yleisimmistä tietoteknisistä ongelmatilanteista, hallitsee Internetin käytön perusteet ja tuntee verkko-etiketin perusteet.
+
+        Helsingin yliopiston tietotekninen ympäristö: Opiskelija osaa käyttää itsenäisesti HY:n tietoteknistä ympäristöä ja sen palveluita. Lisäksi opiskelija tietää, millä HY:n tarjoamilla verkko-opiskelun palveluilla hän voi edistää opiskeluaan.
+
+        Tiedonhankinta: Opiskelija osaa käyttää HY:n kirjastojen palveluita ja hakea tietoa eri lähteistä. Hän tuntee erilaisia hakutekniikoita, joiden avulla voi tehostaa työskentelyään. Lisäksi tekijänoikeuksiin liittyvät perusteet tulevat opiskelijalle tutuiksi.
+
+        Tietoturva ja tietosuoja: Opiskelija ymmärtää tietoturvan ja tietosuojan merkitykseen opiskelun ja muun toiminnan kannalta. Lisäksi hän osaa vaikuttaa omaan tietoturvaansa tekemiensä valintojen kautta.`,
+
     [Id['ML-HAL-OPJT01']]:
         `Opiskelija voi saada yliopiston hallinto- ja opiskelijajärjestötoiminnasta 1-5 opintopistettä`,
 

@@ -10,3 +10,5 @@ export const isFullscreenAtom = atom(false)
 export const selectedCourseAtom = atom<CourseData | undefined>(undefined)
 
 export const searchAtom = atom('')
+
+export const courseDataAtom = atom<CourseData[]>([])

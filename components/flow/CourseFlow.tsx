@@ -1,7 +1,5 @@
 'use client'
 
-import { DegreeCode } from '@/data/enums'
-import { getFlowData } from '@/lib/flow'
 import { selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import dagre from '@dagrejs/dagre'
@@ -11,6 +9,7 @@ import {
     MarkerType,
     Position,
     ReactFlow,
+    useReactFlow,
 } from '@xyflow/react'
 import { useSetAtom } from 'jotai'
 import { CourseNode } from './CourseNode'
@@ -18,9 +17,8 @@ import { CourseNode } from './CourseNode'
 import { type CourseEdgeType } from '@/lib/edges'
 import { type CourseNodeType } from '@/lib/nodes'
 import '@xyflow/react/dist/style.css'
-
-const dagreGraph = new dagre.graphlib.Graph()
-dagreGraph.setDefaultEdgeLabel(() => ({}))
+import { useEffect, useState } from 'react'
+import { type CourseNodeData } from './CourseLoader'
 
 const nodeWidth = 350
 const nodeHeight = 60
@@ -29,10 +27,15 @@ const getLayoutedElements = (
     nodes: CourseNodeType[],
     edges: CourseEdgeType[]
 ) => {
+    const dagreGraph = new dagre.graphlib.Graph()
     dagreGraph.setGraph({ rankdir: 'LR' })
+    dagreGraph.setDefaultEdgeLabel(() => ({}))
 
     nodes.forEach((node) => {
-        dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight })
+        dagreGraph.setNode(node.id, {
+            width: nodeWidth,
+            height: nodeHeight,
+        })
     })
 
     edges.forEach((edge) => {
@@ -65,21 +68,39 @@ const nodeTypes = {
     course: CourseNode,
 }
 
-export const CourseFlow = () => {
+export const CourseFlow = ({
+    courseNodeData,
+}: {
+    courseNodeData: CourseNodeData
+}) => {
     const selectCourse = useSetAtom(selectedCourseAtom)
     const isMobile = !useBreakpoint('md')
+    const reactFlow = useReactFlow()
 
-    const { nodes, edges } = getFlowData(DegreeCode.TKT, '23-26')
-
-    const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
-        nodes,
-        edges
+    const [{ nodes, edges }, setLayout] = useState(
+        getLayoutedElements(courseNodeData.nodes, courseNodeData.edges)
     )
+
+    useEffect(() => {
+        const elements = getLayoutedElements(
+            courseNodeData.nodes,
+            courseNodeData.edges
+        )
+        setLayout(elements)
+
+        const fitView = async () => {
+            await reactFlow.fitView({ duration: 750 })
+        }
+
+        setTimeout(() => {
+            void fitView()
+        }, 1)
+    }, [courseNodeData, reactFlow, isMobile])
 
     return (
         <ReactFlow
             // Nodes
-            nodes={layoutedNodes}
+            nodes={nodes}
             nodeTypes={nodeTypes}
             onNodeClick={(_event, node) => {
                 console.log(node.data)
@@ -89,7 +110,7 @@ export const CourseFlow = () => {
             nodesFocusable={false}
             nodesConnectable={false}
             // Edges
-            edges={layoutedEdges}
+            edges={edges}
             defaultEdgeOptions={{
                 type: ConnectionLineType.Bezier,
                 markerEnd: {

@@ -1,6 +1,6 @@
 'use client'
 
-import { CourseFlow } from '@/components/flow/CourseFlow'
+import { CourseLoader } from '@/components/flow/CourseLoader'
 import { CourseInfo } from '@/components/info/CourseInfo'
 import { FullscreenButton } from '@/components/navigation/FullscreenButton'
 import { ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
@@ -38,7 +38,7 @@ export const Content = () => {
                     defaultSize={isMobile ? 50 : 70}
                     minSize={10}
                 >
-                    <CourseFlow />
+                    <CourseLoader />
                 </ResizablePanel>
                 <CourseInfo />
             </ResizablePanelGroup>

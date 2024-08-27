@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@/components/theme-provider'
+import { ReactFlowProvider } from '@xyflow/react'
 import { Provider } from 'jotai'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
@@ -100,7 +101,7 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        {children}
+                        <ReactFlowProvider>{children}</ReactFlowProvider>
                     </ThemeProvider>
                 </Provider>
             </body>

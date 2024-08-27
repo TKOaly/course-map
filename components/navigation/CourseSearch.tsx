@@ -23,7 +23,7 @@ export const CourseSearch = () => {
             <Input
                 onChange={async (e) => setSearch(e.target.value)}
                 aria-label="Search courses"
-                className={`w-full border-0 bg-transparent pl-11 ${courses.filter(courseFilter).length === 0 ? 'bg-red-600/30 hover:bg-red-400/30' : 'hover:bg-secondary/90'} focus:z-10`}
+                className={`w-full border-0 bg-transparent pl-11 ${courses.length > 0 && courses.filter(courseFilter).length === 0 ? 'bg-red-600/30 hover:bg-red-400/30' : 'hover:bg-secondary/90'} focus:z-10`}
                 placeholder="Hae kursseja"
             />
         </div>

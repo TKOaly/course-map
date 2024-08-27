@@ -20,22 +20,20 @@ const nodeHeight = 80
 
 const elk = new ELK()
 
-const layoutOptions = {
-    'elk.algorithm': 'layered',
-    'elk.direction': 'RIGHT',
-    separateConnectedComponents: 'false',
-    'elk.layered.nodePlacement.bk.fixedAlignment': 'BALANCED',
-    'elk.layered.crossingMinimization.forceNodeModelOrder': 'false',
-    'elk.layered.crossingMinimization.semiInteractive': 'true',
-}
-
 const getLayoutedNodes = async (
     nodes: CourseNodeType[],
     edges: CourseEdgeType[]
 ) => {
     const graph = {
         id: 'root',
-        layoutOptions,
+        layoutOptions: {
+            'elk.algorithm': 'layered',
+            'elk.direction': 'RIGHT',
+            separateConnectedComponents: 'false',
+            'elk.layered.nodePlacement.bk.fixedAlignment': 'BALANCED',
+            'elk.layered.crossingMinimization.forceNodeModelOrder': 'false',
+            'elk.layered.crossingMinimization.semiInteractive': 'true',
+        },
         children: nodes.map((node) => {
             return {
                 id: node.id,
@@ -49,18 +47,18 @@ const getLayoutedNodes = async (
                 },
             }
         }),
-        edges: edges.map((e) => ({
-            id: e.id,
-            sources: [e.source],
-            targets: [e.target],
+        edges: edges.map((edge) => ({
+            id: edge.id,
+            sources: [edge.source],
+            targets: [edge.target],
         })),
     }
 
     const layoutedGraph = await elk.layout(graph)
 
-    const layoutedNodes = nodes.map((node) => {
+    return nodes.map((node) => {
         const layoutedNode = layoutedGraph.children?.find(
-            (lgNode) => lgNode.id === node.id
+            (elkNode) => elkNode.id === node.id
         )
         return {
             ...node,
@@ -70,8 +68,6 @@ const getLayoutedNodes = async (
             },
         }
     })
-
-    return layoutedNodes
 }
 
 const nodeTypes = {
@@ -109,7 +105,7 @@ export const CourseFlow = ({
         void layoutNodes().then(async () =>
             setTimeout(() => {
                 void fitView({ duration: 750 })
-            }, 10)
+            }, 30)
         )
 
         // Only move the view if the number of nodes has changed

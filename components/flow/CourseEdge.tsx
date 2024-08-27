@@ -15,7 +15,7 @@ export const CourseEdge = ({
     data,
 }: EdgeProps<CourseEdgeType>) => {
     const [edgePath] = getSimpleBezierPath({
-        sourceX: sourceX - 10,
+        sourceX: sourceX - 1,
         sourceY,
         targetX: targetX + 1,
         targetY,

@@ -41,5 +41,21 @@ jobs:
                   cache: 'npm'
             - name: Install NPM dependencies
               run: npm ci
-            - name: Lint and check formatting with biome
+            - name: Lint and check formatting
               run: npm run lint
+
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout the repository
+              uses: actions/checkout@v4
+            - name: Cache NPM dependencies
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 21
+                  cache: 'npm'
+            - name: Install NPM dependencies
+              run: npm ci
+            - name: Build project
+              run: npm run build

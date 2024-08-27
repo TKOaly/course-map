@@ -9,6 +9,7 @@ export type CourseData = Course & {
     id: Id // Course name
     prerequisites: { id: Id; necessity: Prerequisite }[]
     group: CourseGroup
+    disabled?: boolean
 }
 
 export const getCourses = (degreeStructure: DegreeStructure): CourseData[] => {

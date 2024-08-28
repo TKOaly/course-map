@@ -53,6 +53,7 @@ jobs:
                   cache-from: type=gha
 
             - name: Trigger deployment
+              if: false
               uses: aurelien-baudet/workflow-dispatch@v2
               with:
                   token: ${{ secrets.DEPLOYMENT_PAT }}

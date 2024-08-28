@@ -133,8 +133,7 @@ export const courses: Courses = {
         prerequisites: {
             [Id.TKT200012]: Prerequisite.MANDATORY,
             [Id.TKT20007]: Prerequisite.MANDATORY,
-            [Id.TKT200093]: Prerequisite.ALTERANTIVE,
-            [Id.TKT20009]: Prerequisite.ALTERANTIVE,
+            [Id.TKT200093]: Prerequisite.MANDATORY,
             [Id.DATA15001]: Prerequisite.MANDATORY,
             [Id.TKT20005]: Prerequisite.MANDATORY,
             [Id.TKT20016]: Prerequisite.MANDATORY,

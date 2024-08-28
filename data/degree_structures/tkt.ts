@@ -73,10 +73,9 @@ export const structures: DegreeStructures = {
             },
             {
                 type: CourseGroup.INTERMEDIATE,
-                necessity: Necessity.SELECTABLE,
+                necessity: Necessity.MANDATORY,
                 courses: [
-                    [Id.TKT200091, Id.TKT200092, Id.TKT200093],
-                    [Id.TKT20009],
+                    Id.TKT200091, Id.TKT200092, Id.TKT200093,
                 ],
                 description: 'Tietoturvan perusteet',
             },

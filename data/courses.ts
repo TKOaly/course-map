@@ -672,7 +672,7 @@ export const courses: Courses = {
         credits: 5,
         prerequisites: {
             [Id.MAT11001]: Prerequisite.MANDATORY,
-            [Id.MAT12002]: Prerequisite.RECOMMENDED,
+            [Id.MAT21001]: Prerequisite.RECOMMENDED,
         },
         languages: [Language.FI, Language.EN, Language.SV],
         sisuLink:

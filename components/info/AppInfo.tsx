@@ -60,7 +60,7 @@ export const AppInfo = () => (
                 className="font-medium text-foreground hover:underline active:font-normal"
                 href="https://github.com/TKOaly/course-map"
                 target="_blank"
-                rel="noreferrer"
+                rel="external"
             >
                 Githubista ↗
             </a>{' '}

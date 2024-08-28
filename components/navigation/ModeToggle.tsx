@@ -39,21 +39,21 @@ export function ModeToggle({ className }: OwnProps) {
                     className="flex items-center"
                 >
                     <Sun className="mr-2 h-4 w-4" />
-                    Light
+                    Vaalea
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => setTheme('dark')}
                     className="flex items-center"
                 >
                     <Moon className="mr-2 h-4 w-4" />
-                    Dark
+                    Tumma
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => setTheme('system')}
                     className="flex items-center"
                 >
                     <Monitor className="mr-2 h-4 w-4" />
-                    System
+                    Järjestelmä
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

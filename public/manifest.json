@@ -1,7 +1,7 @@
 {
     "name": "Kurssikartta",
     "short_name": "Kurssikartta",
-    "description": "A node-based viewer for University of Helsinki computer science courses.",
+    "description": "Course viewer University of Helsinki computer science courses.",
     "icons": [
         {
             "src": "/images/android-chrome-192x192.png",

@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         images: [
             {
                 url: 'https://courses.tko-aly.fi/images/og.png', // Must be an absolute URL
-                width: 2063,
+                width: 2160,
                 height: 1080,
                 alt: 'Photo of the Kurssikartta site',
             },

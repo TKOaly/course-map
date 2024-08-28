@@ -7,7 +7,6 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        container: node:21-slim
 
         permissions:
             contents: read
@@ -19,16 +18,16 @@ jobs:
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v2
 
+            - name: Get commit SHA for Docker image tag
+              id: sha
+              run: echo "value=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
             - name: Log into registry
               uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
               with:
                   registry: ${{ secrets.PRIVATE_REGISTRY_URL }}
                   username: ${{ secrets.PRIVATE_REGISTRY_USER }}
                   password: ${{ secrets.PRIVATE_REGISTRY_PW }}
-
-            - name: Get commit SHA for Docker image tag
-              id: sha
-              run: echo "value=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
             - name: Extract Docker metadata for the image
               id: meta

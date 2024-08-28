@@ -1,4 +1,4 @@
-# Course Map [![Dev Build](https://github.com/TKOaly/course-map/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/TKOaly/course-map/actions/workflows/build.yml)
+# Course Map [![Deploy](https://github.com/TKOaly/course-map/actions/workflows/deploy.yml/badge.svg)](https://github.com/TKOaly/course-map/actions/workflows/deploy.yml) [![Dev Build](https://github.com/TKOaly/course-map/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/TKOaly/course-map/actions/workflows/build.yml)
 
 A course map for viewing University of Helsinki computer science course information and their prerequisites.
 

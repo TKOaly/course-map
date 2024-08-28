@@ -41,7 +41,12 @@ export const CourseInfo = () => {
             >
                 <div
                     className={`relative w-full rounded border-0 bg-course-${course.group ?? CourseGroup.PLACEHOLDER} ring-2 ring-course-${course.group ?? CourseGroup.PLACEHOLDER}`}
-                >
+                >   
+                {
+                    isMobile && (
+                        <div className='w-32 h-1 rounded absolute left-1/2 -translate-x-1/2 top-2 bg-zinc-800/15'></div>
+                    )
+                }
                     <Button
                         variant="outline"
                         aria-label="Close course info"

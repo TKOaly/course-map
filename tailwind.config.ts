@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss'
 import { CourseGroup } from './data/enums'
 
 const config = {
+    important: true,
     darkMode: ['class'],
     content: [
         './pages/**/*.{ts,tsx}',

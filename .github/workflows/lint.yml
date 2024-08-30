@@ -1,4 +1,4 @@
-name: Build
+name: Lint
 
 on:
     pull_request:
@@ -7,7 +7,7 @@ on:
         branches: [develop]
 
 jobs:
-    build:
+    lint:
         runs-on: ubuntu-latest
 
         steps:
@@ -20,8 +20,8 @@ jobs:
                   cache: 'npm'
             - name: Install NPM dependencies
               run: npm ci
-            - name: Build project
-              run: npm run build
+            - name: Lint and check formatting
+              run: npm run lint
               env:
                   NODE_ENV: production
                   PORT: 3000

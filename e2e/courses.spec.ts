@@ -18,7 +18,7 @@ test('Test course info and prerequisites', async ({ page }) => {
             .locator('[id="\\32 "]')
             .getByRole('heading', { name: 'Ohjelmoinnin perusteet' })
     ).toBeVisible()
-    await expect(page.getByText('Lyhenne"ohja"')).toBeVisible()
+    await expect(page.getByText('Lyhenne"ohpe"')).toBeVisible()
     await expect(
         page.getByLabel('Open course info page in studies.helsinki.fi')
     ).toBeVisible()

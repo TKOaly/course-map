@@ -7,11 +7,11 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
+export const generateMetadata = async (): Promise<Metadata> => ({
     title: 'Kurssikartta',
     description:
         'A node-based viewer for University of Helsinki courses, primarily computer science.',
-    manifest: '/manifest.json',
+    manifest: `/manifest.json`,
     icons: {
         icon: [
             {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         ],
         locale: 'fi_FI',
     },
-}
+})
 
 export const viewport: Viewport = {
     themeColor: [
@@ -60,13 +60,19 @@ export const viewport: Viewport = {
     userScalable: false,
 }
 
+export async function generateStaticParams() {
+    return [{ lang: 'fi' }, { lang: 'en' }, { lang: 'sv' }]
+}
+
 export default function RootLayout({
     children,
+    params,
 }: Readonly<{
     children: React.ReactNode
+    params: { lang: string }
 }>) {
     return (
-        <html lang="en">
+        <html lang={params.lang}>
             <body className={inter.className}>
                 <svg
                     aria-hidden="true"

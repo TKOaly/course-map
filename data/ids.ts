@@ -14,7 +14,7 @@ export enum Id {
     TKT200012 = 'Tietorakenteet ja algoritmit II',
     TKT20005 = 'Laskennan mallit',
     TKT20006 = 'Ohjelmistotuotanto',
-    TKT20007 = 'Ohjelmistoprojekti ',
+    TKT20007 = 'Ohjelmistoprojekti',
     TKT20013 = 'Kandidaatin tutkielma',
     TKT20014 = 'Kypsyysnäyte LuK',
     TKT20016 = 'Laskentaympäristöt',

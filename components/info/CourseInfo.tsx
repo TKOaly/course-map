@@ -41,12 +41,10 @@ export const CourseInfo = () => {
             >
                 <div
                     className={`relative w-full rounded border-0 bg-course-${course.group ?? CourseGroup.PLACEHOLDER} ring-2 ring-course-${course.group ?? CourseGroup.PLACEHOLDER}`}
-                >   
-                {
-                    isMobile && (
-                        <div className='w-32 h-1 rounded absolute left-1/2 -translate-x-1/2 top-2 bg-zinc-800/15'></div>
-                    )
-                }
+                >
+                    {isMobile && (
+                        <div className="absolute left-1/2 top-2 h-1 w-32 -translate-x-1/2 rounded bg-zinc-800/15"></div>
+                    )}
                     <Button
                         variant="outline"
                         aria-label="Close course info"
@@ -294,7 +292,7 @@ export const CourseInfo = () => {
                         </div>
                     </div>
                     <div className="absolute bottom-0 flex w-full flex-col gap-2 p-3 @xs:flex-row">
-                        {course.studiesLink && (
+                        {course.linkId && (
                             <Button
                                 aria-label="Open course info page in studies.helsinki.fi"
                                 size="icon"
@@ -305,7 +303,7 @@ export const CourseInfo = () => {
                                 onClick={() => true}
                             >
                                 <a
-                                    href={course.studiesLink}
+                                    href={`https://studies.helsinki.fi/kurssit/opintojakso/${course.linkId}`}
                                     target="_blank"
                                     rel="noreferrer"
                                 >

@@ -10,6 +10,7 @@ export type CourseData = Omit<Course, 'prerequisites' | 'equivalents'> & {
     id: Id // Course name
     prerequisites: { id: Id; necessity: Prerequisite }[]
     equivalents: (Course & { id: Id; group: CourseGroup })[]
+    linkId?: string
     group: CourseGroup
     disabled?: boolean
     description: string
@@ -55,6 +56,10 @@ export const getCourses = (degreeStructure: DegreeStructure): CourseData[] => {
                     description: descriptions[id],
                     mandatory: group.necessity === Necessity.MANDATORY,
                     module: group.description,
+                    // Extract the Sisu link ID from the URL to be used in dynamic studies link
+                    linkId: (courses[id].sisuLink?.match(
+                        /(?<=courseunit\/)otm(?:-|[a-z0-9])*(?=\/|)/m
+                    ) ?? [undefined])[0],
                 }))
         )
         .flat()

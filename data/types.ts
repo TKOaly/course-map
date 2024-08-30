@@ -95,8 +95,7 @@ export type Course<code = keyof typeof Id, id = never> = {
     code: code
     credits?: number
     languages?: Language[]
-    studiesLink?: string
-    sisuLink?: string
+    sisuLink?: `https://sisu.helsinki.fi/student/courseunit/otm${string}`
     nicknames?: string[]
     equivalents?: Id[]
     prerequisites?: { [key in Exclude<Id, id>]?: Prerequisite } // Ensures course is not its own prerequisite

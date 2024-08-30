@@ -578,7 +578,7 @@ export const courses: Courses = {
         credits: 1,
         nicknames: ['fäsä'],
         prerequisites: {
-            [Id.CSM141081]: Prerequisite.RECOMMENDED,
+            [Id.CSM141081]: Prerequisite.MANDATORY,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-2aa65d3f-ab5b-462d-a649-9404af3ad938',

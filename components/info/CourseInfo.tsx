@@ -117,7 +117,7 @@ export const CourseInfo = () => {
                                                                 key={
                                                                     prerequisiteData.id
                                                                 }
-                                                                aria-label={`Open info for the equivalent course ${prerequisiteData.code}`}
+                                                                aria-label={`Open info for the prerequisite course ${prerequisiteData.code}`}
                                                                 onClick={() =>
                                                                     selectCourse(
                                                                         courseData.find(

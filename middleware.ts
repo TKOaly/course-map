@@ -1,44 +1,53 @@
-import { match } from '@formatjs/intl-localematcher'
-import Negotiator from 'negotiator'
+import { defaultLocale, localeCookie, locales } from '@/i18n/settings'
+import acceptLanguage from 'accept-language'
 import { type NextRequest, NextResponse } from 'next/server'
 
-const locales = ['fi', 'en', 'sv']
+acceptLanguage.languages(locales.map((locale) => locale))
 
-function getLocale(request: NextRequest) {
-    const languages = new Negotiator({
-        headers: {
-            'accept-language':
-                request.headers.get('accept-language') ?? undefined,
-        },
-    }).languages(locales)
-    const defaultLocale = 'fi'
+export const middleware = (req: NextRequest) => {
+    const cookie = req.cookies.get(localeCookie)
+    const header = req.headers.get('Accept-Language')
 
-    return match(languages, locales, defaultLocale)
-}
+    const lang =
+        // Get language from cookie
+        (cookie && acceptLanguage.get(cookie.value)) ??
+        // Otherwise from header
+        acceptLanguage.get(header ?? `${defaultLocale}`) ??
+        defaultLocale
 
-export function middleware(request: NextRequest) {
-    // Check if there is any supported locale in the pathname
-    const { pathname } = request.nextUrl
-    const pathnameHasLocale = locales.some(
-        (locale) =>
-            pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-    )
+    // Redirect if lng in path is not supported
+    if (
+        !locales.some(
+            (locale) =>
+                req.nextUrl.pathname.startsWith(`/${locale}/`) ||
+                req.nextUrl.pathname === `/${locale}`
+        )
+    ) {
+        return NextResponse.redirect(
+            new URL(`/${lang}${req.nextUrl.pathname}`, req.url)
+        )
+    }
 
-    if (pathnameHasLocale) return
+    const referer = req.headers.get('referer')
 
-    // Redirect if there is no locale
-    const locale = getLocale(request)
-    request.nextUrl.pathname = `/${locale}${pathname}`
-    // e.g. incoming request is /products
-    // The new URL is now /en-US/products
-    return NextResponse.redirect(request.nextUrl)
+    if (referer) {
+        const refererUrl = new URL(referer)
+        const localeInReferer = locales.find(
+            (locale) =>
+                refererUrl.pathname.startsWith(`/${locale}/`) ||
+                refererUrl.pathname === `/${locale}`
+        )
+        const response = NextResponse.next()
+        if (localeInReferer) response.cookies.set(localeCookie, localeInReferer)
+        return response
+    }
+
+    return NextResponse.next()
 }
 
 export const config = {
     matcher: [
-        // Skip all internal paths (_next), manifest and images
-        '/((?!_next|manifest.json|images).*)',
-        // Optional: only run on root (/) URL
+        '/((?!api|_next|images).*)',
         // '/'
     ],
 }

@@ -1,7 +1,7 @@
 {
     "name": "Kurssikartta",
     "short_name": "Kurssikartta",
-    "description": "Course viewer University of Helsinki computer science courses.",
+    "description": "Kurssikartta Helsinki yliopiston matemaattis-luonnontieteellisen tiedekunnan kurssien tarkasteluun",
     "icons": [
         {
             "src": "/images/android-chrome-192x192.png",

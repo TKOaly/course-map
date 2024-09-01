@@ -1,12 +1,4 @@
-import { type Prerequisite } from '@/data/enums'
-import { type Edge } from '@xyflow/react'
-import { type CourseData } from './courses'
-
-export type EdgeData = {
-    necessity: Prerequisite
-}
-
-export type CourseEdgeType = Edge<EdgeData, 'course'>
+import { type CourseData, type CourseEdgeType } from '@/lib/types'
 
 export const getEdges = (courses: CourseData[]): CourseEdgeType[] =>
     courses.flatMap((course) =>

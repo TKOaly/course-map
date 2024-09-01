@@ -1,0 +1,55 @@
+{
+    "name": "CourseMap",
+    "short_name": "CourseMap",
+    "description": "Course Map for viewing University of Helsinki Faculty of Science courses",
+    "icons": [
+        {
+            "src": "/images/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/maskable_icon_x512_white.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/images/screenshot_tall.png",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "sizes": "1442x3203"
+        },
+        {
+            "src": "/images/screenshot_tall_white.png",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "sizes": "1442x3202"
+        },
+        {
+            "src": "/images/screenshot_wide.png",
+            "type": "image/png",
+            "form_factor": "wide",
+            "sizes": "2559x1439"
+        },
+        {
+            "src": "/images/screenshot_wide_white.png",
+            "type": "image/png",
+            "form_factor": "wide",
+            "sizes": "2559x1439"
+        }
+    ],
+    "theme_color": "#09090b",
+    "background_color": "#09090b",
+    "id": "/?source=pwa",
+    "start_url": "/?source=pwa",
+    "display": "standalone",
+    "display_override": ["fullscreen", "minimal-ui"]
+}

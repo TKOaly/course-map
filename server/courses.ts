@@ -1,22 +1,10 @@
 import { courses } from '@/data/courses'
 import { descriptions } from '@/data/descriptions'
-import { type CourseGroup, Necessity, Prerequisite } from '@/data/enums'
+import { Necessity, Prerequisite } from '@/data/enums'
 import { type Id } from '@/data/ids'
-import { type Course, type DegreeStructure } from '@/data/types'
-import { typedOptionalEntries } from './typeUtils'
-
-// Type of the course data used in the frontend / layout engine
-export type CourseData = Omit<Course, 'prerequisites' | 'equivalents'> & {
-    id: Id // Course name
-    prerequisites: { id: Id; necessity: Prerequisite }[]
-    equivalents: (Course & { id: Id; group: CourseGroup })[]
-    linkId?: string
-    group: CourseGroup
-    disabled?: boolean
-    description: string
-    mandatory?: boolean
-    module?: string
-}
+import { type DegreeStructure } from '@/data/types'
+import { type CourseData } from '@/lib/types'
+import { typedOptionalEntries } from '@/lib/typeUtils'
 
 export const getCourses = (degreeStructure: DegreeStructure): CourseData[] => {
     const includedCourses = new Set(

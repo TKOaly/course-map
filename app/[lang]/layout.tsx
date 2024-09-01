@@ -4,6 +4,7 @@ import { Provider } from 'jotai'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { Navigation } from './Navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -61,7 +62,7 @@ export const viewport: Viewport = {
 }
 
 export async function generateStaticParams() {
-    return [{ lang: 'fi' }, { lang: 'en' }, { lang: 'sv' }]
+    return [{ lang: 'fi' }, { lang: 'en' }]
 }
 
 export default function RootLayout({
@@ -107,7 +108,14 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <ReactFlowProvider>{children}</ReactFlowProvider>
+                        <ReactFlowProvider>
+                            <main className="flex min-h-dvh w-screen flex-col items-center justify-between overflow-x-clip">
+                                <div className="z-10 flex size-full max-h-dvh min-h-dvh flex-col items-start">
+                                    <Navigation />
+                                    {children}
+                                </div>
+                            </main>
+                        </ReactFlowProvider>
                     </ThemeProvider>
                 </Provider>
             </body>

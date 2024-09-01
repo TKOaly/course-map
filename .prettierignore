@@ -5,7 +5,6 @@ build
 coverage
 
 .next
-next.config.mjs
 next-env.d.ts
 
 postcss.config.mjs

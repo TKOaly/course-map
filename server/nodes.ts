@@ -1,7 +1,4 @@
-import { type Node } from '@xyflow/react'
-import { type CourseData } from './courses'
-
-export type CourseNodeType = Node<CourseData, 'course'>
+import { type CourseData, type CourseNodeType } from '@/lib/types'
 
 export const getCourseNodes = (courses: CourseData[]): CourseNodeType[] =>
     courses.map((course) => ({

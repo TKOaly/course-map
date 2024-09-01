@@ -7,14 +7,27 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { type Locale } from '@/i18n/settings'
 import { cn } from '@/lib/utils'
 import { Globe } from 'lucide-react'
+import { useRouter, useSelectedLayoutSegments } from 'next/navigation'
 
 type OwnProps = {
     className?: string
 }
 
 export function LanguageToggle({ className }: OwnProps) {
+    const segments = useSelectedLayoutSegments()
+    const router = useRouter()
+
+    const setLocale = (locale: string) => {
+        router.replace(
+            `/${locale}/${segments.filter((segment) => !segment.startsWith('(')).join('/')}`
+        )
+    }
+
+    const options: { [key in Locale]: string } = { fi: 'Suomi', en: 'English' }
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -29,7 +42,14 @@ export function LanguageToggle({ className }: OwnProps) {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="-mt-1">
-                <DropdownMenuItem onClick={() => true}>Suomi</DropdownMenuItem>
+                {Object.entries(options).map(([locale, label]) => (
+                    <DropdownMenuItem
+                        key={locale}
+                        onClick={() => setLocale(locale)}
+                    >
+                        {label}
+                    </DropdownMenuItem>
+                ))}
             </DropdownMenuContent>
         </DropdownMenu>
     )

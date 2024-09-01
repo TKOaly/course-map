@@ -1,7 +1,7 @@
 'use client'
 
-import { type CourseData } from '@/lib/courses'
 import { courseDataAtom, searchAtom } from '@/lib/state'
+import { type CourseData } from '@/lib/types'
 import { useAtom, useAtomValue } from 'jotai'
 import { Search } from 'lucide-react'
 import { Input } from '../ui/input'

@@ -9,7 +9,7 @@ export const Logo = () => {
     const logos: Record<string, string> = {
         fi: 'Kurssikartta',
         en: 'CourseMap',
-        sv: 'Kurskarta',
+        default: 'CourseMap',
     }
 
     return (
@@ -20,7 +20,7 @@ export const Logo = () => {
                 className="z-20 mx-2 animate-wiggle stroke-[1.5px] transition-all group-hover:animate-spin motion-reduce:animate-none [&_circle]:stroke-foreground [&_path]:stroke-[url(#compass-black)_#09090b] dark:[&_path]:stroke-[url(#compass-white)_#fafafa]"
             />
             <h1 className="select-none pb-1.5 pr-3 pt-1.5 font-serif text-xl md:py-0">
-                {logos[params.lang] ?? 'Kurssikartta'}
+                {logos[params.lang] ?? logos.default}
             </h1>
         </div>
     )

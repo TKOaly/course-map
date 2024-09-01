@@ -1,13 +1,13 @@
 'use client'
 
-import { type Locale } from '@/app/i18n/settings'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/app/components/ui/button'
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@/app/components/ui/dropdown-menu'
+import { type Locale } from '@/app/i18n/settings'
 import { cn } from '@/lib/utils'
 import { Globe } from 'lucide-react'
 import { useRouter, useSelectedLayoutSegments } from 'next/navigation'

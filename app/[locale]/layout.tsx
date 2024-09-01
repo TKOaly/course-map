@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from '@/app/components/theme-provider'
 import { ReactFlowProvider } from '@xyflow/react'
 import { Provider } from 'jotai'
 import type { Metadata, Viewport } from 'next'

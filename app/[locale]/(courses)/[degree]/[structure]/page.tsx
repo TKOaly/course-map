@@ -1,6 +1,6 @@
-import { CourseLoader } from '@/components/flow/CourseLoader'
-import { CourseInfoContainer } from '@/components/info/CourseInfoContainer'
-import { Fullscreen } from '@/components/navigation/Fullscreen'
+import { CourseLoader } from '@/app/components/flow/CourseLoader'
+import { CourseInfoContainer } from '@/app/components/info/CourseInfoContainer'
+import { Fullscreen } from '@/app/components/navigation/Fullscreen'
 import { type DegreeCode } from '@/data/enums'
 
 export default function CourseMap({

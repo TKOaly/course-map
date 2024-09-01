@@ -3,14 +3,14 @@
 import { Monitor, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
-import { useTranslate } from '@/app/i18n'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/app/components/ui/button'
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@/app/components/ui/dropdown-menu'
+import { useTranslate } from '@/app/i18n'
 import { cn } from '@/lib/utils'
 
 type OwnProps = {

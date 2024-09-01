@@ -4,7 +4,7 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from '@/components/ui/select'
+} from '@/app/components/ui/select'
 
 export const DegreeSelect = () => (
     <Select defaultValue="TKT">

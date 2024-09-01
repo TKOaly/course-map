@@ -1,3 +1,5 @@
+'use client'
+
 import { useRouter as useNextRouter, useParams } from 'next/navigation'
 
 export const useRouter = (): ReturnType<typeof useNextRouter> => {

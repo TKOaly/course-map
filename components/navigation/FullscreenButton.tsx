@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { fullscreenElementAtom, isFullscreenAtom } from '@/lib/state'
 import { cn } from '@/lib/utils'
+import { useReactFlow } from '@xyflow/react'
 import { useAtom, useAtomValue } from 'jotai'
 import { Expand, Shrink } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -15,6 +16,7 @@ export function FullscreenButton({ className }: OwnProps) {
     const fullscreenElement = useAtomValue(fullscreenElementAtom)?.current
     const [fullscreenAllowed, setFullscreenAllowed] = useState(false)
     const [isFullscreen, setIsFullscreen] = useAtom(isFullscreenAtom)
+    const { fitView } = useReactFlow()
 
     useEffect(() => {
         setFullscreenAllowed(document?.fullscreenEnabled)
@@ -61,6 +63,9 @@ export function FullscreenButton({ className }: OwnProps) {
         } else if (document.exitFullscreen) {
             await document.exitFullscreen()
         }
+        setTimeout(() => {
+            void fitView({ duration: 750 })
+        }, 100)
     }
 
     return fullscreenAllowed ? (

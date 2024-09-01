@@ -25,8 +25,8 @@ export const getCourses = (degreeStructure: DegreeStructure): CourseData[] => {
                         courses[id].prerequisites ?? {}
                     )
                         // Filter out undefined
-                        .filter(
-                            ([, prerequisite]) => prerequisite in Prerequisite
+                        .filter(([, prerequisite]) =>
+                            Object.values(Prerequisite).includes(prerequisite)
                         )
                         .filter(([id]) => includedCourses.has(id))
                         .map(([id, prerequisite]) => ({

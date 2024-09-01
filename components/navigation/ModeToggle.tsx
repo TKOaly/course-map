@@ -3,6 +3,7 @@
 import { Monitor, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
+import { useTranslate } from '@/app/i18n'
 import { Button } from '@/components/ui/button'
 import {
     DropdownMenu,
@@ -18,6 +19,7 @@ type OwnProps = {
 
 export function ModeToggle({ className }: OwnProps) {
     const { setTheme } = useTheme()
+    const t = useTranslate()
 
     return (
         <DropdownMenu>
@@ -39,21 +41,21 @@ export function ModeToggle({ className }: OwnProps) {
                     className="flex items-center"
                 >
                     <Sun className="mr-2 h-4 w-4" />
-                    Vaalea
+                    {t.navigation.modeToggle.light}
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => setTheme('dark')}
                     className="flex items-center"
                 >
                     <Moon className="mr-2 h-4 w-4" />
-                    Tumma
+                    {t.navigation.modeToggle.dark}
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => setTheme('system')}
                     className="flex items-center"
                 >
                     <Monitor className="mr-2 h-4 w-4" />
-                    Järjestelmä
+                    {t.navigation.modeToggle.system}
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

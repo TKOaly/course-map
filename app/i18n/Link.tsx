@@ -4,7 +4,7 @@ import { type Url } from 'next/dist/shared/lib/router/router'
 import { default as NextLink } from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 import { type ComponentProps, forwardRef } from 'react'
-import { locales } from '../../i18n/settings'
+import { locales } from './settings'
 
 export const Link: React.FC<
     ComponentProps<typeof NextLink> & {

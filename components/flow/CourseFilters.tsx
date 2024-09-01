@@ -1,7 +1,7 @@
 'use client'
 
-import { type CourseNodeType } from '@/lib/nodes'
 import { courseDataAtom, searchAtom } from '@/lib/state'
+import { type CourseNodeType } from '@/lib/types'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useEffect } from 'react'
 import { pipe } from 'remeda'

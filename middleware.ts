@@ -1,4 +1,4 @@
-import { defaultLocale, localeCookie, locales } from '@/i18n/settings'
+import { defaultLocale, localeCookie, locales } from '@/app/i18n/settings'
 import acceptLanguage from 'accept-language'
 import { type NextRequest, NextResponse } from 'next/server'
 
@@ -9,27 +9,24 @@ export const middleware = (req: NextRequest) => {
     const header = req.headers.get('Accept-Language')
 
     const lang =
-        // Get language from cookie
+        // Get preferred language from cookie
         (cookie && acceptLanguage.get(cookie.value)) ??
         // Otherwise from header
         acceptLanguage.get(header ?? `${defaultLocale}`) ??
         defaultLocale
 
-    // Redirect if lng in path is not supported
+    // Redirect if the path does not start with a supported locale
+    const path = req.nextUrl.pathname
     if (
         !locales.some(
-            (locale) =>
-                req.nextUrl.pathname.startsWith(`/${locale}/`) ||
-                req.nextUrl.pathname === `/${locale}`
+            (locale) => path.startsWith(`/${locale}/`) || path === `/${locale}`
         )
     ) {
-        return NextResponse.redirect(
-            new URL(`/${lang}${req.nextUrl.pathname}`, req.url)
-        )
+        return NextResponse.redirect(new URL(`/${lang}${path}`, req.url))
     }
 
+    // Set the language cookie based on the referer (sent during language switch)
     const referer = req.headers.get('referer')
-
     if (referer) {
         const refererUrl = new URL(referer)
         const localeInReferer = locales.find(
@@ -40,6 +37,16 @@ export const middleware = (req: NextRequest) => {
         const response = NextResponse.next()
         if (localeInReferer) response.cookies.set(localeCookie, localeInReferer)
         return response
+    }
+
+    // Redirect if the locale in the path does match the preferred language
+    if (!path.startsWith(`/${lang}/`) && !(path === `/${lang}`)) {
+        return NextResponse.redirect(
+            new URL(
+                `/${lang}${(/(?<=^\/\w*)\/.*/.exec(path) ?? [''])[0]}`,
+                req.url
+            )
+        )
     }
 
     return NextResponse.next()

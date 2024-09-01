@@ -1,5 +1,5 @@
 import { CourseGroup } from '@/data/enums'
-import { type CourseNodeType } from '@/lib/nodes'
+import { type CourseNodeType } from '@/lib/types'
 import { Handle, type NodeProps, Position } from '@xyflow/react'
 
 export const CourseNode = ({ data: course }: NodeProps<CourseNodeType>) => {

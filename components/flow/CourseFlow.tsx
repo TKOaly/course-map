@@ -11,8 +11,7 @@ import { useEffect, useState } from 'react'
 import { CourseEdge } from './CourseEdge'
 import { type CourseNodeData } from './CourseLoader'
 
-import { type CourseEdgeType } from '@/lib/edges'
-import { type CourseNodeType } from '@/lib/nodes'
+import { type CourseEdgeType, type CourseNodeType } from '@/lib/types'
 import ELK from 'elkjs'
 
 const nodeWidth = 350
@@ -85,7 +84,7 @@ export const CourseFlow = ({
 }) => {
     const selectCourse = useSetAtom(selectedCourseAtom)
     const isMobile = !useBreakpoint('md')
-    const { fitView, getViewport, setViewport } = useReactFlow()
+    const { fitView } = useReactFlow()
 
     const [{ nodes, edges }, setLayout] = useState<CourseNodeData>({
         nodes: [],
@@ -109,7 +108,7 @@ export const CourseFlow = ({
         )
 
         // Only move the view if the number of nodes has changed
-    }, [fitView, courseNodeData, setViewport, getViewport])
+    }, [fitView, courseNodeData])
 
     return (
         <ReactFlow

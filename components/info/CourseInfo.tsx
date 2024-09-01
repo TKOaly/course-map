@@ -1,6 +1,8 @@
 'use client'
 import { useAtom, useAtomValue } from 'jotai'
 
+import { useTranslate, useTranslateObj } from '@/app/i18n'
+import { Locale } from '@/app/i18n/settings'
 import { CourseGroup, Language } from '@/data/enums'
 import { courseDataAtom, selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
@@ -11,18 +13,46 @@ import { Button } from '../ui/button'
 import { ResizableHandle, ResizablePanel } from '../ui/resizable'
 import { Separator } from '../ui/separator'
 
-const languages: { [key in Language]: string } = {
-    [Language.FI]: 'Suomi',
-    [Language.EN]: 'Englanti',
-    [Language.SV]: 'Ruotsi',
-    [Language.ES]: 'Espanja',
-    [Language.FR]: 'Ranska',
-    [Language.NO]: 'Norja',
-    [Language.SK]: 'Slovakki',
+const languages: {
+    [key in Language]: {
+        [key in Locale]: string
+    }
+} = {
+    [Language.FI]: {
+        [Locale.FI]: 'Suomi',
+        [Locale.EN]: 'Finnish',
+    },
+    [Language.EN]: {
+        [Locale.FI]: 'Englanti',
+        [Locale.EN]: 'English',
+    },
+    [Language.SV]: {
+        [Locale.FI]: 'Ruotsi',
+        [Locale.EN]: 'Swedish',
+    },
+    [Language.ES]: {
+        [Locale.FI]: 'Espanja',
+        [Locale.EN]: 'Spanish',
+    },
+    [Language.FR]: {
+        [Locale.FI]: 'Ranska',
+        [Locale.EN]: 'French',
+    },
+    [Language.NO]: {
+        [Locale.FI]: 'Norja',
+        [Locale.EN]: 'Norwegian',
+    },
+    [Language.SK]: {
+        [Locale.FI]: 'Slovakki',
+        [Locale.EN]: 'Slovak',
+    },
 }
 
 export const CourseInfo = () => {
     const isMobile = !useBreakpoint('md')
+
+    const t = useTranslate()
+    const tObj = useTranslateObj()
 
     const [course, selectCourse] = useAtom(selectedCourseAtom)
     const courseData = useAtomValue(courseDataAtom)
@@ -71,17 +101,21 @@ export const CourseInfo = () => {
                             <div className="flex flex-col gap-3 pb-28 pt-0.5">
                                 <Row>
                                     <p className="text-muted-foreground">
-                                        Opintopisteet
+                                        {t.courseInfo.credits}
                                     </p>
-                                    <p>{(course.credits ?? '-') + ' op'}</p>
+                                    <p>
+                                        {(course.credits ?? '-') +
+                                            ' ' +
+                                            t.courseInfo.cr}
+                                    </p>
                                 </Row>
                                 {course.nicknames &&
                                     course.nicknames.length > 0 && (
                                         <Row>
                                             <p className="text-muted-foreground">
                                                 {course.nicknames.length > 1
-                                                    ? 'Lyhenteet'
-                                                    : 'Lyhenne'}
+                                                    ? t.courseInfo.abbreviations
+                                                    : t.courseInfo.abbreviation}
                                             </p>
                                             <p className="font-serif italic">
                                                 {'"'}
@@ -100,7 +134,7 @@ export const CourseInfo = () => {
                                     course.prerequisites.length > 0 && (
                                         <>
                                             <p className="px-1 text-muted-foreground">
-                                                Esitietovaatimukset
+                                                {t.courseInfo.prerequisites}
                                             </p>
                                             <div className="flex flex-col gap-4 p-1 pt-0">
                                                 {course.prerequisites.map(
@@ -142,7 +176,11 @@ export const CourseInfo = () => {
                                                                                     '-'}
                                                                             </p>
                                                                             <p className="text-sm">
-                                                                                op
+                                                                                {
+                                                                                    t
+                                                                                        .courseInfo
+                                                                                        .cr
+                                                                                }
                                                                             </p>
                                                                         </div>
                                                                         <div className="flex w-full flex-col rounded bg-background p-2 pr-3 text-start">
@@ -174,7 +212,7 @@ export const CourseInfo = () => {
                                     course.equivalents.length > 0 && (
                                         <>
                                             <p className="px-1 text-muted-foreground">
-                                                Vastaavuudet
+                                                {t.courseInfo.equivalents}
                                             </p>
                                             <div className="flex flex-col gap-4 p-1 pt-0">
                                                 {course.equivalents.map(
@@ -204,7 +242,11 @@ export const CourseInfo = () => {
                                                                                 '-'}
                                                                         </p>
                                                                         <p className="text-sm">
-                                                                            op
+                                                                            {
+                                                                                t
+                                                                                    .courseInfo
+                                                                                    .cr
+                                                                            }
                                                                         </p>
                                                                     </div>
                                                                     <div className="flex w-full flex-col rounded bg-background p-2 pr-3 text-start">
@@ -243,15 +285,15 @@ export const CourseInfo = () => {
                                 {course.mandatory && (
                                     <Row>
                                         <p className="text-muted-foreground">
-                                            Pakollinen
+                                            {t.courseInfo.mandatory}
                                         </p>
-                                        <p>Kyllä</p>
+                                        <p>{t.courseInfo.yes}</p>
                                     </Row>
                                 )}
                                 {course.module && (
                                     <Row>
                                         <p className="text-muted-foreground">
-                                            Opintokokonaisuus
+                                            {t.courseInfo.studyModule}
                                         </p>
                                         <p className="text-end">
                                             {course.module}
@@ -263,14 +305,15 @@ export const CourseInfo = () => {
                                         <Row>
                                             <p className="text-muted-foreground">
                                                 {course.languages.length > 1
-                                                    ? 'Kielet'
-                                                    : 'Kieli'}
+                                                    ? t.courseInfo.languages
+                                                    : t.courseInfo.language}
                                             </p>
                                             <p className="text-end">
                                                 {course.languages
-                                                    .map(
-                                                        (language) =>
+                                                    .map((language) =>
+                                                        tObj(
                                                             languages[language]
+                                                        )
                                                     )
                                                     .join(', ')}
                                             </p>
@@ -281,7 +324,7 @@ export const CourseInfo = () => {
                                     <>
                                         <Separator />
                                         <p className="px-1 text-muted-foreground">
-                                            Kuvaus
+                                            {t.courseInfo.description}
                                         </p>
                                         <p className="whitespace-pre-line px-1 text-xs text-muted-foreground">
                                             {course.description}

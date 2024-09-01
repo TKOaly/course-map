@@ -3,15 +3,20 @@ import { ReactFlowProvider } from '@xyflow/react'
 import { Provider } from 'jotai'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+import { Suspense } from 'react'
+import { Locale } from '../i18n/settings'
 import './globals.css'
 import { Navigation } from './Navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const generateMetadata = async (): Promise<Metadata> => ({
-    title: 'Kurssikartta',
-    description:
-        'A node-based viewer for University of Helsinki courses, primarily computer science.',
+export const generateMetadata = ({
+    params: { locale },
+}: {
+    params: { locale: Locale }
+}): Metadata => ({
+    title: locale === Locale.FI ? 'Kurssikartta' : 'CourseMap',
+    description: 'A course map of University of Helsinki CS courses',
     manifest: `/manifest.json`,
     icons: {
         icon: [
@@ -29,12 +34,12 @@ export const generateMetadata = async (): Promise<Metadata> => ({
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Kurssikartta',
+        title: locale === Locale.FI ? 'Kurssikartta' : 'CourseMap',
         description: 'A course map of University of Helsinki CS courses',
         images: ['https://courses.tko-aly.fi/images/og_image.png'], // Must be an absolute URL
     },
     openGraph: {
-        title: 'Kurssikartta',
+        title: locale === Locale.FI ? 'Kurssikartta' : 'CourseMap',
         description: 'A course map of University of Helsinki CS courses',
         type: 'website',
         url: 'https://courses.tko-aly.fi',
@@ -47,7 +52,7 @@ export const generateMetadata = async (): Promise<Metadata> => ({
                 alt: 'Photo of the Kurssikartta site',
             },
         ],
-        locale: 'fi_FI',
+        locale: 'fi',
     },
 })
 
@@ -112,7 +117,9 @@ export default function RootLayout({
                             <main className="flex min-h-dvh w-screen flex-col items-center justify-between overflow-x-clip">
                                 <div className="z-10 flex size-full max-h-dvh min-h-dvh flex-col items-start">
                                     <Navigation />
-                                    {children}
+                                    <Suspense fallback={null}>
+                                        {children}
+                                    </Suspense>
                                 </div>
                             </main>
                         </ReactFlowProvider>

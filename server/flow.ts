@@ -6,8 +6,17 @@ import { getEdges } from './edges'
 import { getCourseNodes } from './nodes'
 import { getDegreeStructure } from './structures'
 
-export const getFlowData = async (degree: DegreeCode, structure: string) => {
-    const courses = getCourses(getDegreeStructure(degree, structure))
+export const getFlowData = async (
+    degreeCode: DegreeCode,
+    structure: string
+) => {
+    const degree = getDegreeStructure(degreeCode, structure)
+
+    if (!degree) {
+        return undefined
+    }
+
+    const courses = getCourses(degree)
 
     return {
         nodes: getCourseNodes(courses),

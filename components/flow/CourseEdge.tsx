@@ -1,4 +1,4 @@
-import { type CourseEdgeType } from '@/lib/edges'
+import { type CourseEdgeType } from '@/lib/types'
 import {
     BaseEdge,
     type EdgeProps,
@@ -27,6 +27,7 @@ export const CourseEdge = ({
         <BaseEdge
             id={id}
             path={edgePath}
+            interactionWidth={0}
             className={`stroke-${data?.necessity}`}
         />
     )

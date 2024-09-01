@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslate } from '@/app/i18n'
 import { courseDataAtom, searchAtom } from '@/lib/state'
 import { type CourseData } from '@/lib/types'
 import { useAtom, useAtomValue } from 'jotai'
@@ -9,6 +10,8 @@ import { Input } from '../ui/input'
 export const CourseSearch = () => {
     const [searchString, setSearch] = useAtom(searchAtom)
     const courses = useAtomValue(courseDataAtom)
+
+    const t = useTranslate()
 
     const courseFilter = (course: CourseData) =>
         course.code.toLowerCase().includes(searchString.toLowerCase()) ||
@@ -24,7 +27,7 @@ export const CourseSearch = () => {
                 onChange={async (e) => setSearch(e.target.value)}
                 aria-label="Search courses"
                 className={`w-full border-0 bg-transparent pl-11 ${courses.length > 0 && courses.filter(courseFilter).length === 0 ? 'bg-red-600/30 hover:bg-red-400/30' : 'hover:bg-secondary/90'} focus:z-10`}
-                placeholder="Hae kursseja"
+                placeholder={t.navigation.search}
             />
         </div>
     )

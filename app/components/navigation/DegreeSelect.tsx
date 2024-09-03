@@ -11,6 +11,7 @@ import { useRouter } from '@/app/i18n'
 import { degrees } from '@/data'
 import { type DegreeCode } from '@/data/enums'
 import { selectedCourseAtom, selectedDegreeAtom } from '@/lib/state'
+import { mobileHookHack } from '@/lib/utils'
 import { useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 
@@ -46,7 +47,7 @@ export const DegreeSelect = () => {
             >
                 <SelectValue placeholder="Valitse Tutkinto" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent ref={mobileHookHack}>
                 <div className="@container">
                     {Object.entries(degrees).map(
                         ([code, { name, shortName }]) => (

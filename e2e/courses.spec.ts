@@ -5,20 +5,20 @@ test('Test course info and prerequisites', async ({ page }) => {
 
     await expect(page).toHaveTitle(/Kurssikartta/)
 
-    await page.getByTestId('rf__node-Ohjelmoinnin jatkokurssi').click()
+    await page.getByTestId('rf__node-Ohjelmistoprojekti').click()
 
-    await expect(page.getByText('Lyhenne"ohja"')).toBeVisible()
+    await expect(page.getByText('Lyhenne"ohtuprojekti"')).toBeVisible()
 
     await page
-        .getByLabel('Open info for the prerequisite course TKT10002')
+        .getByLabel('Open info for the prerequisite course TKT20006')
         .click()
 
     await expect(
         page
             .locator('[id="\\32 "]')
-            .getByRole('heading', { name: 'Ohjelmoinnin perusteet' })
+            .getByRole('heading', { name: 'Ohjelmistotuotanto' })
     ).toBeVisible()
-    await expect(page.getByText('Lyhenne"ohpe"')).toBeVisible()
+    await expect(page.getByText('Lyhenne"ohtu"')).toBeVisible()
     await expect(
         page.getByLabel('Open course info page in studies.helsinki.fi')
     ).toBeVisible()

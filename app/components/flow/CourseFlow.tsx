@@ -120,8 +120,7 @@ export const CourseFlow = ({
                 selectCourse(node.data)
             }}
             nodesDraggable={false}
-            nodesFocusable={true}
-            nodesConnectable={false}
+            nodesFocusable={false}
             // Edges
             edges={edges}
             edgeTypes={edgeTypes}
@@ -129,7 +128,7 @@ export const CourseFlow = ({
             edgesReconnectable={false}
             className="size-full"
             // Other config
-            minZoom={0.1}
+            minZoom={0.2}
             panOnDrag
             zoomOnPinch
             fitView

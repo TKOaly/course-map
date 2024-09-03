@@ -10,6 +10,9 @@ type OwnProps = {
     className?: string
 }
 
+/**
+ * Button to toggle the info panel.
+ */
 export const InfoButton = ({ className }: OwnProps) => (
     <Sheet>
         <SheetTrigger asChild>

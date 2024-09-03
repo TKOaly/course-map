@@ -24,6 +24,14 @@ export function LanguageToggle({ className }: OwnProps) {
         router.replace(
             `/${locale}/${segments.filter((segment) => !segment.startsWith('(')).join('/')}`
         )
+
+        fetch('/api/locale', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ locale }),
+        }).catch(console.error)
     }
 
     const options: { [key in Locale]: string } = { fi: 'Suomi', en: 'English' }

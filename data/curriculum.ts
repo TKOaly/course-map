@@ -32,7 +32,7 @@ export const curriculum_24_25: Curriculum = {
             end: new Date('2025-05-15'),
         },
     ],
-    [Id.TKT200010]: [
+    [Id.TKT20001]: [
         {
             method: Method.LECTURE,
             start: new Date('2025-01-12'),

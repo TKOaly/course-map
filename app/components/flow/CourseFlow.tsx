@@ -121,6 +121,7 @@ export const CourseFlow = ({
             }}
             nodesDraggable={false}
             nodesFocusable={false}
+            nodesConnectable={false}
             // Edges
             edges={edges}
             edgeTypes={edgeTypes}

@@ -46,7 +46,7 @@ export const getCourses = (degreeStructure: DegreeStructure): CourseData[] => {
                     module: group.description,
                     // Extract the Sisu link ID from the URL to be used in dynamic studies link
                     linkId: (courses[id].sisuLink?.match(
-                        /(?<=courseunit\/)otm(?:-|[a-z0-9])*(?=\/|)/m
+                        /(?<=courseunit\/)(?:otm|hy-CU)(?:-|[a-z0-9])*(?=\/|)/m
                     ) ?? [undefined])[0],
                 }))
         )

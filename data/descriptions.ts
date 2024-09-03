@@ -49,6 +49,8 @@ export const descriptions: Descriptions = {
         Esimerkkejä NoSQL-tietokannoista`,
 
     [Id.TKT10005]: ``,
+    [Id.TKT20003]: ``,
+    [Id.TKT20004]: ``,
 
     [Id.TKT10006]: `Kurssin jälkeen osaat
 
@@ -82,7 +84,7 @@ export const descriptions: Descriptions = {
 
         Verkon toimintaa (verkkojen verkko, reititystaulu ja pakettien edelleenlähetys), häiriöitä (väylällä, verkossa, vikasietoisuuden koodaukset, Hamming, CRC, salaus)`,
 
-    [Id.TKT200010]: ``,
+    [Id.TKT20001]: ``,
 
     [Id.TKT200011]: `Kurssin jälkeen opiskelija
         
@@ -581,6 +583,40 @@ export const descriptions: Descriptions = {
 
     [Id.CSM141093]: ``,
 
+    [Id.CSM12101]: `After successful completion of the course, a student 
+
+        is familiar with the most important principles of algorithm design;
+        
+        can solve simple recurrences;
+        
+        can derive running time recurrence given a recursive algorithm;
+        
+        can give examples of advanced recursive algorithms;
+        
+        can reduce related graph problems to maximum flow and can describe the principles of how maximum flows are solved;
+        
+        can apply basic dynamic programming paradigm to shortest paths-alike problems and to variations of other problems used as typical examples during the course;
+        
+        can derive dynamic programming solutions given a recurrence as a hint;
+        
+        can derive the complexity of simple combinatorial algorithms using an appropriate analysis method;
+        
+        is able to describe some basic theorems related to NP-completeness;
+        
+        can explain the P=NP problem;
+        
+        knows many examples of NP-hard problems;
+        
+        can form simple polynomial reductions between problems;
+        
+        can give examples of approximation algorithms, randomized algorithms, and on the use of amortized analysis; and
+        
+        can explain the difference between best case, average case, expected case, and worst case complexities.
+        
+        Asiasisältö
+        
+        General design principles of algorithms. Examples of central problems and typical solutions. Design and analysis of recursive algorithms. Dynamic programming. Flows. Reductions. NP-completeness. Introduction to other core algorithm design concepts.`,
+
     // ========
     //   MAST
     // ========
@@ -633,6 +669,14 @@ export const descriptions: Descriptions = {
         appreciates the difficulty of implementing an autonomous robot in the real world
         
         implements simple functionalities, e.g., following a line on the floor, using a robot with limited sensor capabilities`,
+
+    [Id.DATA11001]: ``,
+
+    // ========
+    //   LSI
+    // ========
+
+    [Id.LSI31008]: ``,
 
     // ========
     //   FYS

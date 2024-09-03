@@ -3,6 +3,10 @@ import { CourseInfoContainer } from '@/app/components/info/CourseInfoContainer'
 import { Fullscreen } from '@/app/components/navigation/Fullscreen'
 import { type DegreeCode } from '@/data/enums'
 
+/**
+ * Loads the course data and displays it in a fullscreen container.
+ * This will slot into the main layout's content area, underneath the navigation.
+ */
 export default function CourseMap({
     params: { degree, structure },
 }: Readonly<{

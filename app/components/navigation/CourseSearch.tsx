@@ -7,6 +7,10 @@ import { useAtom, useAtomValue } from 'jotai'
 import { Search } from 'lucide-react'
 import { Input } from '../ui/input'
 
+/**
+ * Search bar for courses.
+ * Updates atom data based on user input.
+ */
 export const CourseSearch = () => {
     const [searchString, setSearch] = useAtom(searchAtom)
     const courses = useAtomValue(courseDataAtom)

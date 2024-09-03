@@ -10,10 +10,14 @@ import {
 import { useRouter } from '@/app/i18n'
 import { degrees } from '@/data'
 import { type DegreeCode } from '@/data/enums'
-import { selectedCourseAtom } from '@/lib/state'
+import { selectedCourseAtom, selectedDegreeAtom } from '@/lib/state'
 import { useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 
+/**
+ * Dropdown for selecting the degree structure.
+ * Changes the URL to match the selected degree structure.
+ */
 export const DegreeStructureSelect = () => {
     const { degree, structure } = useParams<{
         degree: DegreeCode
@@ -22,12 +26,17 @@ export const DegreeStructureSelect = () => {
 
     const router = useRouter()
     const setSelectedCourse = useSetAtom(selectedCourseAtom)
+    const setSelectedDegree = useSetAtom(selectedDegreeAtom)
 
     return (
         <Select
             value={structure}
             onValueChange={(newStructure) => {
                 router.push(`/${degree}/${newStructure}`)
+                setSelectedDegree({
+                    degree,
+                    structure: newStructure,
+                })
                 setSelectedCourse(undefined)
             }}
         >

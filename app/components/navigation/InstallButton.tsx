@@ -19,6 +19,10 @@ interface BeforeInstallPromptEvent extends Event {
     prompt(): Promise<void>
 }
 
+/**
+ * PWA install button.
+ * Shows a button to install the site as an app on supported browsers.
+ */
 export function InstallButton({ includeText = false, className }: OwnProps) {
     const [installPrompt, setInstallPrompt] =
         useState<BeforeInstallPromptEvent | null>(null)

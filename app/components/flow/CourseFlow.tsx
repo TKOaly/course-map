@@ -19,6 +19,10 @@ const nodeHeight = 80
 
 const elk = new ELK()
 
+/**
+ * Layout the nodes and edges of the course graph.
+ * Uses the ELK.js layout engine to figure out the best positions for the nodes.
+ */
 const getLayoutedNodes = async (
     nodes: CourseNodeType[],
     edges: CourseEdgeType[]
@@ -77,6 +81,9 @@ const edgeTypes = {
     course: CourseEdge,
 }
 
+/**
+ * Displays the course graph based on the provided course nodes.
+ */
 export const CourseFlow = ({
     courseNodeData,
 }: {

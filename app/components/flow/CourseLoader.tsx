@@ -14,6 +14,9 @@ type OwnProps = {
     structure: string
 }
 
+/**
+ * In-between component that filters out the data based on degree and structure.
+ */
 export const CourseLoader = async ({ degree, structure }: OwnProps) => {
     const courseData = await getFlowData(degree, structure)
 

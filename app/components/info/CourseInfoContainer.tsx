@@ -4,6 +4,9 @@ import { useBreakpoint } from '@/lib/tailwind'
 import { ResizablePanel, ResizablePanelGroup } from '../ui/resizable'
 import { CourseInfo } from './CourseInfo'
 
+/**
+ * Container for the CourseInfo component
+ */
 export const CourseInfoContainer = ({
     children,
 }: Readonly<{

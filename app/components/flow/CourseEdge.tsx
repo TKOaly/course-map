@@ -6,6 +6,10 @@ import {
     Position,
 } from '@xyflow/react'
 
+/**
+ * A bezier curve connecting two course nodes.
+ * The edge is styled based on the necessity of the course.
+ */
 export const CourseEdge = ({
     id,
     sourceX,

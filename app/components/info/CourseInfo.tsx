@@ -54,6 +54,9 @@ const studiesPaths: { [key in Locale]: string } = {
     [Locale.EN]: 'https://studies.helsinki.fi/courses/course-unit/',
 }
 
+/**
+ * The course popup info panel that displays information about a selected course.
+ */
 export const CourseInfo = () => {
     const isMobile = !useBreakpoint('md')
 

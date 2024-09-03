@@ -28,7 +28,7 @@ export const DegreeSelect = () => {
         >
             <SelectTrigger
                 aria-label="Choose degree"
-                className="w-full shrink-0 select-none border-x-0 border-b-0 border-border @container hover:bg-secondary/90 focus:z-10 md:w-1/5 md:border md:border-y-0"
+                className="w-full shrink-0 select-none border-x-0 border-b-0 border-border @container hover:bg-secondary/90 focus:z-10 md:w-1/4 md:border md:border-y-0"
             >
                 <SelectValue placeholder="Valitse Tutkinto" />
             </SelectTrigger>

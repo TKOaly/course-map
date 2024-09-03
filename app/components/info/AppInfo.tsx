@@ -1,6 +1,9 @@
 import { Translation } from '@/app/i18n'
 import { SheetContent, SheetDescription, SheetTitle } from '../ui/sheet'
 
+/**
+ * Info panel, shown when the user clicks the info button.
+ */
 export const AppInfo = () => (
     <SheetContent className="flex max-h-full min-h-full flex-col gap-2 overflow-y-auto">
         <SheetTitle className="text-xl font-bold">

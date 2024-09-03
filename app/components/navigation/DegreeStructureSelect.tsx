@@ -15,6 +15,10 @@ import { mobileHookHack } from '@/lib/utils'
 import { useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 
+/**
+ * Dropdown for selecting the degree structure.
+ * Changes the URL to match the selected degree structure.
+ */
 export const DegreeStructureSelect = () => {
     const { degree, structure } = useParams<{
         degree: DegreeCode

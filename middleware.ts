@@ -20,7 +20,8 @@ export const middleware = (req: NextRequest) => {
     if (
         !locales.some(
             (locale) => path.startsWith(`/${locale}/`) || path === `/${locale}`
-        )
+        ) &&
+        !path.startsWith('/api')
     ) {
         return NextResponse.redirect(new URL(`/${lang}${path}`, req.url))
     }
@@ -37,16 +38,6 @@ export const middleware = (req: NextRequest) => {
         const response = NextResponse.next()
         if (localeInReferer) response.cookies.set(localeCookie, localeInReferer)
         return response
-    }
-
-    // Redirect if the locale in the path does match the preferred language
-    if (!path.startsWith(`/${lang}/`) && !(path === `/${lang}`)) {
-        return NextResponse.redirect(
-            new URL(
-                `/${lang}${(/(?<=^\/\w*)\/.*/.exec(path) ?? [''])[0]}`,
-                req.url
-            )
-        )
     }
 
     return NextResponse.next()

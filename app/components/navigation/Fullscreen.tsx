@@ -5,6 +5,9 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { useEffect, useRef } from 'react'
 import { FullscreenButton } from './FullscreenButton'
 
+/**
+ * Wrapper component for fullscreen elements.
+ */
 export const Fullscreen = ({ children }: { children: React.ReactNode }) => {
     const isFullscreen = useAtomValue(isFullscreenAtom)
 

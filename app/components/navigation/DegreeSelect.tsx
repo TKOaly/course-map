@@ -15,6 +15,10 @@ import { mobileHookHack } from '@/lib/utils'
 import { useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 
+/**
+ * Dropdown for selecting the degree.
+ * Changes the URL to match the selected degree.
+ */
 export const DegreeSelect = () => {
     const { degree } = useParams<{ degree: DegreeCode }>()
 

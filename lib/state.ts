@@ -1,6 +1,6 @@
 import { atom } from 'jotai'
 import { type MutableRefObject } from 'react'
-import { type CourseData } from './courses'
+import { type CourseData } from './types'
 
 export const fullscreenElementAtom =
     atom<MutableRefObject<HTMLDivElement | null> | null>(null)

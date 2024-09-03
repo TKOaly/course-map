@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 test('Test course info and prerequisites', async ({ page }) => {
-    await page.goto('http://localhost:3000/')
+    await page.goto('http://localhost:3000/fi/TKT/23-26')
 
     await expect(page).toHaveTitle(/Kurssikartta/)
 

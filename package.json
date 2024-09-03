@@ -20,6 +20,7 @@
         "@radix-ui/react-slot": "^1.1.0",
         "@tailwindcss/container-queries": "^0.1.1",
         "@xyflow/react": "^12.1.1",
+        "accept-language": "^3.0.20",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
         "elkjs": "^0.9.3",

@@ -10,7 +10,7 @@ import {
 import { useRouter } from '@/app/i18n'
 import { degrees } from '@/data'
 import { type DegreeCode } from '@/data/enums'
-import { selectedCourseAtom } from '@/lib/state'
+import { selectedCourseAtom, selectedDegreeAtom } from '@/lib/state'
 import { useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 
@@ -26,12 +26,17 @@ export const DegreeStructureSelect = () => {
 
     const router = useRouter()
     const setSelectedCourse = useSetAtom(selectedCourseAtom)
+    const setSelectedDegree = useSetAtom(selectedDegreeAtom)
 
     return (
         <Select
             value={structure}
             onValueChange={(newStructure) => {
                 router.push(`/${degree}/${newStructure}`)
+                setSelectedDegree({
+                    degree,
+                    structure: newStructure,
+                })
                 setSelectedCourse(undefined)
             }}
         >
@@ -43,16 +48,19 @@ export const DegreeStructureSelect = () => {
             </SelectTrigger>
             <SelectContent>
                 <div className="@container">
-                    {Object.entries(degrees[degree].structures).map(
-                        ([code, { name, shortName }]) => (
-                            <SelectItem key={code} value={code}>
-                                <p className="hidden @[15rem]:block">{name}</p>
-                                <p className="block @[15rem]:hidden">
-                                    {shortName}
-                                </p>
-                            </SelectItem>
-                        )
-                    )}
+                    {degrees[degree] &&
+                        Object.entries(degrees[degree].structures ?? {}).map(
+                            ([code, { name, shortName }]) => (
+                                <SelectItem key={code} value={code}>
+                                    <p className="hidden @[15rem]:block">
+                                        {name}
+                                    </p>
+                                    <p className="block @[15rem]:hidden">
+                                        {shortName}
+                                    </p>
+                                </SelectItem>
+                            )
+                        )}
                 </div>
             </SelectContent>
         </Select>

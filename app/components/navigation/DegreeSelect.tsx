@@ -10,7 +10,7 @@ import {
 import { useRouter } from '@/app/i18n'
 import { degrees } from '@/data'
 import { type DegreeCode } from '@/data/enums'
-import { selectedCourseAtom } from '@/lib/state'
+import { selectedCourseAtom, selectedDegreeAtom } from '@/lib/state'
 import { useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 
@@ -19,14 +19,20 @@ export const DegreeSelect = () => {
 
     const router = useRouter()
     const setSelectedCourse = useSetAtom(selectedCourseAtom)
+    const setSelectedDegree = useSetAtom(selectedDegreeAtom)
 
     return (
         <Select
             value={degree}
             onValueChange={(newDegree: DegreeCode) => {
-                router.push(
-                    `/${newDegree}/${Object.keys(degrees[newDegree].structures)[0]}`
-                )
+                const defaultStructure = Object.keys(
+                    degrees[newDegree].structures
+                )[0]
+                router.push(`/${newDegree}/${defaultStructure}`)
+                setSelectedDegree({
+                    degree: newDegree,
+                    structure: defaultStructure,
+                })
                 setSelectedCourse(undefined)
             }}
         >

@@ -39,16 +39,19 @@ export const DegreeStructureSelect = () => {
             </SelectTrigger>
             <SelectContent>
                 <div className="@container">
-                    {Object.entries(degrees[degree].structures).map(
-                        ([code, { name, shortName }]) => (
-                            <SelectItem key={code} value={code}>
-                                <p className="hidden @[15rem]:block">{name}</p>
-                                <p className="block @[15rem]:hidden">
-                                    {shortName}
-                                </p>
-                            </SelectItem>
-                        )
-                    )}
+                    {degrees[degree] &&
+                        Object.entries(degrees[degree].structures ?? {}).map(
+                            ([code, { name, shortName }]) => (
+                                <SelectItem key={code} value={code}>
+                                    <p className="hidden @[15rem]:block">
+                                        {name}
+                                    </p>
+                                    <p className="block @[15rem]:hidden">
+                                        {shortName}
+                                    </p>
+                                </SelectItem>
+                            )
+                        )}
                 </div>
             </SelectContent>
         </Select>

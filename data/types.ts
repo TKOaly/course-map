@@ -14,6 +14,7 @@ export type Degrees = {
     [key in DegreeCode]: {
         // Full name of the degree
         name: string
+        shortName: string
 
         // Used to define which courses should be included in the degree and whether they are compulsory or optional
         structures: DegreeStructures
@@ -27,6 +28,7 @@ export type DegreeStructures = Record<string, DegreeStructure>
 export type DegreeStructure = {
     // Full name of the OPS/Degree structure
     name: string
+    shortName: string
 
     // Groups of courses that are required/optional for the degree
     groups: ({
@@ -95,7 +97,7 @@ export type Course<code = keyof typeof Id, id = never> = {
     code: code
     credits?: number
     languages?: Language[]
-    sisuLink?: `https://sisu.helsinki.fi/student/courseunit/otm${string}`
+    sisuLink?: `https://sisu.helsinki.fi/student/courseunit/${'otm' | 'hy-CU'}${string}`
     nicknames?: string[]
     equivalents?: Id[]
     prerequisites?: { [key in Exclude<Id, id>]?: Prerequisite } // Ensures course is not its own prerequisite

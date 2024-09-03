@@ -48,21 +48,45 @@ export const courses: Courses = {
         code: 'TKT10005',
         credits: 5,
         nicknames: ['tito'],
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-70c80428-00d1-4a65-ad9c-a716cd49c3a8',
+    },
+    [Id.TKT20003]: {
+        code: 'TKT20003',
+        credits: 5,
+        nicknames: ['käjä'],
+        prerequisites: {
+            [Id.TKT10005]: Prerequisite.MANDATORY,
+        },
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-a91e9771-722e-4af5-b7df-d8c0afc8b466',
+    },
+    [Id.TKT20004]: {
+        code: 'TKT20004',
+        credits: 5,
+        nicknames: ['tilpe'],
+        prerequisites: {
+            [Id.TKT10003]: Prerequisite.MANDATORY,
+        },
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-efeb97d1-f71a-4310-8c2e-f1c7220ecfda',
     },
     [Id.TKT10006]: {
         code: 'TKT10006',
         credits: 5,
-        nicknames: ['tintti'],
+        nicknames: ['tintti, ent. tito & tilpe'],
         languages: [Language.FI, Language.SV],
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-bf6e6800-a2a9-44ca-be98-077948df0c04',
     },
-    [Id.TKT200010]: {
-        code: 'TKT200010',
+    [Id.TKT20001]: {
+        code: 'TKT20001',
         credits: 10,
         nicknames: ['tira'],
         prerequisites: { [Id.TKT10003]: Prerequisite.MANDATORY },
         equivalents: [Id.TKT200011, Id.TKT200012],
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/hy-CU-118024656-2021-08-01',
     },
     [Id.TKT200011]: {
         code: 'TKT200011',
@@ -93,6 +117,7 @@ export const courses: Courses = {
         nicknames: ['lama'],
         prerequisites: {
             [Id.TKT200012]: Prerequisite.MANDATORY,
+            [Id.TKT20001]: Prerequisite.MANDATORY,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-0848a49e-7568-4b44-b56a-2ee01c256a8b',
@@ -126,11 +151,14 @@ export const courses: Courses = {
         nicknames: ['kandi'],
         prerequisites: {
             [Id.TKT200012]: Prerequisite.MANDATORY,
+            [Id.TKT20001]: Prerequisite.MANDATORY,
             [Id.TKT20007]: Prerequisite.MANDATORY,
             [Id.TKT200093]: Prerequisite.MANDATORY,
             [Id.DATA15001]: Prerequisite.MANDATORY,
             [Id.TKT20005]: Prerequisite.MANDATORY,
             [Id.TKT20016]: Prerequisite.MANDATORY,
+            [Id.TKT20003]: Prerequisite.MANDATORY,
+            [Id.TKT20004]: Prerequisite.MANDATORY,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-009cfc3d-e43a-4eec-822e-e430b698d9dd',
@@ -237,6 +265,7 @@ export const courses: Courses = {
         credits: 4,
         prerequisites: {
             [Id.TKT200012]: Prerequisite.MANDATORY,
+            [Id.TKT20001]: Prerequisite.MANDATORY,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-3d27dcc5-f7b5-4eec-b5db-53217aee3918',
@@ -246,6 +275,7 @@ export const courses: Courses = {
         credits: 4,
         prerequisites: {
             [Id.TKT10006]: Prerequisite.MANDATORY,
+            [Id.TKT20004]: Prerequisite.MANDATORY,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-b46edcc1-6dfe-4c36-b544-72f152fa35e6',
@@ -265,6 +295,7 @@ export const courses: Courses = {
         nicknames: ['alon'],
         prerequisites: {
             [Id.TKT200012]: Prerequisite.MANDATORY,
+            [Id.TKT20001]: Prerequisite.MANDATORY,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-d38edbf4-6b96-4196-96b6-23f1e3bccda9',
@@ -274,6 +305,7 @@ export const courses: Courses = {
         credits: 5,
         prerequisites: {
             [Id.TKT20016]: Prerequisite.MANDATORY,
+            [Id.TKT20003]: Prerequisite.MANDATORY,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-cd470f4b-d7ea-454a-9b62-b86439ee7606',
@@ -451,6 +483,7 @@ export const courses: Courses = {
         credits: 2,
         prerequisites: {
             [Id.TKT10006]: Prerequisite.RECOMMENDED,
+            [Id.TKT20004]: Prerequisite.RECOMMENDED,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-9153563b-b9d6-4f7c-b79a-0ae4d8e8f1c3',
@@ -459,7 +492,10 @@ export const courses: Courses = {
         code: 'TKT21026',
         credits: 5,
         prerequisites: {
-            [Id.TKT20016]: Prerequisite.RECOMMENDED,
+            [Id.TKT10006]: Prerequisite.MANDATORY,
+            [Id.TKT20004]: Prerequisite.MANDATORY,
+            [Id.TKT200012]: Prerequisite.RECOMMENDED,
+            [Id.TKT20001]: Prerequisite.RECOMMENDED,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-6c3b4a08-f44d-402d-8a0a-c13147628516',
@@ -534,6 +570,7 @@ export const courses: Courses = {
         credits: 5,
         prerequisites: {
             [Id.TKT200012]: Prerequisite.MANDATORY,
+            [Id.TKT20001]: Prerequisite.MANDATORY,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-efca75d7-00a9-41bc-95ba-1310210b05e3',
@@ -663,6 +700,14 @@ export const courses: Courses = {
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-47f5b90b-4dcb-454d-a068-d0bc9d579c04',
     },
+    [Id.CSM12101]: {
+        code: 'CSM12101',
+        credits: 5,
+        nicknames: ['daa'],
+        languages: [Language.FI, Language.EN, Language.SV],
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-461c4f7b-7215-4537-b314-87e85e16f91b',
+    },
 
     // ========
     //   MAT
@@ -770,9 +815,29 @@ export const courses: Courses = {
         languages: [Language.FI, Language.EN],
         prerequisites: {
             [Id.TKT200012]: Prerequisite.MANDATORY,
+            [Id.TKT20001]: Prerequisite.MANDATORY,
         },
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-0ae8deca-fa7b-4293-8e0d-bd05cfc2e68e',
+    },
+    [Id.DATA11001]: {
+        code: 'DATA11001',
+        credits: 5,
+        languages: [Language.FI, Language.EN, Language.SV],
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-f1abc596-92c2-43ec-b42e-dc8114b5247d',
+    },
+
+    // ========
+    //   LSI
+    // ========
+
+    [Id.LSI31008]: {
+        code: 'LSI31008',
+        credits: 5,
+        languages: [Language.EN],
+        sisuLink:
+            'https://sisu.helsinki.fi/student/courseunit/otm-508b5c29-189d-47d9-8dc8-680cec45f92f',
     },
 
     // ========

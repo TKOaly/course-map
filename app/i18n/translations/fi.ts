@@ -49,7 +49,7 @@ export const fi = {
             },
         },
         wrongData: {
-            title: 'Tiedoissa on virhe!',
+            title: 'Tiedoissa on virhe! Kursseja Puuttuu!',
             manualNotice:
                 'Kurssitietoja ylläpidetään manuaalisesti, joten tiedot voivat olla paikoittain vanhentuneita tai puutteellisia. Varmista oikeat tiedot aina esim. Sisusta.',
             githubStart: 'Kurssitiedot löytyvät projektin',

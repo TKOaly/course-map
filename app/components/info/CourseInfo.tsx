@@ -8,6 +8,7 @@ import { courseDataAtom, selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
 import { cn } from '@/lib/utils'
 import { CalendarCheck, GraduationCap, X } from 'lucide-react'
+import { useParams } from 'next/navigation'
 import { type ReactNode } from 'react'
 import { Button } from '../ui/button'
 import { ResizableHandle, ResizablePanel } from '../ui/resizable'
@@ -48,6 +49,11 @@ const languages: {
     },
 }
 
+const studiesPaths: { [key in Locale]: string } = {
+    [Locale.FI]: 'https://studies.helsinki.fi/kurssit/opintojakso/',
+    [Locale.EN]: 'https://studies.helsinki.fi/courses/course-unit/',
+}
+
 export const CourseInfo = () => {
     const isMobile = !useBreakpoint('md')
 
@@ -56,6 +62,8 @@ export const CourseInfo = () => {
 
     const [course, selectCourse] = useAtom(selectedCourseAtom)
     const courseData = useAtomValue(courseDataAtom)
+
+    const { locale } = useParams<{ locale: Locale }>()
 
     if (!course) return null
 
@@ -346,7 +354,7 @@ export const CourseInfo = () => {
                                 onClick={() => true}
                             >
                                 <a
-                                    href={`https://studies.helsinki.fi/kurssit/opintojakso/${course.linkId}`}
+                                    href={`${studiesPaths[locale] ?? studiesPaths[Locale.FI]}${course.linkId}`}
                                     target="_blank"
                                     rel="noreferrer"
                                 >

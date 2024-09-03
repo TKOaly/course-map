@@ -8,8 +8,10 @@ export enum Id {
     TKT10003 = 'Ohjelmoinnin jatkokurssi',
     TKT10004 = 'Tietokantojen perusteet',
     TKT10005 = 'Tietokoneen toiminta',
+    TKT20003 = 'Käyttöjärjestelmät',
+    TKT20004 = 'Tietoliikenteen perusteet',
     TKT10006 = 'Tietokone ja Internet',
-    TKT200010 = 'Tietorakenteet ja algoritmit',
+    TKT20001 = 'Tietorakenteet ja algoritmit',
     TKT200011 = 'Tietorakenteet ja algoritmit I',
     TKT200012 = 'Tietorakenteet ja algoritmit II',
     TKT20005 = 'Laskennan mallit',
@@ -75,11 +77,16 @@ export enum Id {
     CSM141091 = 'Full Stack -websovelluskehitys: harjoitustyö (5 op)',
     CSM141092 = 'Full Stack -websovelluskehitys: harjoitustyö (7 op)',
     CSM141093 = 'Full Stack -websovelluskehitys: harjoitustyö (10 op)',
-
-    // MAST
+    CSM12101 = 'Design and Analysis of Algorithms',
 
     // DATA
     DATA15001 = 'Johdatus tekoälyyn',
+    DATA11001 = 'Introduction to Data Science',
+
+    // LSI
+    LSI31008 = 'Elements of bioinformatics',
+
+    // MAST
 
     // OTHER
     'DIGI-A' = 'Opiskelijan digitaidot: orientaatio',

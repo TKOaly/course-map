@@ -51,7 +51,7 @@ export const en: TranslationsObject = {
             },
         },
         wrongData: {
-            title: 'Data is incorrect!',
+            title: 'Data is incorrect! Courses are missing!',
             manualNotice:
                 'Course information is maintained manually, so the information may be outdated or incomplete in places. Always verify the correct information, e.g. from Sisu.',
             githubStart: "Course data can be found in the project's",

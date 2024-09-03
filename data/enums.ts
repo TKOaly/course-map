@@ -2,6 +2,9 @@
 // Tutkinto-ohjelmien lyhenteet
 export enum DegreeCode {
     TKT = 'TKT',
+    CSM = 'CSM',
+    DATA = 'DATA',
+    LSI = 'LSI',
 }
 
 // Groups to color code and group courses in the frontend according to Sisu

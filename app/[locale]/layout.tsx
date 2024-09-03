@@ -10,6 +10,9 @@ import { Navigation } from './Navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
+/**
+ * Metadata for search engines and social media
+ */
 export const generateMetadata = ({
     params: { locale },
 }: {
@@ -56,6 +59,9 @@ export const generateMetadata = ({
     },
 })
 
+/**
+ * Viewport information for PWA and mobile devices
+ */
 export const viewport: Viewport = {
     themeColor: [
         { media: '(prefers-color-scheme: light)', color: '#fafafa' },
@@ -66,10 +72,16 @@ export const viewport: Viewport = {
     userScalable: false,
 }
 
+/**
+ * Generate static paths for the root layout for supported languages
+ */
 export async function generateStaticParams() {
     return [{ lang: 'fi' }, { lang: 'en' }]
 }
 
+/**
+ * Base layout for the entire app
+ */
 export default function RootLayout({
     children,
     params,

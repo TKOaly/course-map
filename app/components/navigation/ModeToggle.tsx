@@ -17,6 +17,10 @@ type OwnProps = {
     className?: string
 }
 
+/**
+ * Dropdown for selecting the site theme.
+ * Changes the ThemeProvider theme to match the selected theme.
+ */
 export function ModeToggle({ className }: OwnProps) {
     const { setTheme } = useTheme()
     const t = useTranslate()

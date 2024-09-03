@@ -2,6 +2,9 @@ import { CourseGroup } from '@/data/enums'
 import { type CourseNodeType } from '@/lib/types'
 import { Handle, type NodeProps, Position } from '@xyflow/react'
 
+/**
+ * A single course displayed in the course graph.
+ */
 export const CourseNode = ({ data: course }: NodeProps<CourseNodeType>) => {
     return (
         <>

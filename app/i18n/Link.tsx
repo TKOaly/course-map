@@ -6,6 +6,9 @@ import { useParams, usePathname } from 'next/navigation'
 import { type ComponentProps, forwardRef } from 'react'
 import { locales } from './settings'
 
+/**
+ * Helper component for creating localized links.
+ */
 export const Link: React.FC<
     ComponentProps<typeof NextLink> & {
         lang?: string

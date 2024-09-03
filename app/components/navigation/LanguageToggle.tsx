@@ -16,6 +16,10 @@ type OwnProps = {
     className?: string
 }
 
+/**
+ * Dropdown for selecting the site language.
+ * Changes the URL to match the selected language.
+ */
 export function LanguageToggle({ className }: OwnProps) {
     const segments = useSelectedLayoutSegments()
     const router = useRouter()

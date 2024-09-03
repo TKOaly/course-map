@@ -10,6 +10,9 @@ import { type CourseNodeData } from './CourseLoader'
 
 type FilterFunction = (courseNodeData: CourseNodeData) => CourseNodeData
 
+/**
+ * Recursively get all prerequisites for a course and flatten them into a list.
+ */
 const getPrerequisites = (
     edges: CourseNodeData['edges'],
     id: string,
@@ -28,6 +31,9 @@ const getPrerequisites = (
     return [...prerequisites, ...prerequisitesOfPrerequisites]
 }
 
+/**
+ * Filter function that searches for courses based on their code, id, or nicknames.
+ */
 const searchNodes =
     (searchString: string): FilterFunction =>
     ({ nodes, edges }) => {
@@ -75,6 +81,9 @@ const searchNodes =
         return { nodes: searchedNodes, edges: searchedEdges }
     }
 
+/**
+ * In-between component that filters the course data based on the search string.
+ */
 export const CourseFilters = ({
     courseNodeData,
 }: {

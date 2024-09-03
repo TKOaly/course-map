@@ -2,7 +2,7 @@ import { CourseSearch } from '@/app/components/navigation/CourseSearch'
 import { DegreeSelect } from '@/app/components/navigation/DegreeSelect'
 import { DegreeStructureSelect } from '@/app/components/navigation/DegreeStructureSelect'
 import { FullscreenButton } from '@/app/components/navigation/FullscreenButton'
-import { InfoButton } from '@/app/components/navigation/Infobutton'
+import { InfoButton } from '@/app/components/navigation/InfoButton'
 import { InstallButton } from '@/app/components/navigation/InstallButton'
 import { LanguageToggle } from '@/app/components/navigation/LanguageToggle'
 import { Logo } from '@/app/components/navigation/Logo'
@@ -11,6 +11,9 @@ import { PWASeparator } from '@/app/components/navigation/PWASeparator'
 import { Separator } from '@/app/components/ui/separator'
 import { Suspense } from 'react'
 
+/**
+ * Top bar navigation, common for the entire app.
+ */
 export const Navigation = () => {
     return (
         <div className="flex w-full flex-col">

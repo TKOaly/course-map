@@ -14,7 +14,7 @@ import { CourseNode } from './CourseNode'
 import { useTheme } from 'next-themes'
 
 import '@xyflow/react/dist/style.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { CourseEdge } from './CourseEdge'
 import { type CourseNodeData } from './CourseLoader'
 
@@ -23,6 +23,7 @@ import ELK from 'elkjs'
 
 const nodeWidth = 350
 const nodeHeight = 80
+const edgePadding = 1000
 
 const elk = new ELK()
 
@@ -106,6 +107,40 @@ export const CourseFlow = ({
         edges: [],
     })
 
+    /**
+     * Calculate the translate extent based on the nodes' positions and sizes
+     * This is used to prevent the user from panning outside the graph
+     */
+    const translateExtent: [[number, number], [number, number]] =
+        useMemo(() => {
+            let [minX, maxX, minY, maxY] = [
+                Infinity,
+                -Infinity,
+                Infinity,
+                -Infinity,
+            ]
+
+            nodes.forEach((node) => {
+                minX = Math.min(minX, node.position.x)
+                maxX = Math.max(
+                    maxX,
+                    node.position.x +
+                        (node.width ?? node.initialWidth ?? nodeWidth)
+                )
+                minY = Math.min(minY, node.position.y)
+                maxY = Math.max(
+                    maxY,
+                    node.position.y +
+                        (node.height ?? node.initialHeight ?? nodeHeight)
+                )
+            })
+
+            return [
+                [minX - edgePadding, minY - edgePadding],
+                [maxX + edgePadding, maxY + edgePadding],
+            ]
+        }, [nodes])
+
     useEffect(() => {
         const layoutNodes = async () => {
             const layoutedNodes = await getLayoutedNodes(
@@ -150,6 +185,7 @@ export const CourseFlow = ({
             fitView
             attributionPosition={isMobile ? 'top-right' : 'bottom-left'}
             colorMode={resolvedTheme === 'dark' ? 'dark' : 'light'}
+            translateExtent={translateExtent}
         >
             <Background color="#777" />
             <Controls showInteractive={false} position="bottom-right" />

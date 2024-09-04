@@ -16,6 +16,10 @@ type OwnProps = {
     className?: string
 }
 
+/**
+ * Dropdown for selecting the site language.
+ * Changes the URL to match the selected language.
+ */
 export function LanguageToggle({ className }: OwnProps) {
     const segments = useSelectedLayoutSegments()
     const router = useRouter()
@@ -24,6 +28,14 @@ export function LanguageToggle({ className }: OwnProps) {
         router.replace(
             `/${locale}/${segments.filter((segment) => !segment.startsWith('(')).join('/')}`
         )
+
+        fetch('/api/locale', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ locale }),
+        }).catch(console.error)
     }
 
     const options: { [key in Locale]: string } = { fi: 'Suomi', en: 'English' }

@@ -7,6 +7,10 @@ import { useAtom, useAtomValue } from 'jotai'
 import { Search } from 'lucide-react'
 import { Input } from '../ui/input'
 
+/**
+ * Search bar for courses.
+ * Updates atom data based on user input.
+ */
 export const CourseSearch = () => {
     const [searchString, setSearch] = useAtom(searchAtom)
     const courses = useAtomValue(courseDataAtom)
@@ -15,7 +19,11 @@ export const CourseSearch = () => {
 
     const courseFilter = (course: CourseData) =>
         course.code.toLowerCase().includes(searchString.toLowerCase()) ||
-        course.id.toLowerCase().includes(searchString.toLowerCase())
+        course.id.toLowerCase().includes(searchString.toLowerCase()) ||
+        (course.nicknames ?? [])
+            .join(' ')
+            .toLowerCase()
+            .includes(searchString.toLowerCase())
 
     return (
         <div className={`relative flex w-full flex-row`}>

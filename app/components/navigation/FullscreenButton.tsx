@@ -12,16 +12,26 @@ type OwnProps = {
     className?: string
 }
 
+/**
+ * Button for toggling fullscreen mode.
+ * Depends on browser permissions and fullscreen API.
+ */
 export function FullscreenButton({ className }: OwnProps) {
     const fullscreenElement = useAtomValue(fullscreenElementAtom)?.current
     const [fullscreenAllowed, setFullscreenAllowed] = useState(false)
     const [isFullscreen, setIsFullscreen] = useAtom(isFullscreenAtom)
     const { fitView } = useReactFlow()
 
+    /**
+     * Check if fullscreen is allowed in the browser on load.
+     */
     useEffect(() => {
         setFullscreenAllowed(document?.fullscreenEnabled)
     }, [])
 
+    /**
+     * Add event listeners for fullscreen changes.
+     */
     useEffect(() => {
         const handleFullscreenChange = () => {
             setIsFullscreen(document.fullscreenElement ? true : false)
@@ -68,6 +78,9 @@ export function FullscreenButton({ className }: OwnProps) {
         }, 100)
     }
 
+    /**
+     * Render fullscreen button if allowed.
+     */
     return fullscreenAllowed ? (
         <Button
             variant="outline"

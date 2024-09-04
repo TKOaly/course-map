@@ -4,6 +4,10 @@ import { useParams } from 'next/navigation'
 import { defaultLocale, type Locale, locales } from './settings'
 import { translations } from './translations'
 
+/**
+ * Hook for getting the translation object for the current locale.
+ * @returns The translation object for the current locale or the default locale if the current locale is not supported.
+ */
 export const useTranslate = () => {
     const { locale } = useParams<{ locale: Locale }>()
 

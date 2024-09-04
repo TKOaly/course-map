@@ -11,9 +11,14 @@ import { useRouter } from '@/app/i18n'
 import { degrees } from '@/data'
 import { type DegreeCode } from '@/data/enums'
 import { selectedCourseAtom, selectedDegreeAtom } from '@/lib/state'
+import { mobileHookHack } from '@/lib/utils'
 import { useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 
+/**
+ * Dropdown for selecting the degree structure.
+ * Changes the URL to match the selected degree structure.
+ */
 export const DegreeStructureSelect = () => {
     const { degree, structure } = useParams<{
         degree: DegreeCode
@@ -42,7 +47,7 @@ export const DegreeStructureSelect = () => {
             >
                 <SelectValue placeholder="Valitse Opetussuunnitelma" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent ref={mobileHookHack}>
                 <div className="@container">
                     {degrees[degree] &&
                         Object.entries(degrees[degree].structures ?? {}).map(

@@ -2,16 +2,9 @@
 
 import { selectedCourseAtom } from '@/lib/state'
 import { useBreakpoint } from '@/lib/tailwind'
-import {
-    Background,
-    Controls,
-    Position,
-    ReactFlow,
-    useReactFlow,
-} from '@xyflow/react'
+import { Background, Position, ReactFlow, useReactFlow } from '@xyflow/react'
 import { useSetAtom } from 'jotai'
 import { CourseNode } from './CourseNode'
-import { useTheme } from 'next-themes'
 
 import '@xyflow/react/dist/style.css'
 import { useEffect, useMemo, useState } from 'react'
@@ -100,7 +93,6 @@ export const CourseFlow = ({
     const selectCourse = useSetAtom(selectedCourseAtom)
     const isMobile = !useBreakpoint('md')
     const { fitView } = useReactFlow()
-    const { resolvedTheme } = useTheme()
 
     const [{ nodes, edges }, setLayout] = useState<CourseNodeData>({
         nodes: [],
@@ -184,11 +176,9 @@ export const CourseFlow = ({
             zoomOnPinch
             fitView
             attributionPosition={isMobile ? 'top-right' : 'bottom-left'}
-            colorMode={resolvedTheme === 'dark' ? 'dark' : 'light'}
             translateExtent={translateExtent}
         >
             <Background color="#777" />
-            <Controls showInteractive={false} position="bottom-right" />
         </ReactFlow>
     )
 }

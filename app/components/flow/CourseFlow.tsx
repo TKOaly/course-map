@@ -157,10 +157,7 @@ export const CourseFlow = ({
             // Nodes
             nodes={nodes}
             nodeTypes={nodeTypes}
-            onNodeClick={(_event, node) => {
-                console.log(node.data)
-                selectCourse(node.data)
-            }}
+            onNodeClick={(_event, node) => selectCourse(node.data)}
             nodesDraggable={false}
             nodesFocusable={false}
             nodesConnectable={false}

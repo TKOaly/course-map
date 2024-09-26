@@ -233,7 +233,7 @@ export const courses: Courses = {
     [Id.TKT20015]: {
         code: 'TKT20015',
         credits: 5,
-        nicknames: ['ent. jtkt'],
+        nicknames: ['CSoc', 'ent. jtkt'],
         languages: [Language.FI, Language.EN, Language.SV],
         equivalents: [Id.TKT200151, Id.TKT200152],
         sisuLink:
@@ -242,7 +242,7 @@ export const courses: Courses = {
     [Id.TKT200151]: {
         code: 'TKT200151',
         credits: 2,
-        nicknames: ['ent. jtkt'],
+        nicknames: ['CSoc', 'ent. jtkt'],
         languages: [Language.FI, Language.EN, Language.SV],
         equivalents: [Id.TKT20015],
         sisuLink:
@@ -251,7 +251,7 @@ export const courses: Courses = {
     [Id.TKT200152]: {
         code: 'TKT200152',
         credits: 3,
-        nicknames: ['ent. jtkt'],
+        nicknames: ['CSoc', 'ent. jtkt'],
         languages: [Language.FI, Language.EN, Language.SV],
         prerequisites: {
             [Id.TKT200151]: Prerequisite.MANDATORY,
@@ -561,6 +561,7 @@ export const courses: Courses = {
     [Id.BSCS2002]: {
         code: 'BSCS2002',
         credits: 5,
+        nicknames: ['CSoc'],
         equivalents: [Id.TKT10001],
         sisuLink:
             'https://sisu.helsinki.fi/student/courseunit/otm-5c831a5c-bc03-4856-a61d-924e7f13b54f',
